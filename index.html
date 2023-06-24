@@ -12,13 +12,24 @@
             color: #212529;
             text-align: center;
             font-family: 'Roboto', sans-serif;
-            font-size: 6px;
+            overflow: hidden;
+        }
+
+        .marquee {
+            position: relative;
+            white-space: nowrap;
+            animation: marquee 5s linear infinite;
+        }
+
+        @keyframes marquee {
+            from { left: 100%; }
+            to { left: -100%; }
         }
     </style>
 </head>
 <body>
-    <div>
-        <p>tothbator.com coming soon</p>
+    <div class="marquee">
+        <p>tothbator.com coming soon...</p>
     </div>
 </body>
 </html>
