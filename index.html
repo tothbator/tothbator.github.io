@@ -22,9 +22,10 @@
             animation: marquee 15s forwards;
         }
 
-         @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-50%); }
+       @keyframes marquee {
+            0% { left: 100%; }
+            50% { left: 50%; transform: translateX(-50%); }
+            100% { left: 50%; transform: translateX(-50%); }
         }
         }
     </style>
