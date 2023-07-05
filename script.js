@@ -1,5 +1,5 @@
 // script.js
-var images = ['images/alien3.jpg', 'images/lasts.jpg', 'images/whereisit.jpg', 'images/landscrape1.jpg'];
+var images = ['images/alien3.jpg', 'images/lasts.jpeg', 'images/whereisit.jpg', 'images/landscrape1.jpg'];
 var index = 0;
 
 function changeImage() {
