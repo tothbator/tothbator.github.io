@@ -1,42 +1,37 @@
 body {
     display: flex;
-   flex-direction: column;
-   /* flex-direction: row;   Changed from column to row to position sidebar and content side-by-side */
-    
-     justify-content: flex-start;  /* Changed from 'center' to 'flex-start' to align content to the top */
-    align-items: flex-start;  /* Changed from 'center' to 'flex-start' to align content to the left */
-    
-  /*  justify-content: center; */
-  /*  align-items: center; */
-    
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     height: 100vh;
     margin: 0;
+    padding: 0 50px; /* Add padding to left and right so contents aren't right on the edge */
     background-color: #ffffff;
-  /*  position: relative; */
-
-    
 }
 
 header {
-    flex-grow: 0;
+    margin-top: 50px;
 }
 
-
-
-/* SIDEBAR */
+#header-text {
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+}
 
 nav {
-    margin-bottom: 100px;  /* adds some space below the navigation */
-      margin-left: 50px; 
-     text-align: left;
+    margin-top: 20px; /* Change this value to adjust the distance between the header and the nav */
 }
 
 nav a {
-    font-family: Arial, sans-serif;
-    font-size: 20px;
+    font-family: Arial, sans-serif; /* Change this to adjust the font of the nav link */
+    font-size: 20px; /* Change this to adjust the size of the nav link */
     color: black;
     text-decoration: none;
 }
+
+
+
+
 
 
 
