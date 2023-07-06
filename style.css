@@ -9,15 +9,32 @@ body {
     position: relative;
 }
 
+header {
+    flex-grow: 0;
+}
+
+#content-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 #image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 500px;
     height: 500px;
+    border: 1px solid black;
     cursor: pointer;
 }
 
 #image {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 500%;
+    max-height: 500%;
+    object-fit: contain;
 }
 
 #header-text {
