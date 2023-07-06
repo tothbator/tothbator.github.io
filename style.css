@@ -17,44 +17,23 @@ header {
 }
 
 
-#main-container {
-    display: flex;
-    flex-direction: row;  /* This will position sidebar and content-container side-by-side */
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 4000px);  /* Assuming header height of 60px, adjust this value accordingly */
-    width: 100%;
-}
+
 
 
 
 
 /* SIDEBAR */
 
-#sidebar {
-    width: 200px;  /* Or any width you prefer */
-    height: 100vh;
-    background-color: #ffffff;  /* Or any color you prefer */
-    padding: 20px;
+nav {
+    margin-bottom: 20px;  /* adds some space below the navigation */
 }
 
-#sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#sidebar ul li a {
-    display: block;
-    padding: 10px;
-    color: black;  /* Or any color you prefer */
+nav a {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: black;
     text-decoration: none;
 }
-
-/*  #sidebar ul li a:hover { */
-/*     background-color: #e0e0e0; */
-/* Or any color you prefer */ 
-/* } */
-
 
 
 
