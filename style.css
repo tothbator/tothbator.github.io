@@ -1,18 +1,33 @@
 body {
     display: flex;
-   /* flex-direction: column; */
-    flex-direction: row;  /* Changed from column to row to position sidebar and content side-by-side */
+   flex-direction: column;
+   /* flex-direction: row;   Changed from column to row to position sidebar and content side-by-side */
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     background-color: #ffffff;
-    position: relative;
+  /*  position: relative; */
+
+    
 }
 
 header {
     flex-grow: 0;
 }
+
+
+#main-container {
+    display: flex;
+    flex-direction: row;  /* This will position sidebar and content-container side-by-side */
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px);  /* Assuming header height of 60px, adjust this value accordingly */
+    width: 100%;
+}
+
+
+
 
 /* SIDEBAR */
 
