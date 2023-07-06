@@ -50,9 +50,10 @@ header {
     text-decoration: none;
 }
 
-#sidebar ul li a:hover {
-    background-color: #e0e0e0;  /* Or any color you prefer */
-}
+/*  #sidebar ul li a:hover { */
+/*     background-color: #e0e0e0; */
+/* Or any color you prefer */ 
+/* } */
 
 
 
