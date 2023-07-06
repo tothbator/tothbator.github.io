@@ -25,7 +25,9 @@ header {
 /* SIDEBAR */
 
 nav {
-    margin-bottom: 20px;  /* adds some space below the navigation */
+    margin-bottom: 100px;  /* adds some space below the navigation */
+      margin-left: 50px; 
+     text-align: left;
 }
 
 nav a {
