@@ -14,11 +14,12 @@ header {
     flex-grow: 0;
 }
 
+/* SIDEBAR */
 
 #sidebar {
     width: 200px;  /* Or any width you prefer */
     height: 100vh;
-    background-color: #f0f0f0;  /* Or any color you prefer */
+    background-color: #ffffff;  /* Or any color you prefer */
     padding: 20px;
 }
 
