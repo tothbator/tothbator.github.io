@@ -19,12 +19,12 @@ header {
 }
 
 nav {
-    margin-top: 20px; /* Change this value to adjust the distance between the header and the nav */
+    margin-top: 100px; /* Change this value to adjust the distance between the header and the nav */
 }
 
 nav a {
     font-family: Arial, sans-serif; /* Change this to adjust the font of the nav link */
-    font-size: 20px; /* Change this to adjust the size of the nav link */
+    font-size: 10px; /* Change this to adjust the size of the nav link */
     color: black;
     text-decoration: none;
 }
