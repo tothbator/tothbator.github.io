@@ -1,11 +1,22 @@
 // script.js
+
+
 var images = ['images/alien3.jpg', 'images/lasts.jpeg', 'images/whereisit.jpg', 'images/landscrape1.jpg'];
-var index = 0;
+var imageNumber = 0;
 
 function changeImage() {
-    // Update the image
-    document.getElementById('image').src = images[index];
+    imageNumber = (imageNumber + 1) % images.length;
+    document.getElementById('image' + (imageNumber + 1)).src = images[imageNumber];
+    hideImages(imageNumber);
+}
 
-    // Increment index or reset to zero if it's the last image
-    index = (index + 1) % images.length;
+function hideImages(currentImage) {
+    for (let i = 1; i <= images.length; i++) {
+        let imageElement = document.getElementById('image' + i);
+        imageElement.style.display = (i - 1 === currentImage) ? "block" : "none";
+    }
+}
+
+window.onload = function() {
+    hideImages(0);
 }
