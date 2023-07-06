@@ -23,7 +23,7 @@ body {
 #header-text {
     position: absolute;
     top: 0px;
-    left: 0px;
+    left: 50px;
     font-family: Arial, sans-serif;
     font-size: 30px;
 }
