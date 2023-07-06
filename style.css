@@ -2,8 +2,13 @@ body {
     display: flex;
    flex-direction: column;
    /* flex-direction: row;   Changed from column to row to position sidebar and content side-by-side */
-    justify-content: center;
-    align-items: center;
+    
+     justify-content: flex-start;  /* Changed from 'center' to 'flex-start' to align content to the top */
+    align-items: flex-start;  /* Changed from 'center' to 'flex-start' to align content to the left */
+    
+  /*  justify-content: center; */
+  /*  align-items: center; */
+    
     height: 100vh;
     margin: 0;
     background-color: #ffffff;
