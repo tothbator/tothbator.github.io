@@ -30,6 +30,10 @@ header {
     cursor: pointer;
 }
 
+#image1, #image2, #image3, #image4  {
+    display: none;
+}
+
 #image1 {
     max-width: 100%;
     max-height: 100%;
@@ -37,8 +41,8 @@ header {
 }
 
 #image2 {
-    max-width: 25%;
-    max-height: 25%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
 }
 
