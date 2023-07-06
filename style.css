@@ -22,7 +22,7 @@ header {
     flex-direction: row;  /* This will position sidebar and content-container side-by-side */
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 60px);  /* Assuming header height of 60px, adjust this value accordingly */
+    height: calc(100vh - 4000px);  /* Assuming header height of 60px, adjust this value accordingly */
     width: 100%;
 }
 
