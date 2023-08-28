@@ -26,7 +26,7 @@ header {
     top: 50px;
     left: 50px;
     font-family: Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 2rem;
   /*  font-size: 30px;*/
    /* margin: 0; */
 }
@@ -44,7 +44,7 @@ header {
     top: 50px;
     left: 50px;
     font-family: Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin: 0; 
 }
 
@@ -59,11 +59,11 @@ a[href="about.html"] {
 
 @media (max-width: 768px) {
     #header-text {
-        font-size: 1.5rem; /* Increase font size for header on smaller screens */
+        font-size: 4rem; /* Increase font size for header on smaller screens */
     }
 
     #about-text {
-        font-size: 1.2rem; /* Increase font size for about text on smaller screens */
+        font-size: 2rem; /* Increase font size for about text on smaller screens */
     }
 }
 
