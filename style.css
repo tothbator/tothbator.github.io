@@ -26,8 +26,8 @@ header {
     top: 50px;
     left: 50px;
     font-family: Arial, sans-serif;
-    font-size: 2rem;
-  /*  font-size: 30px;*/
+  /*  font-size: 2rem; */
+   font-size: 30px;
    /* margin: 0; */
 }
 
@@ -44,7 +44,7 @@ header {
     top: 50px;
     left: 50px;
     font-family: Arial, sans-serif;
-    font-size: 0.8rem;
+   /* font-size: 0.8rem;*/
     margin: 0; 
 }
 
