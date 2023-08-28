@@ -76,7 +76,7 @@ a[href="about.html"] {
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 80%;
     height: 80vh; /* Set the height to 100vh to make it take up the full viewport height */
 }
 
