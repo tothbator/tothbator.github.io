@@ -23,9 +23,14 @@ header {
 #header-text {
     font-family: Arial, sans-serif;
     font-size: 30px;
+    margin: 0; /* ez kell e? */
 }
 
 
+a[href="about.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
 
 
 
