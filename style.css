@@ -57,25 +57,7 @@ a[href="about.html"] {
 
 
 
-@media (max-width: 768px) {
-    #header-text {
-        font-size: 2.1rem; /* Increase font size for header on smaller screens */
-      /*   margin-left: 0px; Set the distance from the left side of the screen */
-         
-         position: relative;
-        top: 7px;
-        left: 5px;
-    }
 
-    #about-text {
-        font-size: 1.1rem; /* Increase font size for about text on smaller screens */
-      /*  margin-left: 0px;  Set the distance from the left side of the screen */
-        
-         position: relative;
-        top: 7px;
-        left: 5px;
-    }
-}
 
 
 
