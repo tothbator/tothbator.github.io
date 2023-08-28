@@ -63,8 +63,8 @@ a[href="about.html"] {
       /*   margin-left: 0px; Set the distance from the left side of the screen */
          
          position: relative;
-        top: 20px;
-        left: 20px;
+        top: 7px;
+        left: 5px;
     }
 
     #about-text {
@@ -72,8 +72,8 @@ a[href="about.html"] {
       /*  margin-left: 0px;  Set the distance from the left side of the screen */
         
          position: relative;
-        top: 20px;
-        left: 20px;
+        top: 7px;
+        left: 5px;
     }
 }
 
