@@ -20,6 +20,10 @@ header {
     margin-top: 50px;
 }
 
+#about-container {
+    margin-top: 60px; /* Adjust this margin as needed */
+}
+
 #header-text {
     font-family: Arial, sans-serif;
     font-size: 30px;
