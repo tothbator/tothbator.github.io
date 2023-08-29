@@ -77,8 +77,8 @@ a[href="about.html"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; /* Set width to 100% to make it responsive */
-    max-width: 500px; /* Set a maximum width if needed */
+    width: 80%; /* Set width to 100% to make it responsive */
+    /* max-width: 500px;  Set a maximum width if needed */
     height: auto; /* Let the height adjust automatically based on content */
 }
 
