@@ -52,7 +52,7 @@ body {
     /*margin: 0; */
     
      font-family: Arial, sans-serif;
-     margin: 10px 0; /* Add spacing between navigation items */
+     margin: 5px 0; /* Add spacing between navigation items */
     text-decoration: none; /* Remove underlines from links */
   /*  color: #000;  Set the color for links */
     display: block; /* Make the entire text area clickable */
@@ -61,6 +61,14 @@ body {
 
 
 a[href="about.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="xyz.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="abc.html"] {
     text-decoration: none; /* Remove underline */
     color: inherit; /* Use the default text color */
 }
