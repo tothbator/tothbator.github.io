@@ -13,9 +13,10 @@ body {
  /*    margin-top: 50px;*/
  /*}*/
 
+
 #header-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     /* flex-direction: column;*/
     align-items: flex-start;
    /* margin-top: 50px; */
@@ -32,23 +33,31 @@ body {
    /* margin: 0; */
 }
 
-#about-container {
+#navi-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
- /* margin-top: 50px; */ /* Adjust this margin as needed */
-  /*  margin: 0; */ /* ez kell e? */
+    width: 20%; /* Set the width of the left column */
+ /*   padding: 20px; */
+    float: left; /* Float it to the left so it appears alongside the content */
+     /* margin-top: 50px; */ /* Adjust this margin as needed */
+      /*  margin: 0; */ /* ez kell e? */
 }
 
-#about-text {
-    position: relative;
+.navi-text {
+   /* position: relative;*/ 
   /*  top: 50px; */
     /*left: 50px; */
-    font-family: Arial, sans-serif;
    /* font-size: 0.8rem;*/
-    margin: 0; 
+    /*margin: 0; */
+    
+     font-family: Arial, sans-serif;
+     margin: 10px 0; /* Add spacing between navigation items */
+    text-decoration: none; /* Remove underlines from links */
+  /*  color: #000;  Set the color for links */
+    display: block; /* Make the entire text area clickable */
+    padding: 5px; /* Add padding for better clickability */   
 }
-
 
 
 a[href="about.html"] {
@@ -58,16 +67,10 @@ a[href="about.html"] {
 
 
 
-
-
-
 #content-container {
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 80vh; /* Set the height to 100vh to make it take up the full viewport height */
+    padding: 20px;
+    width: 80%; /* Set the width of the right column */
+  
 }
 
 #image-container {
@@ -78,6 +81,10 @@ a[href="about.html"] {
     max-width: 500px; /* Set a maximum width if needed */
     height: auto; /* Let the height adjust automatically based on content */
 }
+
+
+
+
 
 #image1, #image2, #image3, #image4  {
     display: none;
