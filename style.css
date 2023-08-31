@@ -82,7 +82,7 @@ a[href="abc.html"] {
 
 
 #content-container {
-    padding: 20px;
+  /*  padding: 20px; */
     width: 80%; /* Set the width of the right column */
    float: right; /* Float it to the left so it appears alongside the navigation */
 }
