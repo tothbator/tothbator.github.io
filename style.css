@@ -184,8 +184,10 @@ footer {
 #image4 {
         max-width: 40%; /* Set a different max-width for mobile */
     }
+    
 #about-container {
         /* Add different padding for mobile version (for example, 5% left and right) */
+       padding-top: 20px;
         padding-left: 5%;
         padding-right: 5%;
     }
