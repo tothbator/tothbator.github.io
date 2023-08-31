@@ -115,6 +115,7 @@ a[href="abc.html"] {
     height: auto; /* Let the height adjust automatically based on content */
      padding-left: 10%;
     padding-right: 10%;
+    padding-top: 20px;
 }
 
 
