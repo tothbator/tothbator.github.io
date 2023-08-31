@@ -154,7 +154,10 @@ a[href="abc.html"] {
 
 
 @media (max-width: 768px) {
-    
+    header a {
+    text-decoration: none;
+    color: inherit;
+}
     #content-container {
         padding-top: 100px; /* Increase the space above the content container for mobile */
     }
