@@ -88,6 +88,14 @@ a[href="abc.html"] {
  /*   float: right; Float it to the left so it appears alongside the navigation */
 }
 
+
+@media (max-width: 768px) {
+    #content-container {
+        padding-top: 40px; /* Increase the space above the content container for mobile */
+    }
+}
+
+
 #image-container {
     display: flex;
     justify-content: center;
