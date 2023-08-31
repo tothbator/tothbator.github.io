@@ -93,6 +93,22 @@ a[href="abc.html"] {
     #content-container {
         padding-top: 40px; /* Increase the space above the content container for mobile */
     }
+
+    #image1 {
+        max-width: 40%; /* Set a different max-width for mobile */
+    }
+#image2 {
+        max-width: 40%; /* Set a different max-width for mobile */
+    }
+#image3 {
+        max-width: 40%; /* Set a different max-width for mobile */
+    }
+
+#image4 {
+        max-width: 40%; /* Set a different max-width for mobile */
+    }
+
+    
 }
 
 
