@@ -39,7 +39,7 @@ body {
     align-items: flex-start;
     width: 20%; /* Set the width of the left column */
  /*   padding: 20px; */
-    float: left; /* Float it to the left so it appears alongside the content */
+  /*  float: left; Float it to the left so it appears alongside the content */
      /* margin-top: 50px; */ /* Adjust this margin as needed */
       /*  margin: 0; */ /* ez kell e? */
 }
@@ -84,7 +84,8 @@ a[href="abc.html"] {
 #content-container {
   /*  padding: 20px; */
     width: 80%; /* Set the width of the right column */
-   float: right; /* Float it to the left so it appears alongside the navigation */
+     height: auto; 
+ /*   float: right; Float it to the left so it appears alongside the navigation */
 }
 
 #image-container {
@@ -92,7 +93,8 @@ a[href="abc.html"] {
     justify-content: center;
     align-items: center;
      text-align: center; /* Center the content horizontally */
-    width: 40%; /* Set width to 100% to make it responsive */
+    margin: 0 auto;
+ /*   width: 40%;  Set width to 100% to make it responsive */
     /* max-width: 500px;  Set a maximum width if needed */
     height: auto; /* Let the height adjust automatically based on content */
 }
