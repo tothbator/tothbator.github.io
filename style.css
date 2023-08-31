@@ -113,8 +113,8 @@ a[href="abc.html"] {
  /*   width: 40%;  Set width to 100% to make it responsive */
     /* max-width: 500px;  Set a maximum width if needed */
     height: auto; /* Let the height adjust automatically based on content */
-     padding-left: 10%;
-    padding-right: 10%;
+     padding-left: 20%;
+    padding-right: 20%;
     padding-top: 20px;
 }
 
