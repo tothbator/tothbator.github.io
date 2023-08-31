@@ -46,7 +46,6 @@ header a {
 }
 
 .navi-text {
-   
      font-family: Arial, sans-serif;
      margin: 2px 0; /* Add spacing between navigation items */
     text-decoration: none; /* Remove underlines from links */
@@ -55,26 +54,9 @@ header a {
     padding: 5px; /* Add padding for better clickability */   
 }
 
-
-
 .about-text {
  text-align: justify;
 }
-
-
-a[href="about.html"] {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the default text color */
-}
-a[href="contact.html"] {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the default text color */
-}
-a[href="https://www.instagram.com/tothbator"] {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the default text color */
-}
-
 
 
 #content-container {
@@ -108,10 +90,27 @@ a[href="https://www.instagram.com/tothbator"] {
      padding-left: 20%;
     padding-right: 20%;
     padding-top: 20px;
+    /*   for the LINE BREAK */
+      flex-direction: column;
+    align-items: flex-start;
 }
 
 
+  
 
+
+a[href="about.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="contact.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="https://www.instagram.com/tothbator"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
 
 
 #image1, #image2, #image3, #image4  {
