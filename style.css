@@ -85,10 +85,13 @@ a[href="abc.html"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80%; /* Set width to 100% to make it responsive */
+     text-align: center; /* Center the content horizontally */
+    width: 40%; /* Set width to 100% to make it responsive */
     /* max-width: 500px;  Set a maximum width if needed */
     height: auto; /* Let the height adjust automatically based on content */
 }
+
+
 
 
 
@@ -104,6 +107,9 @@ a[href="abc.html"] {
     object-fit: contain;
      cursor: pointer;
 }
+
+
+
 
 #image2 {
     max-width: 100%;
