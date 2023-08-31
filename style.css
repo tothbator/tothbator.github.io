@@ -155,14 +155,6 @@ a[href="abc.html"] {
 }
 
 
-footer {
-   
-    padding: 20px; /* Add padding to create space within the footer */
-    text-align: center; /* Center-align text within the footer */
-    
-    /* Set the height of the footer */
-    height: 100px; /* Adjust the value to your desired height */
-}
 
 
 
