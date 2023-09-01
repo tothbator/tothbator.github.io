@@ -16,7 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 20%; /* To stretch across the viewport width */
+ /*   width: 20%;  To stretch across the viewport width */
     background-color: transparent;
     z-index: 1000; /* Adjust the z-index as needed */
 }
