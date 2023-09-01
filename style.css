@@ -39,7 +39,7 @@ body {
 #content-container {
     width: 100%; /* Set the width of the right column */
     height: 100vh;
-    margin: 200px auto;
+    margin: 0px auto;
    /* float: right; /* Float it to the left so it appears alongside the navigation */
 }
 
