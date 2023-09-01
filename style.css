@@ -6,6 +6,26 @@ body {
     background-color: #ffffff;
 }
 
+                                          /* WRAPPER */
+.wrapper {
+    min-height: 100vh; /* Make sure the wrapper spans the entire viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1; /* Allow main content to grow and take up remaining space */
+   /* padding: 20px;  Add padding as needed */
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
                                           /* HEADER */
 
 #header-container {
