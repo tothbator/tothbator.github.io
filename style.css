@@ -39,8 +39,8 @@ body {
                                           /* CONTENT CONTAINER */
 #content-container {
     width: 100%; /* Set the width of the right column */
-    height: auto;
-    margin: 200 auto;
+    height: 100vh;
+    margin: 200px auto;
    /* float: right; /* Float it to the left so it appears alongside the navigation */
 }
 
