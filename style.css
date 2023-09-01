@@ -141,9 +141,7 @@ a[href="dark.html"] {
 }
 
                                           /* FOOTER */
-footer {
-     position: fixed;
-}
+
 
                                           /* MOBILE */
 @media (max-width: 768px) {
