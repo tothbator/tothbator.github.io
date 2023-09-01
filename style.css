@@ -2,13 +2,15 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     height: 100vh;
-    padding: 0 5px; /* Add padding to left and right so contents aren't right on the edge */
+    /*  padding: 0 5px; /* Add padding to left and right so contents aren't right on the edge */
+    padding-left: 20px;
+    padding-right: 10pc;
     background-color: #ffffff;
 }
 
 
 
-                        /* HEADER */
+                        /* new HEADER */
 #header-container {
     position: fixed;
     top: 0; /* Fixed at the top of the viewport */
@@ -20,7 +22,7 @@ body {
     z-index: 1000; /* Adjust the z-index as needed */
 }
 
-                    /* NAVIGATION */
+                    /* new NAVIGATION */
 #navi-container {
     position: fixed;
     top: 70px; /* Adjust the top value to create space below the header */
