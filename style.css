@@ -38,18 +38,22 @@ body {
 #content-container {
     width: 100%; /* Set the width of the right column */
     height: auto;
-    float: right; /* Float it to the left so it appears alongside the navigation */
+    margin: 200 auto;
+   /* float: right; /* Float it to the left so it appears alongside the navigation */
 }
 
                                           /* CONTENT CONTAINER IMAGES */
+
 #image-container {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center; /* Center the content horizontally */
     margin: 0 auto;
-  /*  height: auto; /* Let the height adjust automatically based on content */
+  
 }
+
+
 
                                           /* CONTENT CONTAINER - ABOUT */
 #about-container {
