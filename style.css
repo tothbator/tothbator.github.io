@@ -165,6 +165,7 @@ a[href="dark.html"] {
   
     object-fit: contain;
      cursor: pointer;
+    
 }
 
 
@@ -214,16 +215,20 @@ a[href="dark.html"] {
    
 #image1 {
         max-width: 80%; /* Set a different max-width for mobile */
+    transition: width 0.5s ease-in-out;
     }
 #image2 {
         max-width: 80%; /* Set a different max-width for mobile */
+    transition: width 0.5s ease-in-out;
     }
 #image3 {
         max-width: 80%; /* Set a different max-width for mobile */
+    transition: width 0.5s ease-in-out;
     }
 
 #image4 {
         max-width: 80%; /* Set a different max-width for mobile */
+    transition: width 0.5s ease-in-out;
     }
 
     
