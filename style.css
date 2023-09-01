@@ -161,7 +161,7 @@ a[href="dark.html"] {
 }
 
 #image1 {
-    max-width: 50%;
+    max-width: 40%;
   
     object-fit: contain;
      cursor: pointer;
@@ -169,20 +169,20 @@ a[href="dark.html"] {
 
 
 #image2 {
-    max-width: 50%;
+    max-width: 40%;
 
     object-fit: contain;
      cursor: pointer;
 }
 
 #image3 {
-    max-width: 50%;
+    max-width: 40%;
    
     object-fit: contain;
      cursor: pointer;
 }
 #image4 {
-    max-width: 50%;
+    max-width: 40%;
    
     object-fit: contain;
      cursor: pointer;
@@ -198,21 +198,21 @@ a[href="dark.html"] {
     color: inherit;
 }
     #content-container {
-        padding-top: 100px; /* Increase the space above the content container for mobile */
+        padding-top: 80px; /* Increase the space above the content container for mobile */
     }
 
     #image1 {
-        max-width: 100%; /* Set a different max-width for mobile */
+        max-width: 80%; /* Set a different max-width for mobile */
     }
 #image2 {
-        max-width: 100%; /* Set a different max-width for mobile */
+        max-width: 80%; /* Set a different max-width for mobile */
     }
 #image3 {
-        max-width: 100%; /* Set a different max-width for mobile */
+        max-width: 80%; /* Set a different max-width for mobile */
     }
 
 #image4 {
-        max-width: 100%; /* Set a different max-width for mobile */
+        max-width: 80%; /* Set a different max-width for mobile */
     }
 
     
