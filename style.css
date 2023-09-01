@@ -37,6 +37,11 @@ header a {
     font-size: 30px;
 }
 
+.welcome-text {
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+}
+
 .navi-text {
     font-family: Arial, sans-serif;
     margin: 2px 0; /* Add spacing between navigation items */
