@@ -51,6 +51,8 @@ body {
 #image-container {
     text-align: center; /* Center the content horizontally */
     /* You can remove display: flex, justify-content, and align-items here */
+      justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
 
