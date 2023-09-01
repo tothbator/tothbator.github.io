@@ -98,7 +98,10 @@ a[href="alien.html"] {
     text-decoration: none; /* Remove underline */
     color: inherit; /* Use the default text color */
 }
-
+a[href="dark.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
 
 
                                           /* IAMGES */
@@ -134,8 +137,12 @@ a[href="alien.html"] {
      cursor: pointer;
 }
 
-
-
+                                          /* FOOTER */
+footer {
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px; /* Add margin to create space above the footer */
+}
 
                                           /* MOBILE */
 @media (max-width: 768px) {
