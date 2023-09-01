@@ -5,7 +5,7 @@ body {
     height: 100vh;
     /*  padding: 0 5px; /* Add padding to left and right so contents aren't right on the edge */
     padding-left: 20px;
-    padding-right: 10px;
+    padding-right: 20px;
     background-color: #ffffff;
 }
 
@@ -192,6 +192,19 @@ a[href="dark.html"] {
 
                                           /* MOBILE */
 @media (max-width: 768px) {
+   
+    body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh;
+    /*  padding: 0 5px; /* Add padding to left and right so contents aren't right on the edge */
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #ffffff;
+}
+    
+    
     header a {
     /* header on mobile */
     text-decoration: none;
@@ -236,7 +249,7 @@ a[href="dark.html"] {
 
 #navi-container {
     position: fixed;
-    top: 100px; /* Adjust the top value to create space below the header */
+    top: 50px; /* Adjust the top value to create space below the header */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -252,7 +265,7 @@ a[href="dark.html"] {
     flex-direction: column; /* Ensure it's a column layout */
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
-    padding-top: 80px;
+    padding-top: 40px;
    /* padding: 0;  Remove padding */
     margin: 0; /* Remove margin */
 }
