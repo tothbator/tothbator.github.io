@@ -142,7 +142,7 @@ a[href="dark.html"] {
 
                                           /* FOOTER */
 footer {
-  
+  position: fixed;
     padding-top: 20px;
     padding-bottom: 20px;
 }
