@@ -141,8 +141,14 @@ a[href="dark.html"] {
 }
 
                                           /* FOOTER */
+footer {
+  
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 footer p {
     display: inline; /* Make the text elements inline so they appear next to each other */
+    
 }
 
                                           /* MOBILE */
