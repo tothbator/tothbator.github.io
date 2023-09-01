@@ -196,12 +196,10 @@ a[href="dark.html"] {
     /* header on mobile */
     text-decoration: none;
     color: inherit;
-}
-    #content-container {
-        padding-top: 80px; /* Increase the space above the content container for mobile */
     }
-
-    #image1 {
+    
+   
+#image1 {
         max-width: 80%; /* Set a different max-width for mobile */
     }
 #image2 {
@@ -245,7 +243,8 @@ a[href="dark.html"] {
     width: 20%;
     z-index: 1000; /* Adjust the z-index as needed */
 }
-
+    
+    
    #content-container {
     width: 100%;
     height: 80vh;
@@ -253,7 +252,8 @@ a[href="dark.html"] {
     flex-direction: column; /* Ensure it's a column layout */
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
-    padding: 0; /* Remove padding */
+    padding-top: 80px;
+   /* padding: 0;  Remove padding */
     margin: 0; /* Remove margin */
 }
 
