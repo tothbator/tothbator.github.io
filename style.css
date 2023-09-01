@@ -48,10 +48,7 @@ body {
 #image-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center; /* Center the content horizontally */
-    margin: 0 auto;
-  
+    align-items: center; 
 }
 
 
