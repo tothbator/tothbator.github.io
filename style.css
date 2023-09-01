@@ -94,7 +94,10 @@ a[href="https://www.instagram.com/tothbator"] {
     text-decoration: none; /* Remove underline */
     color: inherit; /* Use the default text color */
 }
-
+a[href="alien.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
 
 
 
