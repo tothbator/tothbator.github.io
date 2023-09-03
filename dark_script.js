@@ -7,14 +7,14 @@ var darkImageNumber = 0;
 // Function to change the displayed image on the "dark" page
 function changeImageDark() {
     darkImageNumber = (darkImageNumber + 1) % darkImages.length;
-    document.getElementById('image' + (darkImageNumber + 1)).src = darkImages[darkImageNumber];
+    document.getElementById('dimage' + (darkImageNumber + 1)).src = darkImages[darkImageNumber];
     hideImagesDark(darkImageNumber);
 }
 
 // Function to hide or show images on the "dark" page
 function hideImagesDark(currentImageDark) {
     for (let i = 1; i <= darkImages.length; i++) {
-        let imageElement = document.getElementById('image' + i);
+        let imageElement = document.getElementById('dimage' + i);
         imageElement.style.display = (i - 1 === currentImageDark) ? "block" : "none";
     }
 }
