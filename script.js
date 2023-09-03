@@ -1,7 +1,7 @@
 // script.js
 
 
-var images = ['imagesOPT/alien3.jpg', 'imagesOPT/lasts.jpg', 'imagesOPT/whereisit.jpg', 'imagesOPT/landscrape1.jpg'];
+var images = ['images/Last(s).jpg', 'images/Alien no.4.jpg', 'images/Alien no.3.jpg', 'images/Alien no.2.jpg', 'images/Alien no.1.jpg'];
 var imageNumber = 0;
 
 function changeImage() {
