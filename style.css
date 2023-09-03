@@ -160,9 +160,9 @@ a[href="index.html"] {
 
 
                                           /* IAMGES */
-#image1, #image2, #image3, #image4, #image5  {
-    display: none;
-}
+ /*#image1, #image2, #image3, #image4, #image5  { */
+ /*    display: none; */
+ /*} */
 
 #dimage7, #dimage8, #dimage9, #dimage10  {
     display: none;
