@@ -167,7 +167,7 @@ a[href="index.html"] {
 
                                           /* ALIEN */
 #image1 {
-    max-width: 40%;
+    max-width: 30%;
     object-fit: contain;
      cursor: pointer;
 }
@@ -180,7 +180,7 @@ a[href="index.html"] {
 }
 
 #image3 {
-    max-width: 40%;
+    max-width: 30%;
     object-fit: contain;
      cursor: pointer;
 }
