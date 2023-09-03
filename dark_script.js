@@ -1,22 +1,25 @@
 // script.js
 
+// Define an array of images for the "dark" page
+var darkImages = ['images/dark1.jpg', 'images/dark2.jpg', 'images/dark3.jpg', 'images/dark4.jpg'];
+var darkImageNumber = 0;
 
-var images = ['images/dark1.jpg', 'images/dark2.jpg', 'images/dark3.jpg', 'images/dark4.jpg',];
-var imageNumber = 0;
-
+// Function to change the displayed image on the "dark" page
 function changeImageDark() {
-    imageNumber = (imageNumber + 1) % images.length;
-    document.getElementById('image' + (imageNumber + 1)).src = images[imageNumber];
-    hideImages(imageNumber);
+    darkImageNumber = (darkImageNumber + 1) % darkImages.length;
+    document.getElementById('image' + (darkImageNumber + 1)).src = darkImages[darkImageNumber];
+    hideImagesDark(darkImageNumber);
 }
 
+// Function to hide or show images on the "dark" page
 function hideImagesDark(currentImageDark) {
-    for (let i = 1; i <= images.length; i++) {
+    for (let i = 1; i <= darkImages.length; i++) {
         let imageElement = document.getElementById('image' + i);
-        imageElement.style.display = (i - 1 === currentImage) ? "block" : "none";
+        imageElement.style.display = (i - 1 === currentImageDark) ? "block" : "none";
     }
 }
 
+// Perform initial actions when the page loads
 window.onload = function() {
-    hideImages(0);
+    hideImagesDark(0);
 }
