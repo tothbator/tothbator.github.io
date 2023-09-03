@@ -160,6 +160,8 @@ a[href="dark.html"] {
     display: none;
 }
 
+
+                                          /* ALIEN */
 #image1 {
     max-width: 40%;
     object-fit: contain;
@@ -190,13 +192,15 @@ a[href="dark.html"] {
      cursor: pointer;
 }
 
+
+                                          /* ???*/
 #image6 {
     max-width: 40%;
     object-fit: contain;
      cursor: pointer;
 }
 
-
+                                          /* DARK */
 
 
 
