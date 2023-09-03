@@ -205,7 +205,23 @@ a[href="index.html"] {
 }
 
                                           /* DARK */
-
+#image7 {
+    max-width: 30%;
+    object-fit: contain;
+     cursor: pointer;
+}#image8 {
+    max-width: 30%;
+    object-fit: contain;
+     cursor: pointer;
+}#image9 {
+    max-width: 30%;
+    object-fit: contain;
+     cursor: pointer;
+}#image10 {
+    max-width: 30%;
+    object-fit: contain;
+     cursor: pointer;
+}
 
 
 
