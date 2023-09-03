@@ -13,7 +13,7 @@ function changeImageDark() {
 
 // Function to hide or show images on the "dark" page
 function hideImagesDark(currentImageDark) {
-    for (let i = 7; i <= darkImages.length; i++) {
+    for (let i = 1; i <= darkImages.length; i++) {
         let imageElement = document.getElementById('image' + i);
         imageElement.style.display = (i - 1 === currentImageDark) ? "block" : "none";
     }
