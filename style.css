@@ -153,6 +153,10 @@ a[href="dark.html"] {
     text-decoration: none; /* Remove underline */
     color: inherit; /* Use the default text color */
 }
+a[href="index.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
 
 
                                           /* IAMGES */
