@@ -160,7 +160,7 @@ a[href="index.html"] {
 
 
                                           /* IAMGES */
-#image1, #image2, #image3, #image4 , #image5, #image6  {
+#image1, #image2, #image3, #image4 , #image5, #image7, #image8, #image9, #image10,  {
     display: none;
 }
 
@@ -209,15 +209,18 @@ a[href="index.html"] {
     max-width: 40%;
     object-fit: contain;
      cursor: pointer;
-}#image8 {
+}
+#image8 {
     max-width: 40%;
     object-fit: contain;
      cursor: pointer;
-}#image9 {
+}
+#image9 {
     max-width: 40%;
     object-fit: contain;
      cursor: pointer;
-}#image10 {
+}
+#image10 {
     max-width: 40%;
     object-fit: contain;
      cursor: pointer;
