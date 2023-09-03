@@ -190,7 +190,11 @@ a[href="dark.html"] {
      cursor: pointer;
 }
 
-
+#image6 {
+    max-width: 40%;
+    object-fit: contain;
+     cursor: pointer;
+}
 
 
 
