@@ -63,20 +63,17 @@ body {
 
 
 #image-container {
-    width: 100%;
-    height: auto; /* Adjust the height as needed */
-    transition: width 0.5s ease-in-out;
-    margin-left: 40px;
-    display: flex; /* Use 'flex' to align images horizontally */
-    flex-wrap: wrap; /* Wrap images to the next line when they don't fit horizontally */
+    display: flex;
+    text-align: center; /* Center the content horizontally */
+      justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
+
 #dimage-container {
-    width: 100%;
-    height: auto; /* Adjust the height as needed */
-    transition: width 0.5s ease-in-out;
-    margin-left: 40px;
-    display: flex; /* Use 'flex' to align images horizontally */
-    flex-wrap: wrap; /* Wrap images to the next line when they don't fit horizontally */
+    display: flex;
+    text-align: center; /* Center the content horizontally */
+      justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
 
@@ -287,6 +284,7 @@ a[href="index.html"] {
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margin */
 }
+    
 #dcontent-container {
     width: 100%;
     height: auto;
