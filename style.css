@@ -3,9 +3,9 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     height: 100vh;
-    
+    width: 200vh;
     padding-left: 20px;
-   padding-right: 20px;
+    padding-right: 20px;
     background-color: #ffffff;
    
 }
