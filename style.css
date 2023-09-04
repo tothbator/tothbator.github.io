@@ -48,6 +48,7 @@ body {
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margin */
 }
+
 #dcontent-container {
     width: 100%;
     height: auto;
@@ -67,6 +68,7 @@ body {
     text-align: center; /* Center the content horizontally */
       justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
+    margin-top: 20px;
 }
 
 #dimage-container {
@@ -148,78 +150,45 @@ header a {
 
 
 
-
-                                          /* LINK FORMATTING */
-a[href="about.html"] {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the default text color */
-}
-a[href="contact.html"] {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the default text color */
-}
-a[href="https://www.instagram.com/tothbator"] {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the default text color */
-}
-a[href="alien.html"] {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the default text color */
-}
-a[href="dark.html"] {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the default text color */
-}
-a[href="index.html"] {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the default text color */
-}
-
-
                                           /* IAMGES */
-
-
-
-
                                           /* ALIEN */
 #image1 {
     max-width: 30%;
     object-fit: contain;
-     cursor: pointer;
-      margin-top: 90px;
-    margin-bottom: 40px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 #image2 {
-    max-width: 40%;
+    max-width: 30%;
     object-fit: contain;
-     cursor: pointer;
-    margin-bottom: 40px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 #image3 {
     max-width: 30%;
     object-fit: contain;
-     cursor: pointer;
-    margin-bottom: 40px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 #image4 {
-    max-width: 40%;
+   max-width: 30%;
     object-fit: contain;
-     cursor: pointer;
-    margin-bottom: 40px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 #image5 {
-    max-width: 40%;
-    object-fit: contain;
-     cursor: pointer;
-    margin-bottom: 40px;
-}
-                                          /* HOME */
-#image6 {
     max-width: 30%;
     object-fit: contain;
-     cursor: pointer;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 20px;
 }
+
 
                                           /* DARK */
 #dimage7 {
@@ -248,7 +217,39 @@ a[href="index.html"] {
     margin-bottom: 40px;
 }
 
+                                          /* HOME */
+#image6 {
+    max-width: 30%;
+    object-fit: contain;
+     cursor: pointer;
+}
 
+
+                                          /* LINK FORMATTING */
+a[href="about.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="contact.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="https://www.instagram.com/tothbator"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="alien.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="dark.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="index.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
 
 
 
