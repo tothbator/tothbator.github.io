@@ -244,15 +244,12 @@ a[href="index.html"] {
     justify-content: flex-start;
     align-items: flex-start;
     height: 100vh;
-    /*  padding: 0 5px; /* Add padding to left and right so contents aren't right on the edge */
+    width: 200vh;
     padding-left: 10px;
     padding-right: 10px;
     background-color: #ffffff;
 }
-    
-    
     header a {
-    /* header on mobile */
     text-decoration: none;
     color: inherit;
     }
@@ -267,30 +264,21 @@ a[href="index.html"] {
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margin */
 }
-    
-
 #image-container {
     width: 100%;
     height: auto; /* Adjust the height as needed */
+    justify-content: left;
     transition: width 0.5s ease-in-out;
-    margin-left: 40px;
+    margin-left: 60px;
     display: flex; /* Use 'flex' to align images horizontally */
-   /*  flex-wrap: wrap; Wrap images to the next line when they don't fit horizontally */
+ }
 
     
 
 
 #image1, #image2, #image3, #image4, #image5, #dimage8, #dimage9, #dimage10  {
     max-width: 80%; /* Adjust the width as needed */
-    margin-bottom: 40px;
-
 }
-
-
-
-
-
-
 
 #image6 {
     position: fixed;
