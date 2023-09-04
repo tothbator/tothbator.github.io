@@ -40,7 +40,7 @@ body {
                                   /* CONTENT CONTAINER */
 #content-container {
     width: 100%;
-    height: auto;
+    height: 100vh;
     display: flex;
     flex-direction: column; /* Ensure it's a column layout */
     justify-content: center; /* Center vertically */
@@ -48,35 +48,17 @@ body {
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margin */
 }
-
-#dcontent-container {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column; /* Ensure it's a column layout */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
-}
-
                           /* IAMGE CONTAINER  */
-
-
 #image-container {
     display: flex;
     text-align: center; /* Center the content horizontally */
-      justify-content: center; /* Center horizontally */
+    justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     margin-top: 20px;
+    margin-bottom: 20pm;
 }
 
-#dimage-container {
-    display: flex;
-    text-align: center; /* Center the content horizontally */
-      justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-}
+
 
 
                                           /* CONTENT CONTAINER - ABOUT */
@@ -115,9 +97,6 @@ footer {
 footer p {
   /*  display: inline;  Make the text elements inline so they appear next to each other */
 }
-
-
-
 
                                           /* TEXT FORMATTING */
 header a {
