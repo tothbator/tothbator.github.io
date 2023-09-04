@@ -40,7 +40,7 @@ body {
                                   /* CONTENT CONTAINER */
 #content-container {
     width: 100%;
-    height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column; /* Ensure it's a column layout */
     justify-content: center; /* Center vertically */
@@ -48,16 +48,36 @@ body {
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margin */
 }
-                              /* CONTENT CONTAINER IMAGES */
-#image-container {
+#dcontent-container {
+    width: 100%;
+    height: auto;
     display: flex;
-    text-align: center; /* Center the content horizontally */
-      justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    flex-direction: column; /* Ensure it's a column layout */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
 }
 
+                          /* IAMGE CONTAINER  */
 
 
+#image-container {
+    width: 100%;
+    height: auto; /* Adjust the height as needed */
+    transition: width 0.5s ease-in-out;
+    margin-left: 40px;
+    display: flex; /* Use 'flex' to align images horizontally */
+    flex-wrap: wrap; /* Wrap images to the next line when they don't fit horizontally */
+}
+#dimage-container {
+    width: 100%;
+    height: auto; /* Adjust the height as needed */
+    transition: width 0.5s ease-in-out;
+    margin-left: 40px;
+    display: flex; /* Use 'flex' to align images horizontally */
+    flex-wrap: wrap; /* Wrap images to the next line when they don't fit horizontally */
+}
 
 
                                           /* CONTENT CONTAINER - ABOUT */
@@ -160,34 +180,42 @@ a[href="index.html"] {
 
 
                                           /* IAMGES */
- 
+
+
+
 
                                           /* ALIEN */
 #image1 {
     max-width: 30%;
     object-fit: contain;
      cursor: pointer;
+      margin-top: 90px;
+    margin-bottom: 40px;
 }
 
 #image2 {
     max-width: 40%;
     object-fit: contain;
      cursor: pointer;
+    margin-bottom: 40px;
 }
 #image3 {
     max-width: 30%;
     object-fit: contain;
      cursor: pointer;
+    margin-bottom: 40px;
 }
 #image4 {
     max-width: 40%;
     object-fit: contain;
      cursor: pointer;
+    margin-bottom: 40px;
 }
 #image5 {
     max-width: 40%;
     object-fit: contain;
      cursor: pointer;
+    margin-bottom: 40px;
 }
                                           /* HOME */
 #image6 {
@@ -201,21 +229,26 @@ a[href="index.html"] {
     max-width: 40%;
     object-fit: contain;
      cursor: pointer;
+      margin-top: 90px;
+    margin-bottom: 40px;
 }
 #dimage8 {
     max-width: 40%;
     object-fit: contain;
      cursor: pointer;
+    margin-bottom: 40px;
 }
 #dimage9 {
     max-width: 40%;
     object-fit: contain;
      cursor: pointer;
+    margin-bottom: 40px;
 }
 #dimage10 {
     max-width: 40%;
     object-fit: contain;
      cursor: pointer;
+    margin-bottom: 40px;
 }
 
 
@@ -246,7 +279,7 @@ a[href="index.html"] {
     
 #content-container {
     width: 100%;
-    height: 200vh;
+    height: auto;
     display: flex;
     flex-direction: column; /* Ensure it's a column layout */
     justify-content: center; /* Center vertically */
@@ -254,7 +287,16 @@ a[href="index.html"] {
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margin */
 }
-
+#dcontent-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column; /* Ensure it's a column layout */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
 #image-container {
     width: 100%;
     height: auto; /* Adjust the height as needed */
@@ -263,7 +305,14 @@ a[href="index.html"] {
     display: flex; /* Use 'flex' to align images horizontally */
     flex-wrap: wrap; /* Wrap images to the next line when they don't fit horizontally */
 }
-
+#dimage-container {
+    width: 100%;
+    height: auto; /* Adjust the height as needed */
+    transition: width 0.5s ease-in-out;
+    margin-left: 40px;
+    display: flex; /* Use 'flex' to align images horizontally */
+    flex-wrap: wrap; /* Wrap images to the next line when they don't fit horizontally */
+}
 #image1, #dimage7  {
     max-width: 80%; /* Adjust the width as needed */
     margin-bottom: 40px;
