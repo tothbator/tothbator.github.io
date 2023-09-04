@@ -4,11 +4,10 @@ body {
     align-items: flex-start;
     height: 100vh;
     
-    /* padding-left: 20px; */
-   /* padding-right: 20px; */
+    padding-left: 20px;
+   padding-right: 20px;
     background-color: #ffffff;
-     margin: 0;
-    padding: 0;
+   
 }
 
 
@@ -46,7 +45,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column; /* Ensure it's a column layout */
-    justify-content: center; /* Center vertically */
+    justify-content: left; /* Center vertically */
     align-items: center; /* Center horizontally */
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margin */
@@ -55,7 +54,7 @@ body {
 #image-container {
     display: flex;
     text-align: center; /* Center the content horizontally */
-    justify-content: center; /* Center horizontally */
+    justify-content: left; /* Center horizontally */
     align-items: center; /* Center vertically */
     margin-top: 20px;
     margin-bottom: 20px;
