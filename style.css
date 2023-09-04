@@ -264,14 +264,14 @@ a[href="index.html"] {
     flex-wrap: wrap; /* Wrap images to the next line when they don't fit horizontally */
 }
 
-#image1, #image7  {
+#image1, #dimage7  {
     max-width: 80%; /* Adjust the width as needed */
     margin-bottom: 40px;
     margin-top: 90px;
 
 }
 
-#image2, #image3, #image4, #image5, #image8, #image9, #image10  {
+#image2, #image3, #image4, #image5, #dimage8, #dimage9, #dimage10  {
     max-width: 80%; /* Adjust the width as needed */
     margin-bottom: 40px;
 
