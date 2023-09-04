@@ -262,7 +262,7 @@ a[href="index.html"] {
     
 #content-container {
     width: 100%;
-    height: auto;
+    height: 100vh;
     display: flex;
     flex-direction: column; /* Ensure it's a column layout */
     justify-content: center; /* Center vertically */
@@ -271,19 +271,17 @@ a[href="index.html"] {
     margin: 0; /* Remove margin */
 }
 #image-container {
-    width: 100%;
-    height: auto; /* Adjust the height as needed */
-    justify-content: left;
-    transition: width 0.5s ease-in-out;
+    display: flex;
+    text-align: center; /* Center the content horizontally */
+    justify-content: left; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-top: 20px;
+    margin-bottom: 20px;
     margin-left: 60px;
-    display: flex; /* Use 'flex' to align images horizontally */
- }
-
-    
-
+}
 
 #image1, #image2, #image3, #image4, #image5, #dimage8, #dimage9, #dimage10  {
-    max-width: 80%; /* Adjust the width as needed */
+    max-width: 50%; /* Adjust the width as needed */
 }
 
 #image6 {
