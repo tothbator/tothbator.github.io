@@ -3,7 +3,7 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     height: 100vh;
-    width: 1000000vh;
+    width: 200vh;
     padding-left: 20px;
     padding-right: 20px;
     background-color: #ffffff;
@@ -250,7 +250,7 @@ a[href="index.html"] {
     justify-content: flex-start;
     align-items: flex-start;
     height: 100vh;
-    width: 10000000vh;
+    width: 200vh;
     padding-left: 10px;
     padding-right: 10px;
     background-color: #ffffff;
