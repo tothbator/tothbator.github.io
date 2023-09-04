@@ -95,7 +95,12 @@ footer {
     height: 80px;
   /*  padding: 20px 0; */
     z-index: 1; /* Add a z-index to ensure it appears above other content */
-   
+    
+/*make footer into one row:*/
+    display: flex;
+    flex-direction: row; /* row or column */
+    justify-content: flex-start; /* balra rendezes a soros verziohoz */
+    align-items: flex-start;
 }
 
 footer p {
