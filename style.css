@@ -1,0 +1,213 @@
+                                 /* BODY */
+body {
+    display: flex;
+    margin: 0px;
+    justify-content: flex-start;
+    align-items: center;
+ height: 100vh;
+ width: auto;
+    padding-left: 0; /* Remove padding to the left */
+    padding-right: 0; /* Remove padding to the right */
+    background-color: #ffffff;
+    
+ 
+   
+}
+                                         /* CONTENT CONTAINER */
+
+#content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width:auto;
+  
+}
+                                         /* IAMGE CONTAINER  */
+
+
+#image-container {
+    height: 70vh;
+    width:2500px;
+    display: flex;
+    text-align: center; /* Center the content horizontally */
+    justify-content: left; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 60px;
+}  
+
+
+
+
+                                        /* new HEADER */
+#header-container {
+position: fixed;
+top: 0; /* Fixed at the top of the viewport */
+padding-left: 30px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+                         /*   width: 20%;  To stretch across the viewport width */
+background-color: transparent;
+
+}
+
+
+
+                                          /* FOOTER */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  
+    height: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+    
+    display: flex;
+    flex-direction: row; 
+    /*justify-content: space-between; /* or left*/
+    align-items: center;
+           
+
+}
+
+
+
+                                          /* TEXT FORMATTING */
+header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-text {
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+}
+
+.welcome-text {
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+}
+
+.navi-text {
+    font-family: Arial, sans-serif;
+    margin: 4px 4px; /* Add spacing between navigation items */
+    text-decoration: none; /* Remove underlines from links */
+    display: block; /* Make the entire text area clickable */
+    padding: 5px; /* Add padding for better clickability */   
+}
+
+.about-text {
+     text-align: justify;
+     font-family: Arial, sans-serif;
+}
+
+
+
+                                          /* IAMGES */
+                                          /* ALIEN */
+
+
+#image2 {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 100%;
+    max-height: 70%;
+}
+#image1 {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 100%;
+    max-height: 100%;
+}
+#image3 {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 100%;
+    max-height: 60%;
+}
+#image4 {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 100%;
+    max-height: 70%;
+}
+#image5 {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 100%;
+    max-height: 70%;
+}
+
+
+                                          /* DARK */
+#dimage7 {
+    max-width: 40%;
+    object-fit: contain;
+     cursor: pointer;
+      margin-top: 90px;
+    margin-bottom: 40px;
+}
+#dimage8 {
+    max-width: 40%;
+    object-fit: contain;
+     cursor: pointer;
+    margin-bottom: 40px;
+}
+#dimage9 {
+    max-width: 40%;
+    object-fit: contain;
+     cursor: pointer;
+    margin-bottom: 40px;
+}
+#dimage10 {
+    max-width: 40%;
+    object-fit: contain;
+     cursor: pointer;
+    margin-bottom: 40px;
+}
+
+                                          /* HOME */
+#image6 {
+    max-width: 30%;
+    object-fit: contain;
+     cursor: pointer;
+}
+
+
+                                          /* LINK FORMATTING */
+a[href="about.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="contact.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="https://www.instagram.com/tothbator"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="alien.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="dark.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="index.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+
+
+
+
+                                        
