@@ -82,11 +82,17 @@ footer {
     display: flex;
     flex-direction: row; 
     /*justify-content: space-between; /* or left*/
-    align-items: center;
-           
-
+    align-items: center;         
 }
 
+
+}
+@media (max-width: 768px) {
+    footer{
+        transition: justify-content 2s ease; 
+justify-content: space-between; /* or left*/
+}
+}
 
 
                                           /* TEXT FORMATTING */
