@@ -20,55 +20,71 @@
       </header>
 </div>
    
-              <!  /* NAVIGATION */  -->
-   
+                        <!   /* NAVI */  -->
 <div id="navi-container">
-
-
-    <a href="alien.html">
+    <a href="index.html">
         <p class="navi-text">alien</p>
     </a>
    
     <a href="dark.html">
         <p class="navi-text">dark</p>
     </a>
+    <a href="silver.html">
+        <p class="navi-text">silver</p>
+    </a>
    
+   
+</div>
+   
+
+                    <!    /* CONTENT */  -->
+
+   
+   
+      <div id="content-container">
+        <div id="image-container">
+       
+
+         <img id="image6" src="images/dark1.jpg"  />
+         <img id="image7" src="images/dark2.jpg"  />
+         <img id="image8" src="images/dark3.jpg"  />
+         <img id="image9" src="images/dark4.jpg"  />
+      </div>
+    </div>
+
+   
+
+
+
+                    <!    /* FOOTER */  -->
+   
+ <footer>
+
     <a href="about.html">
         <p class="navi-text">about</p>
     </a>
 
-</div>
+ 
 
-   
-              <!    /* CONTENT */  -->
+  <a href="https://www.instagram.com/tothbator" target="_blank">
+    <p class="navi-text">@tothbator</p>
+ </a>
+ <p class="navi-text">hello@tothbator.com</p>
 
-   
-   <div id="dcontent-container">
-      <div id="dimage-container">
-         
-         <img id="dimage7" src="images/dark1.jpg"  />
-         <img id="dimage8" src="images/dark2.jpg" />
-         <img id="dimage9" src="images/dark3.jpg" />
-         <img id="dimage10" src="images/dark4.jpg" />
-         
-          
-      </div>
-   </div>
-   
-   
-
-
-  <!    /* FOOTER */  -->
-   
- <footer>
-   <a href="https://www.instagram.com/tothbator" target="_blank">
-       <p class="navi-text">ig</p>
-    </a>
-
-  <p class="navi-text">hello@tothbator.com</p>
+</footer>
+<script>
+    // Get the current URL
+    var currentUrl = window.location.pathname;
     
-    </footer>
-
+    // Get all the links in the navigation menu
+    var links = document.querySelectorAll('#navi-container a');
+    
+    // Loop through the links and add a class to the one that matches the current URL
+    for (var i = 0; i < links.length; i++) {
+      if (links[i].getAttribute('href') === currentUrl) {
+        links[i].classList.add('current-link');
+      }
+    }
    
 </body>
 </html>

@@ -1,19 +1,34 @@
-                                 /* BODY */
+                                                 /* BODY */
 body {
     display: flex;
     margin: 0px;
     justify-content: flex-start;
     align-items: center;
- height: 100vh;
- width: auto;
+    height: 100vh;
+    width: auto;
     padding-left: 0; /* Remove padding to the left */
     padding-right: 0; /* Remove padding to the right */
     background-color: #ffffff;
-    
- 
-   
 }
-                                         /* CONTENT CONTAINER */
+                                                 /*  HEADER CONTAINER*/
+#header-container {
+    position: fixed;
+    top: 0; /* Fixed at the top of the viewport */  
+    margin-left: 30px;
+    background-color: transparent;
+    height:80px;
+}
+
+                                                /* NAVI CONTAINER  */
+#navi-container {
+    position: fixed;
+    top: 70px; /* Adjust the top value to create space below the header */
+    display: flex;
+    margin-left: 30px;
+    z-index: 1000; /* Adjust the z-index as needed */ 
+    
+}
+                                             /* CONTENT CONTAINER */
 
 #content-container {
     display: flex;
@@ -23,14 +38,12 @@ body {
     padding: 0;
     margin: 0;
     width:auto;
-  
 }
                                          /* IAMGE CONTAINER  */
 
-
 #image-container {
     height: 70vh;
-    width:2500px;
+    width:4000px;
     display: flex;
     text-align: center; /* Center the content horizontally */
     justify-content: left; /* Center horizontally */
@@ -39,9 +52,21 @@ body {
     margin-bottom: 20px;
     margin-left: 60px;
 }  
+
+#silver-image-container {
+    height: 70vh;
+    width: 1500px;;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 60px;
+}  
+                                            /* ABOUT CONTAINER  */
 #about-container {
     height: 70vh;
-    width:3800px;
+    width:3000px;
     display: flex;
     text-align: center; /* Center the content horizontally */
     justify-content: left; /* Center horizontally */
@@ -50,23 +75,6 @@ body {
     margin-bottom: 20px;
     margin-left: 60px;
 }  
-
-
-
-                                        /* new HEADER */
-#header-container {
-position: fixed;
-top: 0; /* Fixed at the top of the viewport */
-padding-left: 30px;
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-                         /*   width: 20%;  To stretch across the viewport width */
-background-color: transparent;
-
-}
-
-
 
                                           /* FOOTER */
 footer {
@@ -74,23 +82,23 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-  
     height: 80px;
-    padding-left: 30px;
-    padding-right: 30px;
+    margin-left: 30px;
+    padding-left: 0px;
+    
     
     display: flex;
     flex-direction: row; 
     /*justify-content: space-between; /* or left*/
-    align-items: center;         
-}
-
+    align-items: center;    
+    transition: justify-content 2s ease; 
 
 }
 @media (max-width: 768px) {
     footer{
         transition: justify-content 2s ease; 
 justify-content: space-between; /* or left*/
+padding-right: 30px;
 }
 }
 
@@ -104,20 +112,23 @@ header a {
 .header-text {
     font-family: Arial, sans-serif;
     font-size: 30px;
+    margin: 0px;
+    margin-top: 23px;
 }
 
-.welcome-text {
-    font-family: Arial, sans-serif;
-    font-size: 40px;
-}
 
-.navi-text {
+.navi-text {            /* navi and footer text */
     font-family: Arial, sans-serif;
-    margin: 4px 4px; /* Add spacing between navigation items */
+    margin: 4px 0px; /* Add spacing between navigation items */
     text-decoration: none; /* Remove underlines from links */
     display: block; /* Make the entire text area clickable */
-    padding: 5px; /* Add padding for better clickability */   
+    padding-right: 40px; /* Add padding for better clickability */ 
 }
+
+
+.navi-text:hover {
+    text-decoration: underline;
+  }
 
 .about-text {
      text-align: justify;
@@ -163,38 +174,54 @@ header a {
 
 
                                           /* DARK */
-#dimage7 {
-    max-width: 40%;
-    object-fit: contain;
-     cursor: pointer;
-      margin-top: 90px;
-    margin-bottom: 40px;
+#image6 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 70%;
 }
-#dimage8 {
-    max-width: 40%;
-    object-fit: contain;
-     cursor: pointer;
-    margin-bottom: 40px;
+#image7 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 70%;
 }
-#dimage9 {
-    max-width: 40%;
-    object-fit: contain;
-     cursor: pointer;
-    margin-bottom: 40px;
+#image8 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 70%;
+}                                 
+#image9 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 60%;
 }
-#dimage10 {
-    max-width: 40%;
-    object-fit: contain;
-     cursor: pointer;
-    margin-bottom: 40px;
+                                          /* SILVER */
+
+#image10 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 70%;
+}
+#image11 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 70%;
+}                                 
+#image12 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 70%;
 }
 
-                                          /* HOME */
-#image6 {
-    max-width: 30%;
-    object-fit: contain;
-     cursor: pointer;
-}
+
+
+
 
 
                                           /* LINK FORMATTING */
@@ -222,6 +249,24 @@ a[href="index.html"] {
     text-decoration: none; /* Remove underline */
     color: inherit; /* Use the default text color */
 }
+a[href="silver.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+
+
+
+.current-link {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
 
 
 
