@@ -94,13 +94,7 @@ footer {
     transition: justify-content 2s ease; 
 
 }
-@media (max-width: 768px) {
-    footer{
-        transition: justify-content 2s ease; 
-justify-content: space-between; /* or left*/
-padding-right: 30px;
-}
-}
+
 
 
                                           /* TEXT FORMATTING */
@@ -256,8 +250,85 @@ a[href="silver.html"] {
 
 
 
-.current-link {
-    text-decoration: underline;
+@media (max-width: 768px){
+#image2 {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 100%;
+    max-height: 60%;
+}
+
+#image1 {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 100%;
+    max-height: 90%;
+}
+#image3 {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 100%;
+    max-height: 50%;
+}
+#image4 {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 100%;
+    max-height: 60%;
+}
+#image5 {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 100%;
+    max-height: 60%;
+}
+
+
+                                          /* DARK */
+#image6 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 60%;
+}
+#image7 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 60%;
+}
+#image8 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 60%;
+}                                 
+#image9 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 60%;
+}
+                                          /* SILVER */
+
+#image10 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 60%;
+}
+#image11 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 60%;
+}                                 
+#image12 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 60%;
+}
 }
 
 
