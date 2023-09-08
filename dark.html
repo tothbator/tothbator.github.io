@@ -22,7 +22,7 @@
    
                         <!   /* NAVI */  -->
 <div id="navi-container">
-    <a href="index.html">
+    <a href="alien.html">
         <p class="navi-text">alien</p>
     </a>
    
@@ -32,7 +32,13 @@
     <a href="silver.html">
         <p class="navi-text">silver</p>
     </a>
-   
+    <a href="color.html">
+        <p class="navi-text">color</p>
+    </a>
+
+    <a href="pastel.html">
+        <p class="navi-text">pastel</p>
+    </a>
    
 </div>
    
@@ -72,19 +78,7 @@
  <p class="navi-text">hello@tothbator.com</p>
 
 </footer>
-<script>
-    // Get the current URL
-    var currentUrl = window.location.pathname;
-    
-    // Get all the links in the navigation menu
-    var links = document.querySelectorAll('#navi-container a');
-    
-    // Loop through the links and add a class to the one that matches the current URL
-    for (var i = 0; i < links.length; i++) {
-      if (links[i].getAttribute('href') === currentUrl) {
-        links[i].classList.add('current-link');
-      }
-    }
-   
+
+<script src="your-script.js"></script>
 </body>
 </html>

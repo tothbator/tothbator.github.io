@@ -55,13 +55,12 @@ body {
 
 #silver-image-container {
     height: 70vh;
-    width: 1500px;;
+    width: 2000px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: 60px;
+    margin-left: 20px;
 }  
                                             /* ABOUT CONTAINER  */
 #about-container {
@@ -95,6 +94,11 @@ footer {
 
 }
 
+  /*@media (max-width: 768px) {
+    footer{
+        transition: justify-content 2s ease; 
+justify-content: space-between; /* or left*/
+/*padding-right: 30px;*/
 
 
                                           /* TEXT FORMATTING */
@@ -119,7 +123,6 @@ header a {
     padding-right: 40px; /* Add padding for better clickability */ 
 }
 
-
 .navi-text:hover {
     text-decoration: underline;
   }
@@ -128,19 +131,15 @@ header a {
      text-align: justify;
      font-family: Arial, sans-serif;
 }
-
-
-
                                           /* IAMGES */
                                           /* ALIEN */
-
-
 #image2 {
     margin-left: 20px;
     margin-right: 20px;
     max-width: 100%;
     max-height: 70%;
 }
+
 #image1 {
     margin-left: 20px;
     margin-right: 20px;
@@ -195,7 +194,7 @@ max-height: 60%;
                                           /* SILVER */
 
 #image10 {
-margin-left: 20px;
+margin-left: 60px;
 margin-right: 20px;
 max-width: 100%;
 max-height: 70%;
@@ -213,6 +212,58 @@ max-width: 100%;
 max-height: 70%;
 }
 
+
+                                          /* COLOR */
+#image13 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 70%;
+}
+#image14 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 70%;
+}
+#image15 {
+margin-left: 40px;
+margin-right: 30px;
+max-width: 100%;
+max-height: 70%;
+}
+#image16 {
+margin-left: 30px;
+margin-right: 30px;
+max-width: 100%;
+max-height: 50%;
+}
+#image17 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 100%;
+}
+#image18 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 40%;
+}
+
+                                          /* PASTEL */
+#image19 {
+margin-left: 30px;
+margin-right: 30px;
+max-width: 70%;
+max-height: 70%;
+}
+#image20 {
+margin-left: 30px;
+margin-right: 30px;
+max-width: 70%;
+max-height: 40%;
+}
 
 
 
@@ -247,6 +298,21 @@ a[href="silver.html"] {
     text-decoration: none; /* Remove underline */
     color: inherit; /* Use the default text color */
 }
+a[href="pastel.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+a[href="color.html"] {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the default text color */
+}
+
+
+
+
+
+
+
 
 
 
@@ -313,33 +379,91 @@ max-height: 60%;
 
 #image10 {
 margin-left: 20px;
-margin-right: 20px;
+margin-right: 10px;
 max-width: 100%;
 max-height: 60%;
 }
 #image11 {
-margin-left: 20px;
-margin-right: 20px;
+margin-left: 10px;
+margin-right: 10px;
 max-width: 100%;
 max-height: 60%;
 }                                 
 #image12 {
-margin-left: 20px;
+margin-left: 10px;
 margin-right: 20px;
 max-width: 100%;
 max-height: 60%;
 }
+#silver-image-container {
+    height: 70vh;
+    width: 1500px;;
+    display: flex;
+    align-items: center;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+    padding-right: 60px;
+}  
+
+                                          /* COLOR */
+#image13 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 70%;
+}
+#image14 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 70%;
+}
+#image15 {
+margin-left: 40px;
+margin-right: 30px;
+max-width: 100%;
+max-height: 70%;
+}
+#image16 {
+margin-left: 30px;
+margin-right: 30px;
+max-width: 100%;
+max-height: 50%;
+}
+#image17 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 100%;
+}
+#image18 {
+margin-left: 20px;
+margin-right: 20px;
+max-width: 100%;
+max-height: 40%;
+}
+
+                                        /* PASTEL */
+#image19 {
+margin-left: 30px;
+margin-right: 20px;
+max-width: 70%;
+max-height: 60%;
+}
+#image20 {
+margin-left: 20px;
+margin-right: 30px;
+max-width: 70%;
+max-height: 30%;
 }
 
 
 
 
 
-
-
-
-
-
-
+}
 
                                         
