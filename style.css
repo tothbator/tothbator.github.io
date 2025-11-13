@@ -1,0 +1,1031 @@
+/* ============================================
+   BODY & BASE STYLES
+   ============================================
+   These are the foundational styles that apply to the entire page.
+   - margin: 0 removes default browser spacing
+   - overflow-x: hidden prevents horizontal scrolling (important for mobile)
+   - width/max-width: 100% ensures content never exceeds viewport width
+   - box-sizing: border-box makes padding/borders count inside the width
+   ============================================ */
+body {
+    margin: 0;                    /* Remove default browser margins */
+    font-family: Arial, sans-serif;  /* Set default font */
+    background-color: #ffffff;   /* White background */
+    overflow-x: hidden;          /* Prevent horizontal scrolling */
+    width: 100%;                 /* Full width of viewport */
+    max-width: 100%;             /* Never exceed viewport width */
+    box-sizing: border-box;      /* Padding/borders included in width calculations */
+}
+html {
+    overflow-x: hidden;          /* Also prevent scrolling on html element */
+    width: 100%;                 /* Full width */
+    max-width: 100%;             /* Never exceed viewport */
+}
+
+/* ============================================
+   MOBILE HEADER
+   Header section for mobile that contains hamburger menu and branding
+   ============================================ */
+.mobile-header {
+    display: none;               /* Hidden on desktop */
+}
+
+/* ============================================
+   NAVIGATION - DESKTOP SIDEBAR
+   ============================================
+   On desktop, the navigation is a fixed sidebar on the left side.
+   - position: fixed keeps it visible when scrolling
+   - flexbox arranges menu items vertically
+   - z-index: 1000 ensures it stays above other content
+   - transition makes width changes smooth when screen resizes
+   ============================================ */
+nav,
+.desktop-nav {
+    position: fixed;             /* Stays in place when scrolling */
+    top: 0;                      /* Align to top of viewport */
+    left: 0;                     /* Align to left edge */
+    bottom: 0;                   /* Extends to bottom of viewport */
+    width: 130px;                /* Default sidebar width */
+    margin-right: 0px;           /* No right margin */
+    margin-left: 20px;           /* 20px space from left edge */
+    padding: 40px 0px 0px 0px;   /* Top padding for spacing */
+    background-color: transparent; /* No background (transparent) */
+    display: flex;               /* Use flexbox layout */
+    flex-direction: column;       /* Stack items vertically */
+    z-index: 1000;               /* Stay above other content */
+    transition: width 0.3s ease; /* Smooth width changes on resize */
+}
+nav ul,
+.desktop-nav ul {
+    list-style: none;            /* Remove bullet points */
+    margin: 0;                   /* Remove default margins */
+    padding: 0;                  /* Remove default padding */
+    display: flex;                /* Use flexbox */
+    flex-direction: column;       /* Stack menu items vertically */
+    gap: 10px;                   /* Space between menu items */
+    flex: 1;                     /* Take up available space */
+}
+
+/* ============================================
+   BRANDING LOGO
+   Fixed position at bottom-left on desktop
+   ============================================
+   The branding text "tóthbátor" is always visible in a fixed position.
+   - pointer-events: none means you can't click it (it's decorative)
+   - position: fixed keeps it visible when scrolling
+   - z-index ensures it stays above page content
+   ============================================ */
+.branding,
+.desktop-branding {
+    position: fixed;             /* Stays in place when scrolling */
+    bottom: 20px;               /* 20px from bottom (desktop) */
+    left: 20px;                 /* 20px from left (desktop) */
+    font-size: 16px;            /* Text size */
+    color: #000;                /* Black text */
+    text-decoration: none;       /* No underline */
+    pointer-events: none;        /* Can't be clicked (decorative only) */
+    z-index: 1000;               /* Stay above other content */
+}
+
+/* ============================================
+   NAVIGATION LINKS
+   ============================================
+   Styles for the navigation menu links.
+   - No underline by default (clean look)
+   - Underline appears on hover for feedback
+   ============================================ */
+nav a {
+    color: #000;                /* Black text */
+    text-decoration: none;      /* No underline by default */
+    font-size: 16px;            /* Text size */
+}
+nav a:hover {
+    text-decoration: underline; /* Show underline when mouse hovers */
+}
+
+/* ============================================
+   MOBILE MENU TOGGLE BUTTON
+   Hidden by default, shown on mobile devices
+   ============================================
+   The hamburger menu button (☰) that appears on mobile.
+   - Hidden on desktop (display: none)
+   - Shown on mobile via media query
+   - z-index: 1001 is higher than nav to stay on top
+   - No border/outline for clean appearance
+   ============================================ */
+.mobile-menu-toggle {
+    display: none;              /* Hidden on desktop */
+    background: transparent;    /* No background */
+    border: none;               /* No border */
+    outline: none;              /* No focus outline */
+    box-shadow: none;           /* No shadow */
+    cursor: pointer;            /* Show pointer cursor on hover */
+    padding: 5px 10px;         /* Button padding */
+    font-size: 24px;           /* Size of hamburger icon */
+    color: #000;               /* Black color */
+    z-index: 1001;             /* Above navigation (1000) */
+    position: relative;         /* For positioning context */
+}
+/* .mobile-menu class - currently unused, commented out */
+/*
+.mobile-menu {
+    display: none;
+}
+*/
+
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   Navigation transforms to horizontal hamburger menu
+   ============================================
+   When screen width is 768px or less, these styles apply.
+   The navigation changes from a sidebar to a top hamburger menu.
+   - nav becomes horizontal at top
+   - menu items are hidden until hamburger is clicked
+   - branding moves to top-right
+   ============================================ */
+@media (max-width: 768px) {
+    /* Hide desktop navigation and branding */
+    .desktop-nav,
+    .desktop-branding {
+        display: none;
+    }
+    
+    /* Show mobile header */
+    .mobile-header {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 60px;
+        padding: 0 20px;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.70) 30%, rgba(255, 255, 255, 0.3) 80%, rgba(255, 255, 255, 0) 100%);
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(00px);
+        z-index: 1001;
+        box-sizing: border-box;
+    }
+    
+    /* Mobile header nav styles */
+    .mobile-header nav {
+        position: static;
+        width: auto;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .mobile-header nav ul {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+    
+    .mobile-header nav ul.active {
+        display: flex;
+    }
+    
+    .mobile-header nav ul li {
+        padding: 15px 20px;
+    }
+    
+    .mobile-header nav ul li a {
+        display: block;
+        width: 100%;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+        background: transparent;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        cursor: pointer;
+        padding: 5px 10px;
+        font-size: 24px;
+        color: #000;
+        z-index: 1002;
+    }
+    
+    .mobile-menu-toggle:focus {
+        outline: none;
+        box-shadow: none;
+    }
+    
+    .mobile-menu-toggle:active {
+        outline: none;
+        box-shadow: none;
+    }
+    
+    /* Branding in mobile header */
+    .mobile-header .branding {
+        position: static;
+        font-size: 16px;
+        color: #000;
+        margin: 0;
+    }
+    
+    /* Add top padding to container to account for mobile header */
+    .container {
+        padding-top: 80px;
+    }
+}
+
+/* ============================================
+   CONTAINER - DESKTOP BASE
+   Main content container with left margin for sidebar
+   ============================================
+   This is the main wrapper for all page content.
+   - margin-left: 150px creates space for the sidebar navigation
+   - display: flex centers content horizontally
+   - min-height: 100vh makes it at least full viewport height
+   - transition makes margin changes smooth when screen resizes
+   The left margin shrinks from 150px to 20px as screen narrows,
+   then resets to 0 on mobile (see responsive breakpoints below).
+   ============================================ */
+.container {
+    margin-left: 150px;         /* Space for sidebar navigation */
+    margin-right: 50px;         /* Right margin for spacing */
+    display: flex;              /* Use flexbox for layout */
+    justify-content: center;    /* Center content horizontally */
+    align-items: flex-start;    /* Align items to top */
+    min-height: 100vh;          /* At least full viewport height */
+    padding: 40px 0px;         /* Vertical padding */
+    transition: margin-left 0.3s ease, margin-right 0.3s ease, padding 0.3s ease; /* Smooth transitions */
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   Navigation width and container margin adjust
+   progressively as screen narrows
+   ============================================
+   As the screen gets smaller, the sidebar and margins adjust gradually.
+   This creates a smooth transition instead of a sudden jump.
+   Breakpoints (from widest to narrowest):
+   - 1024px: Sidebar 160px, margin 160px
+   - 900px: Sidebar 140px, margin 140px
+   - 850px: Sidebar 100px, margin 110px
+   - 800px: Sidebar 60px, margin 110px
+   - 780px: Sidebar 20px, margin 20px
+   - 768px and below: See mobile styles (sidebar becomes hamburger menu)
+   ============================================ */
+@media (max-width: 1024px) {
+    nav {
+        width: 160px;
+    }
+    .container {
+        margin-left: 160px;
+        margin-right: 50px;
+        padding: 35px 0px;
+    }
+}
+@media (max-width: 900px) {
+    nav {
+        width: 140px;
+    }
+    .container {
+        margin-left: 140px;
+        margin-right: 40px;
+        padding: 30px 0px;
+    }
+}
+@media (max-width: 850px) {
+    nav {
+        width: 100px;
+    }
+    .container {
+        margin-left: 110px;
+        margin-right: 30px;
+        padding: 25px 0px;
+    }
+}
+@media (max-width: 800px) {
+    nav {
+        width: 60px;
+    }
+    .container {
+        margin-left: 110px;
+        margin-right: 20px;
+        padding: 20px 0px;
+    }
+}
+@media (max-width: 780px) {
+    nav {
+        width: 20px;
+    }
+    .container {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 20px 0px;
+    }
+}
+
+/* ============================================
+   CONTAINER CONTENT STYLES
+   Inner div and paragraph formatting
+   ============================================
+   Styles for the content inside the container.
+   - max-width: 2000px prevents text from being too wide on large screens
+   - max-width: 800px on paragraphs creates readable line length
+   - text-align: justify makes text align on both left and right edges
+   ============================================ */
+.container > div {
+    display: block;              /* Block-level element */
+    max-width: 2000px;          /* Maximum width (prevents too-wide content) */
+    text-align: left;            /* Left-align text */
+    line-height: 1.5;            /* Space between lines (1.5x font size) */
+}
+h1 {
+    margin-top: 0em;            /* No top margin */
+    margin-bottom: 0.67em;      /* Bottom margin for spacing */
+}
+    
+.container p {
+    margin: 1em auto;            /* Vertical margin, auto horizontal centers the block */
+    width: 800px;                /* Fixed width for centered block */
+    max-width: 800px;              /* Ensure it never exceeds 800px */
+    text-align: justify;         /* Align text on both left and right edges */
+    text-align-last: left;       /* Last line of justified text stays left-aligned */
+    text-indent: 1.5em;          /* Indent first line of paragraph (1.5x font size) */
+}
+
+/* Paragraph without first-line indent (use when you don't want indentation) */
+.container p.no-indent {
+    text-indent: 0;             /* No first-line indent */
+}
+
+/* ============================================
+   SPACER
+   Add vertical spacing between sections
+   ============================================
+   Use <div class="spacer"></div> to add space between content.
+   Available sizes: .spacer, .spacer-small, .spacer-medium, .spacer-large
+   ============================================ */
+.spacer {
+    height: 2em;                /* Default spacing (2x font size) */
+    display: block;              /* Block element */
+}
+.spacer-small {
+    height: 1em;                /* Small spacing (1x font size) */
+    display: block;
+}
+.spacer-medium {
+    height: 3em;                /* Medium spacing (3x font size) */
+    display: block;
+}
+.spacer-large {
+    height: 4em;                /* Large spacing (4x font size) */
+    display: block;
+}
+
+/* ============================================
+   HEADER SECTION
+   For centered header content
+   (Currently unused - commented out)
+   ============================================ */
+/*
+.header-section {
+    text-align: center;
+    margin-bottom: 2em;
+}
+.header-section p {
+    margin: 0.5em 0;
+    text-align: center;
+}
+*/
+
+/* ============================================
+   POETRY/QUOTE SECTION
+   Centered text for poetry and quotes
+   ============================================
+   Use this class for poetry, quotes, or any centered text.
+   - text-align: center centers the text
+   - margin-left/right: auto centers the block itself
+   - font-style: italic makes it look like a quote
+   - line-height: 1.8 gives more space between lines (better for poetry)
+   ============================================ */
+.poetry {
+    text-align: center;          /* Center-align text */
+    margin: 1.5em 0;             /* Vertical spacing above and below */
+    font-style: italic;          /* Italic text (quote-like appearance) */
+    line-height: 1.8;            /* More space between lines (good for poetry) */
+    max-width: 800px;            /* Maximum width for readability */
+    margin-left: auto;           /* Auto left margin (centers the block) */
+    margin-right: auto;          /* Auto right margin (centers the block) */
+}
+
+/* .quote class - currently unused, commented out */
+/*
+.quote {
+    text-align: center;
+    margin: 1.5em 0;
+    font-style: italic;
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+*/
+
+/* ============================================
+   LINKS
+   Global link styling
+   ============================================ */
+a {
+    color: #000;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   IMAGES
+   Base image and picture element styles
+   ============================================
+   Default styles for all images on the page.
+   - max-width: 100% makes images responsive (never wider than container)
+   - height: auto maintains aspect ratio
+   - margin: auto centers images horizontally
+   - object-fit: contain ensures images don't get cropped
+   ============================================ */
+/* picture element - currently unused, commented out */
+/*
+picture {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+*/
+img {
+    max-width: 100%;            /* Never wider than container (responsive) */
+    height: auto;               /* Maintain aspect ratio when width changes */
+    display: block;             /* Block element (allows margins) */
+    margin-top: 16px;          /* Space above image */
+    margin-bottom: 16px;       /* Space below image */
+    margin-left: auto;         /* Auto left margin (centers image) */
+    margin-right: auto;        /* Auto right margin (centers image) */
+    object-fit: contain;       /* Don't crop image, fit it entirely */
+    vertical-align: top;       /* Align to top (prevents baseline spacing) */
+    box-sizing: border-box;     /* Include padding/border in width */
+    min-width: 0;              /* Allow image to shrink below natural size */
+}
+/* picture img - currently unused, commented out */
+/*
+picture img {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+*/
+
+/* ============================================
+   INLINE WIDTH/HEIGHT CONTROLS
+   ============================================
+   These rules allow you to override image sizes with inline styles.
+   When you use style="width: 500px;" or style="height: 400px;" in HTML:
+   - If height is set, width becomes auto (maintains aspect ratio)
+   - If width is set, max-width: none allows it to exceed container
+   This gives you precise control over individual image sizes.
+   ============================================ */
+img[style*="height"] {
+    width: auto;                /* If height is set, let width adjust automatically */
+}
+img[style*="width"] {
+    max-width: none;            /* If width is set inline, allow it to exceed container */
+}
+
+/* ============================================
+   IMAGE ROW
+   Side-by-side layout for 1 or 2 images
+   ============================================
+   Use this to display images side by side.
+   - display: flex creates a flexible container
+   - flex-direction: row arranges items horizontally
+   - gap: 20px adds space between images
+   - justify-content: center centers the images
+   - flex-wrap: wrap allows images to wrap to next line if needed
+   ============================================ */
+.image-row {
+    display: flex;              /* Use flexbox layout */
+    flex-direction: row;         /* Arrange items horizontally */
+    gap: 20px;                  /* Space between images (default, can override inline) */
+    margin: 16px 0;             /* Vertical spacing above and below */
+    align-items: flex-start;    /* Align items to top (if heights differ) */
+    justify-content: center;    /* Center images horizontally */
+    flex-wrap: wrap;            /* Allow wrapping if space is tight */
+}
+/* .image-row img - redundant, using .image-item now - commented out */
+/*
+.image-row img {
+    margin: 0;
+    flex-shrink: 0;
+}
+*/
+
+/* ============================================
+   IMAGE ITEM
+   Individual image with credit wrapper for rows and sliders
+   ============================================
+   This wraps each image with its own photo credit.
+   Used inside .image-row (for side-by-side) or .slider-container (for sliders).
+   - flex-direction: column stacks image above credit
+   - align-items: flex-start aligns credit to left edge of image
+   - flex-shrink: 0 prevents the item from shrinking
+   ============================================ */
+.image-item {
+    display: flex;              /* Use flexbox */
+    flex-direction: column;     /* Stack image and credit vertically */
+    align-items: flex-start;   /* Align items to left (credit matches image left edge) */
+    flex-shrink: 0;            /* Don't shrink this item */
+}
+
+.image-item img {
+    margin: 0;                 /* No margin (spacing handled by parent) */
+    display: block;             /* Block element */
+}
+
+.image-item .photo-credit {
+    margin-top: 5px;           /* Small space between image and credit */
+    margin-bottom: 0;          /* No bottom margin */
+    text-align: left;          /* Left-align credit text */
+    width: 100%;               /* Credit spans full width of image */
+}
+
+/* ============================================
+   IMAGE ITEM VERTICAL ALIGNMENT
+   Control where each image aligns in the row
+   ============================================
+   Use these classes on individual .image-item elements:
+   - .align-top: aligns image to top of container (default)
+   - .align-bottom: aligns image to bottom of container
+   - .align-left: aligns image to the left side of the row
+   - .align-right: aligns image to the right side of the row
+   ============================================ */
+.image-item.align-top {
+    align-self: flex-start;   /* Align this item to top */
+}
+
+.image-item.align-bottom {
+    align-self: flex-end;     /* Align this item to bottom */
+}
+
+.image-item.align-left {
+    margin-right: auto;       /* Push item to the left */
+    margin-left: 0;           /* Remove any left margin */
+}
+
+.image-item.align-right {
+    margin-left: auto;        /* Push item to the right */
+    margin-right: 0;          /* Remove any right margin */
+}
+
+/* ============================================
+   PHOTO CREDIT
+   Text below images for photo credits
+   ============================================
+   Container for images with credits below them.
+   - margin: 16px auto centers the container and adds vertical spacing
+   - Can be used for single images or wrapping image rows/sliders
+   ============================================ */
+.image-with-credit {
+    display: block;             /* Block element */
+    margin: 16px auto;          /* Vertical spacing, auto centers horizontally */
+    text-align: left;           /* Left-align content */
+}
+
+.image-with-credit img {
+    margin: 0 auto;             /* Center image horizontally */
+    display: block;             /* Block element */
+}
+
+/* ============================================
+   PHOTO CREDIT TEXT
+   ============================================
+   The actual credit text that appears below images.
+   - font-size: 0.85em is 85% of normal text (smaller, subtle)
+   - color: #666 is gray (less prominent than black)
+   - font-style: italic makes it look like a caption
+   - Can be used with <p>, <div>, or <span> tags
+   ============================================ */
+.photo-credit {
+    font-size: 0.85em;          /* 85% of normal text size (smaller) */
+    color: #666;                /* Gray color (less prominent) */
+    text-align: left;           /* Left-align text */
+    margin-top: 5px;           /* Small space above */
+    margin-bottom: 16px;       /* Space below */
+    margin-left: 0;            /* No left margin */
+    margin-right: 0;           /* No right margin */
+    font-style: italic;         /* Italic text (caption-like) */
+    line-height: 1.4;          /* Line spacing */
+    display: block;             /* Block element */
+}
+/* Support for div, span, or other elements as photo credit */
+div.photo-credit,
+span.photo-credit {
+    font-size: 0.85em;
+    color: #666;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 16px;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: italic;
+    line-height: 1.4;
+    display: block;
+}
+
+/* ============================================
+   IMAGE GALLERY
+   Grid layout for multiple images
+   (Currently unused - commented out)
+   ============================================ */
+/*
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 2em 0;
+}
+.image-gallery img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+*/
+
+/* ============================================
+   MOBILE RESPONSIVE - CONTAINER, IMAGES & SLIDERS
+   Consolidated mobile styles for all content
+   ============================================
+   When screen is 768px or narrower, these styles override desktop styles.
+   Key changes:
+   - Container becomes full width (no sidebar margin)
+   - Images scale responsively with mobile width controls
+   - Image rows, sliders, and single images all properly sized
+   - Mobile width classes (.mobile-w-*) allow fine control
+   ============================================ */
+@media (max-width: 768px) {
+    /* ============================================
+       CONTAINER & CONTENT
+       ============================================ */
+    .container {
+        padding: 20px;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 70px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .container > div {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .container p {
+        margin-top: 16px;
+        margin-bottom: 16px;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ============================================
+       MOBILE WIDTH CLASSES (HIGHEST SPECIFICITY)
+       Use these classes on img tags to control width on mobile
+       Available: mobile-w-50, mobile-w-60, mobile-w-70, mobile-w-80, mobile-w-90, mobile-w-100
+       ============================================ */
+    /* Mobile width classes for images in rows */
+    .image-row .image-item img.mobile-w-50 { width: 50% !important; max-width: 50% !important; }
+    .image-row .image-item img.mobile-w-60 { width: 60% !important; max-width: 60% !important; }
+    .image-row .image-item img.mobile-w-70 { width: 70% !important; max-width: 70% !important; }
+    .image-row .image-item img.mobile-w-80 { width: 80% !important; max-width: 80% !important; }
+    .image-row .image-item img.mobile-w-90 { width: 90% !important; max-width: 90% !important; }
+    .image-row .image-item img.mobile-w-100 { width: 100% !important; max-width: 100% !important; }
+    /* Larger sizes using viewport width (allows images larger than container) */
+    .image-row .image-item img.mobile-w-110 { width: 110vw !important; max-width: 110vw !important; }
+    .image-row .image-item img.mobile-w-120 { width: 120vw !important; max-width: 120vw !important; }
+    .image-row .image-item img.mobile-w-130 { width: 130vw !important; max-width: 130vw !important; }
+    .image-row .image-item img.mobile-w-140 { width: 140vw !important; max-width: 140vw !important; }
+    .image-row .image-item img.mobile-w-150 { width: 150vw !important; max-width: 150vw !important; }
+    
+    /* Mobile width classes for images in rows with credit wrapper */
+    .image-with-credit .image-item img.mobile-w-50 { width: 50% !important; max-width: 50% !important; }
+    .image-with-credit .image-item img.mobile-w-60 { width: 60% !important; max-width: 60% !important; }
+    .image-with-credit .image-item img.mobile-w-70 { width: 70% !important; max-width: 70% !important; }
+    .image-with-credit .image-item img.mobile-w-80 { width: 80% !important; max-width: 80% !important; }
+    .image-with-credit .image-item img.mobile-w-90 { width: 90% !important; max-width: 90% !important; }
+    .image-with-credit .image-item img.mobile-w-100 { width: 100% !important; max-width: 100% !important; }
+    /* Larger sizes using viewport width (allows images larger than container) */
+    .image-with-credit .image-item img.mobile-w-110 { width: 110vw !important; max-width: 110vw !important; }
+    .image-with-credit .image-item img.mobile-w-120 { width: 120vw !important; max-width: 120vw !important; }
+    .image-with-credit .image-item img.mobile-w-130 { width: 130vw !important; max-width: 130vw !important; }
+    .image-with-credit .image-item img.mobile-w-140 { width: 140vw !important; max-width: 140vw !important; }
+    .image-with-credit .image-item img.mobile-w-150 { width: 150vw !important; max-width: 150vw !important; }
+    
+    /* Mobile width classes for images in sliders */
+    .slider-container .image-item img.mobile-w-50 { width: 50% !important; max-width: 50% !important; }
+    .slider-container .image-item img.mobile-w-60 { width: 60% !important; max-width: 60% !important; }
+    .slider-container .image-item img.mobile-w-70 { width: 70% !important; max-width: 70% !important; }
+    .slider-container .image-item img.mobile-w-80 { width: 80% !important; max-width: 80% !important; }
+    .slider-container .image-item img.mobile-w-90 { width: 90% !important; max-width: 90% !important; }
+    .slider-container .image-item img.mobile-w-100 { width: 100% !important; max-width: 100% !important; }
+    /* Larger sizes using viewport width (allows images larger than container) */
+    .slider-container .image-item img.mobile-w-110 { width: 110vw !important; max-width: 110vw !important; }
+    .slider-container .image-item img.mobile-w-120 { width: 120vw !important; max-width: 120vw !important; }
+    .slider-container .image-item img.mobile-w-130 { width: 130vw !important; max-width: 130vw !important; }
+    .slider-container .image-item img.mobile-w-140 { width: 140vw !important; max-width: 140vw !important; }
+    .slider-container .image-item img.mobile-w-150 { width: 150vw !important; max-width: 150vw !important; }
+
+    /* ============================================
+       IMAGE ROWS
+       ============================================ */
+    .image-row {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+    .image-row .image-item {
+        flex: 0 1 calc(50% - 5px);
+        min-width: 0;
+        max-width: calc(50% - 5px);
+        box-sizing: border-box !important;
+    }
+    .image-row .image-item img {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    .image-row .image-item img[style*="width"] {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* ============================================
+       IMAGE WITH CREDIT WRAPPER
+       ============================================ */
+    .image-with-credit {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
+    }
+    .image-with-credit[style*="width"] {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .image-with-credit .image-row {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Single images in image-with-credit (direct children) */
+    .image-with-credit > img {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .image-with-credit > img[style*="width"] {
+        width: 80% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Images in image-item within image-with-credit */
+    .image-with-credit .image-item img {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .image-with-credit .image-item img[style*="width"] {
+        width: 80% !important;
+        max-width: 100% !important;
+    }
+
+    /* ============================================
+       IMAGE ITEMS (GENERAL)
+       ============================================ */
+    .image-item {
+        width: 100%;
+        max-width: 100%;
+    }
+    .image-item img {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* ============================================
+       IMAGE SLIDER
+       ============================================ */
+    .image-slider-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .image-slider {
+        margin: 16px auto;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .custom-scrollbar-track {
+        width: 100% !important;
+    }
+    .slider-container {
+        gap: 15px;
+    }
+    .slider-container .image-item {
+        width: auto;
+        min-width: 280px;
+        max-width: 90vw;
+        box-sizing: border-box !important;
+    }
+    .slider-container .image-item img {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .slider-container .image-item img[style*="width"] {
+        width: 80% !important;
+        max-width: 100% !important;
+    }
+
+    /* ============================================
+       PHOTO CREDITS
+       ============================================ */
+    .photo-credit {
+        width: 80% !important;
+        max-width: 80% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    .image-item .photo-credit {
+        width: 80% !important;
+        max-width: 80% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    .slider-container .image-item .photo-credit {
+        width: 80% !important;
+        max-width: 80% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* ============================================
+       STANDALONE IMAGES (NOT IN CONTAINERS)
+       ============================================ */
+    img {
+        margin-top: 16px !important;
+        margin-bottom: 16px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        display: block !important;
+    }
+    img[style*="width"] {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+
+/* ============================================
+   IMAGE SLIDER
+   Simple horizontal scrolling slider
+   ============================================
+   Creates a horizontally scrollable container for multiple images.
+   Users can scroll/swipe to see all images.
+   - overflow-x: auto enables horizontal scrolling
+   - overflow-y: hidden prevents vertical scrolling
+   - scroll-behavior: smooth makes scrolling animated
+   - Custom scrollbar styling for better appearance
+   ============================================ */
+/* Slider wrapper - hides native scrollbar, shows custom one */
+.image-slider-wrapper {
+    position: relative;        /* For positioning custom scrollbar */
+    max-width: 100%;          /* Never wider than container */
+    margin: 16px auto;        /* Vertical spacing, centered */
+}
+
+.image-slider {
+    max-width: 100%;           /* Never wider than container */
+    overflow-x: auto;          /* Enable horizontal scrolling */
+    overflow-y: hidden;        /* Disable vertical scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scroll-behavior: smooth;   /* Animated scrolling */
+    /* Hide native scrollbar */
+    scrollbar-width: none;     /* Firefox: hide scrollbar */
+    -ms-overflow-style: none;  /* IE/Edge: hide scrollbar */
+}
+
+/* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+.image-slider::-webkit-scrollbar {
+    display: none;             /* Hide native scrollbar completely */
+}
+
+/* Custom scrollbar track - always visible */
+.custom-scrollbar-track {
+    width: 100%;               /* Full width of slider */
+    height: 10px;             /* Height of scrollbar */
+    background: #e8e8e8;      /* Light gray track */
+    border-radius: 5px;       /* Rounded corners */
+    position: relative;       /* For positioning thumb */
+    margin-top: 8px;         /* Space above scrollbar */
+    margin-bottom: 25px;      /* Space below scrollbar */
+    cursor: pointer;         /* Pointer cursor on hover */
+}
+
+/* Custom scrollbar thumb - draggable handle */
+.custom-scrollbar-thumb {
+    height: 10px;            /* Same height as track */
+    background: #000000;        /* Medium gray thumb */
+    border-radius: 5px;      /* Rounded corners */
+    position: absolute;      /* Positioned within track */
+    top: 0;                  /* Align to top */
+    left: 0;                 /* Start at left */
+    cursor: grab;            /* Grab cursor */
+    transition: background 0.2s; /* Smooth color transition */
+    min-width: 10px;        /* Minimum thumb width */
+    max-width: 50px;        /* Maximum width of thumb */
+}
+
+.custom-scrollbar-thumb:hover {
+    background: #666;        /* Darker gray on hover */
+}
+
+.custom-scrollbar-thumb:active {
+    cursor: grabbing;        /* Grabbing cursor when dragging */
+    background: #555;        /* Even darker when active */
+}
+
+/* Container for slider images - holds all images in a row */
+.slider-container {
+    display: flex;              /* Flexbox layout */
+    gap: 20px;                  /* Space between images */
+    width: max-content;         /* Width fits content (allows horizontal scroll) */
+    align-items: flex-start;    /* Align items to top */
+}
+
+/* .slider-container img - redundant, using .image-item now - commented out */
+/*
+.slider-container img {
+    flex-shrink: 0;
+    height: auto;
+    display: block;
+    margin: 0;
+    object-fit: contain;
+}
+*/
+
+/* Each image item in the slider (image + credit) */
+.slider-container .image-item {
+    flex-shrink: 0;             /* Don't shrink (maintains image size) */
+    display: flex;              /* Flexbox for image + credit */
+    flex-direction: column;     /* Stack image above credit */
+    align-items: flex-start;    /* Align to left */
+}
+
+.slider-container .image-item img {
+    margin: 0;                  /* No margin */
+}
+
+.slider-container .image-item .photo-credit {
+    margin-top: 5px;           /* Space between image and credit */
+    margin-bottom: 0;         /* No bottom margin */
+    text-align: left;         /* Left-align credit */
+    width: 100%;              /* Full width of image */
+}
+

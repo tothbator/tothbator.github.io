@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ============================================
+         HEAD SECTION
+         Document metadata and external resources
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Bátor Tóth (1989, Budapest) - Budapest based artist working with oil paints, oil pastels, acrylic, and silverpoint pens.">
+    <meta name="keywords" content="tóthbátor, Bátor Tóth, artist, biography, Budapest, Berlin, oil painting, contemporary art, abstract art">
+    <meta name="author" content="Bátor Tóth">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tothbator.com/bio.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tothbator.com/bio.html">
+    <meta property="og:title" content="Bio - tóthbátor">
+    <meta property="og:description" content="Bátor Tóth (1989, Budapest) - Budapest based artist working with oil paints, oil pastels, acrylic, and silverpoint pens.">
+    <meta property="og:image" content="https://tothbator.com/images%20vulcan/VULCAN%201.webp">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tothbator.com/bio.html">
+    <meta name="twitter:title" content="Bio - tóthbátor">
+    <meta name="twitter:description" content="Bátor Tóth (1989, Budapest) - Budapest based artist working with oil paints, oil pastels, acrylic, and silverpoint pens.">
+    <meta name="twitter:image" content="https://tothbator.com/images%20vulcan/VULCAN%201.webp">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
+    
+    <title>Bio - tóthbátor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============================================
+         MOBILE HEADER
+         Contains hamburger menu and branding on mobile
+         ============================================ -->
+    <header class="mobile-header">
+        <nav>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+            <ul id="mobile-menu">
+                <li><a href="index.html">vulcan</a></li>
+                <!-- <li><a href="noumenon.html">noumenon</a></li> -->
+                <!-- <li><a href="silverpoints.html">silverpoints</a></li> -->
+                <li><a href="bio.html">bio</a></li>
+                <li><a href="contact.html">contact</a></li>
+            </ul>
+        </nav>
+        <span class="branding">tóthbátor</span>
+    </header>
+    
+    <!-- ============================================
+         DESKTOP NAVIGATION
+         Desktop sidebar navigation (hidden on mobile)
+         ============================================ -->
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="index.html">vulcan</a></li>
+            <!-- <li><a href="noumenon.html">noumenon</a></li> -->
+            <!-- <li><a href="silverpoints.html">silverpoints</a></li> -->
+            <li><a href="bio.html">bio</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- ============================================
+         DESKTOP BRANDING
+         Fixed position branding element (desktop only)
+         ============================================ -->
+    <span class="branding desktop-branding">tóthbátor</span>
+    
+    <!-- ============================================
+         MOBILE MENU SCRIPT
+         Toggles mobile navigation menu on/off
+         ============================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const toggleButton = document.getElementById('mobile-menu-toggle');
+            const menu = document.getElementById('mobile-menu');
+            
+            if (toggleButton && menu) {
+                toggleButton.addEventListener('click', function() {
+                    menu.classList.toggle('active');
+                });
+            }
+
+            // Custom scrollbar functionality
+            function initCustomScrollbar(sliderId) {
+                const slider = document.getElementById(sliderId);
+                if (!slider) return;
+
+                const track = slider.parentElement.querySelector('.custom-scrollbar-track');
+                const thumb = track.querySelector('.custom-scrollbar-thumb');
+                if (!track || !thumb) return;
+
+                // Calculate scrollbar dimensions
+                function updateScrollbar() {
+                    const sliderWidth = slider.clientWidth;
+                    const scrollWidth = slider.scrollWidth;
+                    const scrollable = scrollWidth > sliderWidth;
+
+                    if (!scrollable) {
+                        track.style.display = 'none';
+                        return;
+                    }
+
+                    track.style.display = 'block';
+                    const thumbWidth = (sliderWidth / scrollWidth) * track.offsetWidth;
+                    thumb.style.width = Math.max(thumbWidth, 30) + 'px';
+
+                    const maxLeft = track.offsetWidth - thumb.offsetWidth;
+                    const scrollPercent = slider.scrollLeft / (scrollWidth - sliderWidth);
+                    thumb.style.left = (scrollPercent * maxLeft) + 'px';
+                }
+
+                // Update on scroll
+                slider.addEventListener('scroll', updateScrollbar);
+                window.addEventListener('resize', updateScrollbar);
+                updateScrollbar();
+
+                // Drag functionality
+                let isDragging = false;
+                let startX = 0;
+                let startScrollLeft = 0;
+
+                thumb.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    startX = e.clientX;
+                    startScrollLeft = slider.scrollLeft;
+                    e.preventDefault();
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    const deltaX = e.clientX - startX;
+                    const trackWidth = track.offsetWidth - thumb.offsetWidth;
+                    const scrollWidth = slider.scrollWidth - slider.clientWidth;
+                    const scrollDelta = (deltaX / trackWidth) * scrollWidth;
+                    slider.scrollLeft = startScrollLeft + scrollDelta;
+                });
+
+                document.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+
+                // Click on track to jump
+                track.addEventListener('click', (e) => {
+                    if (e.target === thumb) return;
+                    const clickX = e.clientX - track.getBoundingClientRect().left;
+                    const trackWidth = track.offsetWidth;
+                    const scrollWidth = slider.scrollWidth - slider.clientWidth;
+                    const scrollPercent = clickX / trackWidth;
+                    slider.scrollLeft = scrollPercent * scrollWidth;
+                });
+            }
+
+            // Initialize all sliders
+            document.querySelectorAll('.image-slider').forEach((slider, index) => {
+                if (slider.id) {
+                    initCustomScrollbar(slider.id);
+                } else {
+                    slider.id = 'slider-' + (index + 1);
+                    initCustomScrollbar(slider.id);
+                }
+            });
+        });
+    </script>
+
+    <!-- ============================================
+         MAIN CONTENT CONTAINER
+         Wraps all page content with proper margins
+         ============================================ -->
+    <div class="container">
+        <div>
+            <!-- ============================================
+                 PAGE HEADER
+                 Main title/heading for the page
+                 ============================================ -->
+            <h1>BIO</h1>
+
+            <!-- ============================================
+                 TEXT CONTENT
+                 Paragraphs of text content
+                 Add your bio content here
+                 ============================================ -->
+            <!-- Content will be added here -->
+            
+            <p>Budapest based artist, Bátor Tóth (1989, Budapest, Hungary) after years of playing music, participating in different artistic ventures from photobooks to the performance arts, eventually started his painting practice in Berlin in 2020, where he lived for six years. He was mentored - among others - by NYC artist Jimmie James, Hungarian painter Enikő Márton. Tóth returned to his hometown in 2024, where he now creates primarily with oil paints, while exploring oil pastels, acrylic, and the delicate use of silverpoint pens.<p/>
+
+<p>As if entering a mirror that further expands your surroundings would be possible, Tóth’s paintings guides the viewer, painting-by-painting, closer-and-closer to the realization of the Unknown. Each work invites a confrontation with the self - there we are, staring back at ourselves from an alien perspective, realizing infinite sights of new understandings.<p/>
+    
+<p>Drawing inspiration from philosophical and psychological theories, even from esoteric concepts, Tóth’s practice merges technical precision with abstract landscapes, and more recently, explorations into abstract portraiture. His work challenges conventional viewpoints, blending the everyday with the profound to create a dynamic interplay of perspectives.<p/>
+
+
+<div class="spacer"></div>
+
+            <!-- ============================================
+                 EXHIBITIONS SECTION
+                 List of exhibitions
+                 ============================================ -->
+        
+            <h1>EXHIBITIONS</h1>
+            
+            <!-- Exhibition entries will be added here -->
+            <p>03.10.2020: Quiet Evidence - Group show at Galerie_JS, Berlin</p>
+
+            <p>23.02.2022: Noumenon - Solo show at Szimpla Mini, Budapest</p>
+            
+            <p>02.09.2022: Where We Left Off - Group show at Galerie_JS, Berlin</p>
+            
+            <p>06.12.2024: Allegro Barbaro - Group show at Resident Art Gallery, Budapest</p>
+            
+            <p>22.10.2025: VULCAN - Solo show at Random Gallery, Budapest</p>
+
+        </div>
+    </div>
+</body>
+</html>
+

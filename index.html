@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ============================================
+         HEAD SECTION
+         Document metadata and external resources
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="tóthbátor - Budapest based painter. VULCAN is a profound meditation on transformation, resilience, and the indomitable human spirit, wherein the elemental power of the volcano interlaces with the mythological archetype of Vulcan, the Roman god of fire.">
+    <meta name="keywords" content="tóthbátor, Bátor Tóth, artist, painting, exhibition,oil painting, Budapest, contemporary art, abstract art, VULCAN">
+    <meta name="author" content="Bátor Tóth">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tothbator.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tothbator.com/">
+    <meta property="og:title" content="tóthbátor">
+    <meta property="og:description" content="Budapest based painter. VULCAN: a profound meditation on transformation, resilience, and the indomitable human spirit.">
+    <meta property="og:image" content="https://tothbator.com/images%20vulcan/VULCAN%201.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="tóthbátor">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tothbator.com/">
+    <meta name="twitter:title" content="tóthbátor">
+    <meta name="twitter:description" content="Budapest based painter. VULCAN: a profound meditation on transformation, resilience, and the indomitable human spirit.">
+    <meta name="twitter:image" content="https://tothbator.com/images%20vulcan/VULCAN%201.webp">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
+    
+    <title>tóthbátor - Artist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============================================
+         MOBILE HEADER
+         Contains hamburger menu and branding on mobile
+         ============================================ -->
+    <header class="mobile-header">
+        <nav>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+            <ul id="mobile-menu">
+                <li><a href="index.html">vulcan</a></li>
+                <!-- <li><a href="noumenon.html">noumenon</a></li> -->
+                <!-- <li><a href="silverpoints.html">silverpoints</a></li> -->
+                <li><a href="bio.html">bio</a></li>
+                <li><a href="contact.html">contact</a></li>
+            </ul>
+        </nav>
+        <span class="branding">tóthbátor</span>
+    </header>
+    
+    <!-- ============================================
+         DESKTOP NAVIGATION
+         Desktop sidebar navigation (hidden on mobile)
+         ============================================ -->
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="index.html">vulcan</a></li>
+            <!-- <li><a href="noumenon.html">noumenon</a></li> -->
+            <!-- <li><a href="silverpoints.html">silverpoints</a></li> -->
+            <li><a href="bio.html">bio</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- ============================================
+         DESKTOP BRANDING
+         Fixed position branding element (desktop only)
+         ============================================ -->
+    <span class="branding desktop-branding">tóthbátor</span>
+    
+    <!-- ============================================
+         MOBILE MENU SCRIPT
+         Toggles mobile navigation menu on/off
+         ============================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const toggleButton = document.getElementById('mobile-menu-toggle');
+            const menu = document.getElementById('mobile-menu');
+            
+            if (toggleButton && menu) {
+                toggleButton.addEventListener('click', function() {
+                    menu.classList.toggle('active');
+                });
+            }
+
+            // Custom scrollbar functionality
+            function initCustomScrollbar(sliderId) {
+                const slider = document.getElementById(sliderId);
+                if (!slider) return;
+
+                const track = slider.parentElement.querySelector('.custom-scrollbar-track');
+                const thumb = track.querySelector('.custom-scrollbar-thumb');
+                if (!track || !thumb) return;
+
+                // Calculate scrollbar dimensions
+                function updateScrollbar() {
+                    const sliderWidth = slider.clientWidth;
+                    const scrollWidth = slider.scrollWidth;
+                    const scrollable = scrollWidth > sliderWidth;
+
+                    if (!scrollable) {
+                        track.style.display = 'none';
+                        return;
+                    }
+
+                    track.style.display = 'block';
+                    const thumbWidth = (sliderWidth / scrollWidth) * track.offsetWidth;
+                    thumb.style.width = Math.max(thumbWidth, 30) + 'px';
+
+                    const maxLeft = track.offsetWidth - thumb.offsetWidth;
+                    const scrollPercent = slider.scrollLeft / (scrollWidth - sliderWidth);
+                    thumb.style.left = (scrollPercent * maxLeft) + 'px';
+                }
+
+                // Update on scroll
+                slider.addEventListener('scroll', updateScrollbar);
+                window.addEventListener('resize', updateScrollbar);
+                updateScrollbar();
+
+                // Drag functionality
+                let isDragging = false;
+                let startX = 0;
+                let startScrollLeft = 0;
+
+                thumb.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    startX = e.clientX;
+                    startScrollLeft = slider.scrollLeft;
+                    e.preventDefault();
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    const deltaX = e.clientX - startX;
+                    const trackWidth = track.offsetWidth - thumb.offsetWidth;
+                    const scrollWidth = slider.scrollWidth - slider.clientWidth;
+                    const scrollDelta = (deltaX / trackWidth) * scrollWidth;
+                    slider.scrollLeft = startScrollLeft + scrollDelta;
+                });
+
+                document.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+
+                // Click on track to jump
+                track.addEventListener('click', (e) => {
+                    if (e.target === thumb) return;
+                    const clickX = e.clientX - track.getBoundingClientRect().left;
+                    const trackWidth = track.offsetWidth;
+                    const scrollWidth = slider.scrollWidth - slider.clientWidth;
+                    const scrollPercent = clickX / trackWidth;
+                    slider.scrollLeft = scrollPercent * scrollWidth;
+                });
+            }
+
+            // Initialize all sliders
+            document.querySelectorAll('.image-slider').forEach((slider, index) => {
+                if (slider.id) {
+                    initCustomScrollbar(slider.id);
+                } else {
+                    slider.id = 'slider-' + (index + 1);
+                    initCustomScrollbar(slider.id);
+                }
+            });
+        });
+    </script>
+
+    <!-- ============================================
+         MAIN CONTENT CONTAINER
+         Wraps all page content with proper margins
+         ============================================ -->
+    <div class="container">
+        <div>
+            <!-- ============================================
+                 PAGE HEADER
+                 Main title/heading for the page
+                 ============================================ -->
+            <h1>VULCAN</h1>
+
+            <!-- ============================================
+                 TEXT CONTENT
+                 Paragraphs of text content
+                 ============================================ -->
+            <p>
+                VULCAN is a profound meditation on transformation, resilience, and the indomitable human spirit, wherein the elemental power of the volcano interlaces with the mythological archetype of Vulcan, the Roman god of fire. Through a vivid tapestry of images, symbols, and metaphors, the artist invites viewers to contemplate the alchemy of trials: how it forges, shatters, and, in propitious instances, rebirths us. The exhibition delves into the courage essential for navigating life's glowing uncertainties, carving a path atop unstable ground, and emerging not merely unscathed but metamorphosed. Ascendant, ever higher, piercing new strata of clouds.
+            </p>
+                <!-- ============================================
+                 IMAGE WITH CREDIT - SINGLE IMAGE
+                 Single image with photo credit below
+                 Usage: Set width on container, image width should match
+                 ============================================ -->
+                 <div class="image-with-credit" style="width: 400px;">
+                    <img src="images vulcan/VULCAN 3.webp" alt="Vulcan 3" style="width: 400px;">
+                    <div class="photo-credit">VULCAN No.3</div>
+                </div>
+                
+                 
+                
+
+            <p>
+                In essence, VULCAN unveils the dual nature of the Hero's Journey, whether freely undertaken or imposed by fate. The departure, whether voluntary or compelled, carries the weight the burden of abandoning the familiar, reappraising the past in pursuit of a more certain future. Like Vulcan, who was exiled yet triumphs through mastery of craft, the artist reflects on their own odyssey: exile, escape, return: paved with personal struggles, adventures of hard-won self-discovery.
+            </p>
+            <div class="image-with-credit" style="width: 800px;">
+                <div class="image-row" style="gap: 10px;">
+                    <div class="image-item">
+                        <img src="images vulcan/CHAMBER.webp" alt="CHAMBER" style="width: 250px;">
+                        <div class="photo-credit">Chamber</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images vulcan/AFAAFB.webp" alt="AFAAFB" style="width: 250px;">
+                        <div class="photo-credit">As from Above As from Below</div>
+                    </div>
+                   
+                </div>
+            </div>
+
+            <p>The Vulcan series renders abstract geological cross-sections of the volcano, within which past, present, and future coalesce simultaneously. A powerful metaphor: the ever present potential for destruction and creation. With only the clear sky to afford perspective, the invigorating air beneath the sun, where molten chaos crystallizes into fertile soil and eternal stone.<p/>
+                
+                <!-- ============================================
+                     IMAGE WITH CREDIT - HORIZONTAL SLIDER
+                     Scrollable horizontal image slider, each image with individual credit
+                     Usage: Wrap each image+credit in .image-item within .slider-container
+                     Custom scrollbar is automatically added and functional
+                     ============================================ -->
+                     <div class="image-with-credit" style="width: 800px;">
+                        <div class="image-slider-wrapper">
+                            <div class="image-slider" id="slider-1">
+                                <div class="slider-container">
+                                    <div class="image-item">
+                                        <img src="images vulcan/VULCAN 1.webp" alt="Vulcan 1" style="width: 600px;">
+                                        <div class="photo-credit">VULCAN No.1</div>
+                                    </div>
+                                    <div class="image-item">
+                                        <img src="images vulcan/VULCAN 2.webp" alt="Vulcan 2" style="width: 600px;">
+                                        <div class="photo-credit">VULCAN No.2</div>
+                                    </div>
+                                    <div class="image-item">
+                                        <img src="images vulcan/VULCAN 4.webp" alt="Vulcan 4" style="width: 600px;">
+                                        <div class="photo-credit">VULCAN No.4</div>
+                                    </div>
+                                    <div class="image-item">
+                                        <img src="images vulcan/VULCAN 7.webp" alt="Vulcan 7" style="width: 600px;">
+                                        <div class="photo-credit">VULCAN No.7</div>
+                                    </div>
+                                    <div class="image-item">
+                                        <img src="images vulcan/VULCAN 6.webp" alt="Vulcan 6" style="width: 600px;">
+                                        <div class="photo-credit">VULCAN No.6</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Custom scrollbar -->
+                            <div class="custom-scrollbar-track" data-slider="slider-1">
+                                <div class="custom-scrollbar-thumb"></div>
+                            </div>
+                        </div>
+                    </div>
+             
+             <p>    Post-eruption, the Quiescence series juxtaposes the effortless transformative cooling process with the human condition, illuminating the arduous efforts required to meet one’s true volition.
+            </p>
+              <!-- ============================================
+                 IMAGE WITH CREDIT - ROW - SIDE BY SIDE
+                 Two images displayed side by side, each with individual credit
+                 Usage: Wrap each image+credit in .image-item, set gap on .image-row
+                 ============================================ -->
+            <div class="image-with-credit" style="width: 800px;">
+                <div class="image-row" style="gap: 10px;">
+                    <div class="image-item">
+                        <img src="images vulcan/QUIESCENCE 1 NOT A RED CABBAGE SALAD.webp" alt="QUIESCENCE 1 NOT A RED CABBAGE SALAD" style="width: 250px;">
+                        <div class="photo-credit">Quiescence No.1</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images vulcan/QUIESCENCE 5.webp" alt="QUIESCENCE 5" style="width: 250px;">
+                        <div class="photo-credit">Quiescence No.5</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images vulcan/QUIESCENCE 4.webp" alt="QUIESCENCE 4" style="width: 250px;" class="mobile-w-120">
+                        <div class="photo-credit">Quiescence No.4</div>
+                    </div>
+                </div>
+            </div>
+            <p>
+                VULCAN evokes the rhythms of motion and stillness, eruption and dormancy, destruction and rebirth. The artist hints the presence of a fortress enthroned on the volcano's slopes. A defiant stronghold, unreasonable for an enemy to attempt its capture. Here we abide. Enfolded by the three walls of the gallery adorned with mosaic painting constellations. This fortress, like certain immutable laws in nature and society, resurges after devastation, unassailable against the caprices of conquerors or the inexorable passage of time. The volcano itself remains indifferent, a silent witness to human endeavors - just as we discern in Lord Byron’s poem, Darkness. Irrational panic and mindless violence erupt from uncertain times; it seems the only sanctuary is peril others dare not approach.
+            </p>
+
+                    <!-- ============================================
+                    POETRY/QUOTE SECTION
+                    Centered poetry or quote text
+                    ============================================ -->
+                <div class="poetry">
+                    "Happy were those who dwelt within the eye<br>
+                    Of the volcanos, and their mountain-torch:<br>
+                    A fearful hope was all the world contain'd;"
+                </div>
+                <!-- ============================================
+                 IMAGE WITH CREDIT - SIDE BY SIDE
+                 Two images displayed side by side, each with individual credit
+                 Usage: Wrap each image+credit in .image-item, set gap on .image-row
+                 ============================================ -->
+                 <div class="image-with-credit" style="width: 605px;">
+                    <div class="image-row" style="gap: 5px;">
+                        <div class="image-item">
+                            <img src="images vulcan/QUIESCENCE 2.webp" alt="QUIESCENCE 2" style="width: 300px;">
+                            <div class="photo-credit">Quiescence No.2</div>
+                        </div>
+                        <div class="image-item">
+                            <img src="images vulcan/QUIESCENCE 3 - REENTRY.webp" alt="QUIESCENCE 3 - REENTRY" style="width: 300px;">
+                            <div class="photo-credit">Quiescence No.3 - Reentry</div>
+                        </div>
+                    </div>
+                </div>
+            <p>
+                Abstract portraits emerge from the maelstrom. A purple gaze at the stars.  
+                A self-portrait, undecided. Is it dissipating? Or merely a suspended state of mind awaiting completion.  
+                A woman's glance askance. With discrete imperfections, a disconnected constellation.
+            </p>
+<!-- ============================================
+                 IMAGE WITH CREDIT - SINGLE IMAGE
+                 Single image with photo credit below
+                 Usage: Set width on container, image width should match
+                 ============================================ -->
+                 <div class="image-with-credit" style="width: 400px;">
+                    <img src="images vulcan/48 ON PURPOSE.webp" alt="48 ON PURPOSE" style="width: 400px;">
+                    <div class="photo-credit">48, On Purpose</div>
+                </div>
+                <div style="height: 20px;"></div>
+<!-- ============================================
+                 IMAGE WITH CREDIT - SIDE BY SIDE
+                 Two images displayed side by side, each with individual credit
+                 Usage: Wrap each image+credit in .image-item, set gap on .image-row
+                 ============================================ -->
+                 <div class="image-with-credit" style="width: 605px;">
+                    <div class="image-row" style="gap: 5px;">
+                        <div class="image-item align-bottom">
+                            <img src="images vulcan/UNFINISHED BUSINESS.webp" alt="UNFINISHED BUSINESS" style="width: 250px;">
+                            <div class="photo-credit">Unfinished Business</div>
+                        </div>
+                        <div class="image-item">
+                            <img src="images vulcan/MY FOREST MY MIND.webp" alt="MY FOREST MY MIND" style="width: 300px;">
+                            <div class="photo-credit">My Forest My Mind</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div style="height: 30px;"></div>
+
+                <!-- ============================================
+                 IMAGE WITH CREDIT - SIDE BY SIDE
+                 Two images displayed side by side, each with individual credit
+                 Usage: Wrap each image+credit in .image-item, set gap on .image-row
+                 ============================================ -->
+                 <div class="image-with-credit" style="width: 605px;">
+                    <div class="image-row" style="gap: 5px;">
+                        <div class="image-item align-bottom">
+                            <img src="images vulcan/BEHIND.webp" alt="BEHIND" style="width: 280px;">
+                            <div class="photo-credit">Behind</div>
+                        </div>
+                        <div class="image-item">
+                            <img src="images vulcan/MADE UP MY MIND.webp" alt="MADE UP MY MIND" style="width: 300px;">
+                            <div class="photo-credit">Made Up My Mind</div>
+                        </div>
+                    </div>
+                </div>
+
+            <p>
+                Through VULCAN, the artist calls upon viewers to confront the paradox of existence on marshy terrain, to face the fire of trials, and to embrace the cycles of destruction and creation. This exhibition is a paean to the Hero's Journey—whether chosen or compelled—and a contemplation on the interplay of danger and vitality, isolation and community, stillness and eruption.
+            </p>
+
+   <!-- ============================================
+                 IMAGE WITH CREDIT - SINGLE IMAGE
+                 Single image with photo credit below
+                 Usage: Set width on container, image width should match
+                 ============================================ -->
+                 <div class="image-with-credit" style="width: 400px;">
+                    <img src="images vulcan/DONT HURT THE SPIDERS.webp" alt="DONT HURT THE SPIDERS" style="width: 400px;">
+                    <div class="photo-credit">Don't Hurt the Spiders</div>
+                </div>
+            
+
+           
+
+        </div>
+    </div>
+
+    <div class="spacer"></div>
+</body>
+</html>

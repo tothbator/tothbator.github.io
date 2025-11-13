@@ -1,0 +1,19 @@
+node_modules/
+*.log
+.DS_Store
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+secrets/
+
+# Editor directories
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db
+
