@@ -816,6 +816,20 @@ span.photo-credit {
         width: 80% !important;
         max-width: 100% !important;
     }
+    /* Height-based standalone images in image-with-credit */
+    .image-with-credit > img[style*="height"] {
+        height: auto !important;
+        max-height: 50vh !important;
+        width: auto !important;
+        max-width: 100% !important;
+    }
+    /* Specific height overrides for standalone images */
+    .image-with-credit > img[style*="height: 400px"] {
+        max-height: 50vh !important;
+        height: auto !important;
+        width: auto !important;
+        max-width: 100% !important;
+    }
     
     /* Images in image-item within image-with-credit */
     .image-with-credit .image-item img {
@@ -826,6 +840,20 @@ span.photo-credit {
     }
     .image-with-credit .image-item img[style*="width"] {
         width: 80% !important;
+        max-width: 100% !important;
+    }
+    /* Height-based images in image-with-credit - make responsive */
+    .image-with-credit .image-item img[style*="height"] {
+        height: auto !important;
+        max-height: 50vh !important;
+        width: auto !important;
+        max-width: 100% !important;
+    }
+    /* Specific height overrides for common values */
+    .image-with-credit .image-item img[style*="height: 400px"] {
+        max-height: 50vh !important;
+        height: auto !important;
+        width: auto !important;
         max-width: 100% !important;
     }
 
@@ -875,6 +903,20 @@ span.photo-credit {
     }
     .slider-container .image-item img[style*="width"] {
         width: 80% !important;
+        max-width: 100% !important;
+    }
+    /* Height-based images in sliders - make responsive */
+    .slider-container .image-item img[style*="height"] {
+        height: auto !important;
+        max-height: 50vh !important;
+        width: auto !important;
+        max-width: 100% !important;
+    }
+    /* Specific height overrides for common values in sliders */
+    .slider-container .image-item img[style*="height: 400px"] {
+        max-height: 50vh !important;
+        height: auto !important;
+        width: auto !important;
         max-width: 100% !important;
     }
 
