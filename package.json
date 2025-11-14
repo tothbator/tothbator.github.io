@@ -5,8 +5,8 @@
   "scripts": {
     "convert-images": "node convert-to-webp.js",
     "watch-images": "node watch-images.js",
-    "serve": "npx serve . -l 8000",
-    "start": "npx serve . -l 8000"
+    "serve": "live-server --port=8000 --open=/index.html",
+    "start": "live-server --port=8000 --open=/index.html"
   },
   "devDependencies": {
     "chokidar": "^3.5.3",

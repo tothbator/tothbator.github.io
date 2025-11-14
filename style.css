@@ -357,7 +357,7 @@ h1 {
 }
     
 .container p {
-    margin: 1em auto;            /* Vertical margin, auto horizontal centers the block */
+    margin: 0 auto 2em auto;            /* Vertical margin, auto horizontal centers the block */
     width: 800px;                /* Fixed width for centered block */
     max-width: 800px;              /* Ensure it never exceeds 800px */
     text-align: justify;         /* Align text on both left and right edges */
@@ -606,7 +606,7 @@ img[style*="width"] {
    ============================================ */
 .image-with-credit {
     display: block;             /* Block element */
-    margin: 16px auto;          /* Vertical spacing, auto centers horizontally */
+    margin: 0 auto 2em auto;          /* Vertical spacing, auto centers horizontally */
     text-align: left;           /* Left-align content */
 }
 
@@ -700,8 +700,8 @@ span.photo-credit {
         box-sizing: border-box !important;
     }
     .container p {
-        margin-top: 16px;
-        margin-bottom: 16px;
+        margin-top: 0px;
+        margin-bottom: 2em;
         max-width: 100% !important;
         width: 100% !important;
         box-sizing: border-box !important;
