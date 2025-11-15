@@ -483,7 +483,6 @@ img {
     margin-left: auto;         /* Auto left margin (centers image) */
     margin-right: auto;        /* Auto right margin (centers image) */
     object-fit: contain;       /* Don't crop image, fit it entirely */
-    vertical-align: top;       /* Align to top (prevents baseline spacing) */
     box-sizing: border-box;     /* Include padding/border in width */
     min-width: 0;              /* Allow image to shrink below natural size */
 }
