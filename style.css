@@ -1325,7 +1325,10 @@ span.photo-credit {
 .accordion-header {
     display: flex;                  /* Flexbox layout for toggle + title */
     align-items: center;            /* Vertically center items */
-    padding: 20px;                  /* Internal spacing */
+    padding-top: 20px;      /* Full padding when expanded - top */
+    padding-right: 0px;    /* Full padding when expanded - right */
+    padding-bottom: 20px;   /* Full padding when expanded - bottom */
+    padding-left: 0px;     /* Full padding when expanded - left */
     cursor: pointer;                /* Pointer cursor on hover */
     user-select: none;              /* Prevent text selection */
     transition: background-color 0.2s ease;  /* Smooth color transition */
@@ -1369,13 +1372,13 @@ span.photo-credit {
     max-height: 0;                   /* Start collapsed (no height) */
     overflow: hidden;                /* Hide overflowing content */
     transition: max-height 0.3s ease-out;  /* Smooth collapse animation */
-    padding: 0 20px;                 /* Horizontal padding only when collapsed */
+    padding: 0;                      /* No padding to prevent jumping during animation */
 }
 
 /* Active state for accordion content (when expanded) */
 .accordion-content.active {
     max-height: 2000px;             /* Maximum height when expanded */
-    padding: 20px;                   /* Full padding when expanded */
+    padding: 0px;     /* Full padding when expanded */
     transition: max-height 0.5s ease-in;  /* Smooth expand animation */
 }
 
