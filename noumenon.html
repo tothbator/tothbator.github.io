@@ -37,6 +37,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- ============================================
+         MOBILE HEADER
+         Contains hamburger menu and branding on mobile
+         ============================================ -->
+    <header class="mobile-header">
     <nav>
         <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
         <ul id="mobile-menu">
@@ -48,8 +53,35 @@
         </ul>
     </nav>
     <span class="branding">tóthbátor</span>
+    </header>
+    
+    <!-- ============================================
+         DESKTOP NAVIGATION
+         Desktop sidebar navigation (hidden on mobile)
+         ============================================ -->
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="index.html">vulcan</a></li>
+            <li><a href="noumenon.html">noumenon</a></li>
+            <li><a href="silverpoints.html">silverpoints</a></li>
+            <li><a href="bio.html">bio</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- ============================================
+         DESKTOP BRANDING
+         Fixed position branding element (desktop only)
+         ============================================ -->
+    <span class="branding desktop-branding">tóthbátor</span>
+    
+    <!-- ============================================
+         MOBILE MENU SCRIPT
+         Toggles mobile navigation menu on/off
+         ============================================ -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
             const toggleButton = document.getElementById('mobile-menu-toggle');
             const menu = document.getElementById('mobile-menu');
             
@@ -58,21 +90,214 @@
                     menu.classList.toggle('active');
                 });
             }
+
+            // Custom scrollbar functionality
+            function initCustomScrollbar(sliderId) {
+                const slider = document.getElementById(sliderId);
+                if (!slider) return;
+
+                const track = slider.parentElement.querySelector('.custom-scrollbar-track');
+                const thumb = track.querySelector('.custom-scrollbar-thumb');
+                if (!track || !thumb) return;
+
+                // Calculate scrollbar dimensions
+                function updateScrollbar() {
+                    const sliderWidth = slider.clientWidth;
+                    const scrollWidth = slider.scrollWidth;
+                    const scrollable = scrollWidth > sliderWidth;
+
+                    if (!scrollable) {
+                        track.style.display = 'none';
+                        return;
+                    }
+
+                    track.style.display = 'block';
+                    const thumbWidth = (sliderWidth / scrollWidth) * track.offsetWidth;
+                    thumb.style.width = Math.max(thumbWidth, 30) + 'px';
+
+                    const maxLeft = track.offsetWidth - thumb.offsetWidth;
+                    const scrollPercent = slider.scrollLeft / (scrollWidth - sliderWidth);
+                    thumb.style.left = (scrollPercent * maxLeft) + 'px';
+                }
+
+                // Update on scroll
+                slider.addEventListener('scroll', updateScrollbar);
+                window.addEventListener('resize', updateScrollbar);
+                updateScrollbar();
+
+                // Drag functionality
+                let isDragging = false;
+                let startX = 0;
+                let startScrollLeft = 0;
+
+                thumb.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    startX = e.clientX;
+                    startScrollLeft = slider.scrollLeft;
+                    e.preventDefault();
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    const deltaX = e.clientX - startX;
+                    const trackWidth = track.offsetWidth - thumb.offsetWidth;
+                    const scrollWidth = slider.scrollWidth - slider.clientWidth;
+                    const scrollDelta = (deltaX / trackWidth) * scrollWidth;
+                    slider.scrollLeft = startScrollLeft + scrollDelta;
+                });
+
+                document.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+
+                // Click on track to jump
+                track.addEventListener('click', (e) => {
+                    if (e.target === thumb) return;
+                    const clickX = e.clientX - track.getBoundingClientRect().left;
+                    const trackWidth = track.offsetWidth;
+                    const scrollWidth = slider.scrollWidth - slider.clientWidth;
+                    const scrollPercent = clickX / trackWidth;
+                    slider.scrollLeft = scrollPercent * scrollWidth;
+                });
+            }
+
+            // Initialize all sliders
+            document.querySelectorAll('.image-slider').forEach((slider, index) => {
+                if (slider.id) {
+                    initCustomScrollbar(slider.id);
+                } else {
+                    slider.id = 'slider-' + (index + 1);
+                    initCustomScrollbar(slider.id);
+                }
+            });
         });
     </script>
     <div class="container">
         <div>
-            <h1>VULCAN</h1>
+            <h1>NOUMENON</h1>
+            
+            <div class="image-with-credit" style="width: 800px;">
+                <div class="image-row" style="gap: 50px;">
+                    <div class="image-item">
+                        <img src="images noumenon/nou_flyer_1.webp" alt="nou_flyer_1" style="width: 300px;">
+                        <div class="photo-credit">Identity: Adrienn Császár</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images noumenon/nou_vontax.webp" alt="nou_vontax" style="width: 300px;">
+                        <div class="photo-credit">Identity: Adrienn Császár</div>
+                    </div>
+                </div>
+            </div>
 
-            <p>NOUMENON is a deep meditation on transformation, resilience, and the immortal human spirit, where the elemental power of the volcano intertwines with the mythological narrative of Vulcan, the Roman god of fire. Through a vivid tapestry of images, symbols, and metaphors, the artist invites viewers to contemplate the alchemy of trials—how they shape, destroy, and, in fortunate cases, renew us. The exhibition explores the courage essential for navigating life's glowing uncertainties, forging a path on unstable ground, and emerging not merely unscathed but transfigured, ready to guide others in turn.</p>
+            <p>What do we expect from a work of art? This, of course, depends a lot on our general attitude, temperament, and mood. Sometimes we want to be upset, we want to be shocked, we would most likely to see some destruction. But honestly; can such an expectation be met? For example, can an artist be dadaist enough for his work to appeal to an audience even „more dada” than it? No. Only unsuspecting audiences can be outraged. The greed of an audience that wants to be offended cannot be satisfied. Going beyond all this, let’s move on to the traditional expectations placed on art.</p>
           
-            <img src="vulcan%20images/48%20on%20purpose.png" alt="48 on purpose" style="width: 500px;">
-          
-            <p>In essence, VULCAN unveils the dual nature of the Hero's Journey—whether freely undertaken or imposed by circumstances. The departure, whether voluntary or compelled, carries the weight of abandoning the familiar, reappraising the past in embrace of a more certain future. Like Vulcan, who was exiled yet triumphs through mastery of Craft, the artist reflects on their own odyssey: exile, escape, return—paved with personal struggles, adventures of hard-won self-discovery. The volcano is a powerful metaphor: the force of destruction and creation, where molten chaos crystallizes into fertile soil and eternal stone, mirroring the necessary human labor to reclaim willpower.</p>
+              <!-- ============================================
+                 IMAGE WITH CREDIT - ROW - SIDE BY SIDE
+                 Two images displayed side by side, each with individual credit
+                 Usage: Wrap each image+credit in .image-item, set gap on .image-row
+                 ============================================ -->
+                 <div class="image-with-credit" style="width: 700px;">
+                    <img src="images noumenon/alien_no2.webp" alt="alien_no2" style="width: 700px;">
+                    <div class="photo-credit">Alien No.2</div>
+                </div>
 
-            <p>VULCAN evokes the rhythms of motion and stillness, eruption and dormancy, destruction and rebirth. The artist suggests the presence of a fortress enthroned on the volcano's slopes—a defiant stronghold, unreasonable for the enemy to attempt its capture. Here we dwell. This fortress, like certain inviolable structures in nature and society, reemerges after devastation, unshakable against the whims of conquerors or the passage of time. The volcano itself remains indifferent, a silent witness to human endeavors.</p>
 
-            <p>Through VULCAN, the artist calls upon viewers to confront the paradox of existence on marshy terrain, to face the fire of trials, and to embrace the cycles of destruction and creation. This exhibition is a celebration of the Hero's Journey—whether chosen or compelled—and a meditation on the interplay of danger and vitality, isolation and community, stillness and eruption.</p>
+                
+        
+            <p>The connoisseurs of the first line, the pharaohs and caesars, princes, and bourgeois, expected the work to be at least beautiful, but it was even better if it was stunning. But this direction went bankrupt. The need for beauty was embraced by the masses, alienated from the privileged, as were so many others from their prerogatives. The “beauty” slowly wore off the canvas, even the cigarette boxes, and moved into artificial nail shops, knife grinders, and tattoo parlors. So much beauty is enough for the people, the beauty is scattered like an aerosol.
+            </p>
+<!-- ============================================
+                 IMAGE WITH CREDIT - ROW - SIDE BY SIDE
+                 Two images displayed side by side, each with individual credit
+                 Usage: Wrap each image+credit in .image-item, set gap on .image-row
+                 ============================================ -->
+         
+                 
+                     <div class="image-with-credit" style="width: 300px;">
+                         <img src="images noumenon/alien_no3.webp" alt="alien_no3" style="width: 300px;">
+                         <div class="photo-credit">Alien No.3</div>
+                     </div>
+                        
+                   
+            <p>Still, some kind of transcendent demand remained in us. For the enjoyment of art in many of us and for creation in some of us. What, on the one hand, can still attract the attention of art lovers in our overflowing, post-beauty, phenomenal world? On the other hand, what else can creators try to introduce us to? Maybe the infinity in itself, which is stunning in itself - and therefore perhaps beautiful - can be displayed in any medium.</p>
+<!-- ============================================
+                 IMAGE WITH CREDIT - ROW - SIDE BY SIDE
+                 Two images displayed side by side, each with individual credit
+                 Usage: Wrap each image+credit in .image-item, set gap on .image-row
+                 ============================================ -->
+         
+                 <div class="image-with-credit" style="width: 500px;">
+                            <img src="images noumenon/lasts.webp" alt="lasts" style="width: 500px;">
+                            <div class="photo-credit">Last(s)</div>
+                        </div>
+                  
+            <p style="margin: 0 auto 0 auto;">
+                And just as Leonardo da Vinci says beauty lies not in mass but in proportion, so Benoit Mandelbort says infinity lies in complexity, not quantity. That is, both beauty and complexity (mystery) are mysteries beyond the phenomenon. Because what does the paint tube hide? It is no secret, it is written on it. Phenomenon. Compound of the four elements. But what about Bátor Tóth's paintings? On these canvases it is as if the energy that propelled the primitive phenomenon into yoke and produced the new quality appeared. Noumenon. The complexity, a slice of the infinite, which as such is beautiful at the same time.</p>
+
+            <div style="text-align: right; width: 800px; max-width: 800px; margin: 0 5em 3em auto;">von Tax</div>
+
+            
+                    <div class="image-with-credit" style="width: 700px;">
+                        <img src="images noumenon/alien_no4.webp" alt="  alien_no4" style="width: 700px;">
+                        <div class="photo-credit">Alien No.4</div>
+                    </div>
+        
+
+                   
+
+ <!-- ============================================
+                     IMAGE WITH CREDIT - HORIZONTAL SLIDER
+                     Scrollable horizontal image slider, each image with individual credit
+                     Usage: Wrap each image+credit in .image-item within .slider-container
+                     Custom scrollbar is automatically added and functional
+                     ============================================ -->
+                     <div class="image-with-credit" style="width: 800px;">
+                        <div class="image-slider-wrapper">
+                            <div class="image-slider" id="slider-7">
+                                <div class="slider-container">
+                                    
+                                    
+
+
+                                    <div class="image-item">
+                                        <img src="images noumenon/alien_no3_mood.webp" alt="alien_no3_mood" style="width: 260px;">
+                                        <div class="photo-credit">photo: Zsolt Ficsór</div>
+                                    </div>
+                                    <div class="image-item">
+                                        <img src="images noumenon/alien_no2_mood.webp" alt="alien_no2_mood" style="width: 260px;">
+                                        <div class="photo-credit">photo: Zsolt Ficsór</div>
+                                    </div>
+                                    <div class="image-item">
+                                        <img src="images noumenon/alien_no5_mood.webp" alt="alien_no5_mood" style="width: 260px;">
+                                        <div class="photo-credit">photo: Zsolt Ficsór</div>
+                                    </div>
+                                    <!--
+                                    <div class="image-item">
+                                        <img src="images noumenon/lasts_detail.webp" alt="lasts_detail" style="width: 260px;">
+                                        <div class="photo-credit">photo: Zsolt Ficsór</div>
+                                    </div>
+                                    -->
+                                    
+                                    
+                                </div>
+                            </div>
+                            <!-- Custom scrollbar -->
+                            <div class="custom-scrollbar-track" data-slider="slider-7">
+                                <div class="custom-scrollbar-thumb"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+            <div class="spacer-large"></div>
         </div>
     </div>
 </body>

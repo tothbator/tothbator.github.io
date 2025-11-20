@@ -187,13 +187,13 @@ nav a:hover {
         top: 60px;
         left: 0;
         right: 0;
-        width: 100%;
+        width: 20%;
         flex-direction: column;
         gap: 0;
         margin: 0;
         padding: 0;
-        background-color: #ffffff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        /* background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.70) 30%, rgba(255, 255, 255, 0.3) 80%, rgba(255, 255, 255, 0) 100%); */
+        /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
         z-index: 999;
     }
     
@@ -240,11 +240,6 @@ nav a:hover {
         color: #000;
         margin: 0;
     }
-    
-    /* Add top padding to container to account for mobile header */
-    .container {
-        padding-top: 80px;
-    }
 }
 
 /* ============================================
@@ -268,6 +263,9 @@ nav a:hover {
     min-height: 100vh;          /* At least full viewport height */
     padding: 40px 0px;         /* Vertical padding */
     transition: margin-left 0.3s ease, margin-right 0.3s ease, padding 0.3s ease; /* Smooth transitions */
+    max-width: calc(100vw - 200px); /* Prevent overflow: viewport width minus margins */
+    box-sizing: border-box;     /* Include padding in width calculations */
+    width: 100%;                /* Full available width */
 }
 
 /* ============================================
@@ -293,6 +291,33 @@ nav a:hover {
         margin-left: 160px;
         margin-right: 50px;
         padding: 35px 0px;
+        max-width: calc(100vw - 210px); /* Viewport width minus margins */
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .container > div {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .container p {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    /* Override inline fixed widths on image containers - but preserve centering */
+    .image-with-credit[style*="width"] {
+        max-width: 100% !important;
+        /* Don't override width - let inline style work, just constrain max-width */
+        box-sizing: border-box !important;
+        margin-left: auto !important;  /* Ensure centering is preserved */
+        margin-right: auto !important;
+    }
+    /* Make poetry responsive */
+    .poetry {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
 @media (max-width: 900px) {
@@ -303,6 +328,33 @@ nav a:hover {
         margin-left: 140px;
         margin-right: 40px;
         padding: 30px 0px;
+        max-width: calc(100vw - 180px); /* Viewport width minus margins */
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .container > div {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .container p {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    /* Override inline fixed widths on image containers - but preserve centering */
+    .image-with-credit[style*="width"] {
+        max-width: 100% !important;
+        /* Don't override width - let inline style work, just constrain max-width */
+        box-sizing: border-box !important;
+        margin-left: auto !important;  /* Ensure centering is preserved */
+        margin-right: auto !important;
+    }
+    /* Make poetry responsive */
+    .poetry {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
 @media (max-width: 850px) {
@@ -313,6 +365,33 @@ nav a:hover {
         margin-left: 110px;
         margin-right: 30px;
         padding: 25px 0px;
+        max-width: calc(100vw - 140px); /* Viewport width minus margins */
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .container > div {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .container p {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    /* Override inline fixed widths on image containers - but preserve centering */
+    .image-with-credit[style*="width"] {
+        max-width: 100% !important;
+        /* Don't override width - let inline style work, just constrain max-width */
+        box-sizing: border-box !important;
+        margin-left: auto !important;  /* Ensure centering is preserved */
+        margin-right: auto !important;
+    }
+    /* Make poetry responsive */
+    .poetry {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
 @media (max-width: 800px) {
@@ -323,6 +402,33 @@ nav a:hover {
         margin-left: 110px;
         margin-right: 20px;
         padding: 20px 0px;
+        max-width: calc(100vw - 130px); /* Viewport width minus margins */
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .container > div {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .container p {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    /* Override inline fixed widths on image containers - but preserve centering */
+    .image-with-credit[style*="width"] {
+        max-width: 100% !important;
+        /* Don't override width - let inline style work, just constrain max-width */
+        box-sizing: border-box !important;
+        margin-left: auto !important;  /* Ensure centering is preserved */
+        margin-right: auto !important;
+    }
+    /* Make poetry responsive */
+    .poetry {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
 @media (max-width: 780px) {
@@ -333,6 +439,33 @@ nav a:hover {
         margin-left: 20px;
         margin-right: 20px;
         padding: 20px 0px;
+        max-width: calc(100vw - 40px); /* Viewport width minus margins */
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .container > div {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .container p {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    /* Override inline fixed widths on image containers - but preserve centering */
+    .image-with-credit[style*="width"] {
+        max-width: 100% !important;
+        /* Don't override width - let inline style work, just constrain max-width */
+        box-sizing: border-box !important;
+        margin-left: auto !important;  /* Ensure centering is preserved */
+        margin-right: auto !important;
+    }
+    /* Make poetry responsive */
+    .poetry {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
 
@@ -362,7 +495,7 @@ h1 {
     max-width: 800px;              /* Ensure it never exceeds 800px */
     text-align: justify;         /* Align text on both left and right edges */
     text-align-last: left;       /* Last line of justified text stays left-aligned */
-    text-indent: 1.5em;          /* Indent first line of paragraph (1.5x font size) */
+    text-indent: 0;              /* No first-line indent */
 }
 
 /* Paragraph without first-line indent (use when you don't want indentation) */
@@ -605,13 +738,32 @@ img[style*="width"] {
    ============================================ */
 .image-with-credit {
     display: block;             /* Block element */
-    margin: 0 auto 2em auto;          /* Vertical spacing, auto centers horizontally */
+    margin: 0 auto 2em auto;    /* Vertical spacing, auto centers horizontally */
+    margin-left: auto !important;  /* Ensure centering at all breakpoints */
+    margin-right: auto !important; /* Ensure centering at all breakpoints */
     text-align: left;           /* Left-align content */
 }
 
 .image-with-credit img {
-    margin: 0 auto;             /* Center image horizontally */
+    margin: 0 auto;             /* Center image horizontally (default) */
     display: block;             /* Block element */
+}
+
+/* Single images in .image-with-credit: container is centered, image is left-aligned within */
+.image-with-credit > img {
+    margin-left: auto !important;     /* Left-align image within container */
+    margin-right: auto !important;  /* Allow right margin for smaller images */
+    display: block;                  /* Block element */
+}
+
+/* Ensure photo credit aligns with image left edge - spans full container width for alignment */
+.image-with-credit > img + .photo-credit {
+    margin-left: auto !important;      /* Align with container/image left edge */
+    margin-right: auto !important;     /* No right margin */
+    width: 80% !important;          /* Match container width to align with image left edge */
+    max-width: 100% !important;     /* Don't exceed container */
+    box-sizing: border-box !important; /* Include padding in width calculation */
+    text-align: left !important;     /* Left-align text within credit */
 }
 
 /* ============================================
@@ -685,10 +837,10 @@ span.photo-credit {
        CONTAINER & CONTENT
        ============================================ */
     .container {
-        padding: 20px;
+        padding: 80px 20px 20px 20px;  /* Extra top padding (80px) to account for mobile header */
         margin-left: 0 !important;
         margin-right: 0 !important;
-        margin-top: 70px !important;
+        margin-top: 0 !important;
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
@@ -703,6 +855,36 @@ span.photo-credit {
         margin-bottom: 2em;
         max-width: 100% !important;
         width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    /* Ensure all headings respect container width */
+    h1, h2, h3, h4, h5, h6 {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    /* Make poetry responsive */
+    .poetry {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    /* Ensure accordion respects container width */
+    .accordion {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .accordion-content {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    /* Ensure any div with inline width styles respects container (but not images which have specific rules) */
+    div[style*="width"]:not(.image-with-credit):not(.image-item):not(.image-row):not(.slider-container):not(.image-slider-wrapper) {
+        max-width: 100% !important;
         box-sizing: border-box !important;
     }
 
@@ -787,15 +969,17 @@ span.photo-credit {
        IMAGE WITH CREDIT WRAPPER
        ============================================ */
     .image-with-credit {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+        max-width: 100% !important;  /* Constrain to viewport, but preserve inline width */
+        margin-left: auto !important;  /* Ensure centering on mobile */
+        margin-right: auto !important; /* Ensure centering on mobile */
         box-sizing: border-box !important;
     }
     .image-with-credit[style*="width"] {
-        width: 100% !important;
-        max-width: 100% !important;
+        max-width: 100% !important;  /* Constrain to viewport, but preserve inline width */
+        /* Don't override width - let inline style work, just constrain max-width */
+        margin-left: auto !important;  /* Preserve centering on mobile */
+        margin-right: auto !important; /* Preserve centering on mobile */
+        box-sizing: border-box !important;
     }
     .image-with-credit .image-row {
         width: 100% !important;
@@ -1000,7 +1184,7 @@ span.photo-credit {
 /* Custom scrollbar track - always visible */
 .custom-scrollbar-track {
     width: 100%;               /* Full width of slider */
-    height: 10px;             /* Height of scrollbar */
+    height: 10px;             /* Height of scrollbar----------------------- */
     background: #e8e8e8;      /* Light gray track */
     border-radius: 5px;       /* Rounded corners */
     position: relative;       /* For positioning thumb */
@@ -1011,7 +1195,7 @@ span.photo-credit {
 
 /* Custom scrollbar thumb - draggable handle */
 .custom-scrollbar-thumb {
-    height: 10px;            /* Same height as track */
+    height: 10px;            /* Same height as track ----------------------- */
     background: #000000;        /* Medium gray thumb */
     border-radius: 5px;      /* Rounded corners */
     position: absolute;      /* Positioned within track */
@@ -1019,8 +1203,8 @@ span.photo-credit {
     left: 0;                 /* Start at left */
     cursor: grab;            /* Grab cursor */
     transition: background 0.2s; /* Smooth color transition */
-    min-width: 10px;        /* Minimum thumb width */
-    max-width: 50px;        /* Maximum width of thumb */
+    min-width: 0px;        /* Minimum thumb width -----------------------*/
+    max-width: 20%;        /* Maximum width of thumb ----------------------------------*/
 }
 
 .custom-scrollbar-thumb:hover {
@@ -1068,5 +1252,100 @@ span.photo-credit {
     margin-bottom: 0;         /* No bottom margin */
     text-align: left;         /* Left-align credit */
     width: 100%;              /* Full width of image */
+}
+
+/* ============================================
+   ACCORDION / DROPDOWN SECTION
+   Collapsible content sections with plus/minus toggle
+   ============================================
+   The accordion component allows content to be hidden/shown
+   by clicking on a header with a plus/minus toggle button.
+   ============================================ */
+
+/* Main accordion container */
+.accordion {
+    border: 0px solid #ddd;        /* No visible border */
+    border-radius: 4px;             /* Rounded corners */
+    margin: 30px 0;                 /* Vertical spacing above and below */
+    background-color: #fff;         /* White background */
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */  /* Shadow disabled */
+}
+
+/* Accordion header - clickable area with toggle and title */
+.accordion-header {
+    display: flex;                  /* Flexbox layout for toggle + title */
+    align-items: center;            /* Vertically center items */
+    padding: 20px;                  /* Internal spacing */
+    cursor: pointer;                /* Pointer cursor on hover */
+    user-select: none;              /* Prevent text selection */
+    transition: background-color 0.2s ease;  /* Smooth color transition */
+}
+
+/* Hover state for accordion header */
+.accordion-header:hover {
+    background-color: #ffffffad;      /* White background on hover */
+}
+
+/* Plus/minus toggle button */
+.accordion-toggle {
+    font-size: 40px;                /* Large font size for visibility */
+    font-weight: lighter;            /* Light font weight */
+    width: 30px;                     /* Fixed width */
+    height: 30px;                    /* Fixed height */
+    display: flex;                   /* Flexbox for centering */
+    align-items: center;             /* Vertical centering */
+    justify-content: center;         /* Horizontal centering */
+    margin-right: 20px;             /* Space between toggle and title */
+    color: #000000;                     /* Dark gray color */
+    transition: transform 0.3s ease; /* Smooth rotation transition */
+    flex-shrink: 0;                  /* Don't shrink when space is limited */
+}
+
+/* Active state for toggle (when accordion is open) */
+.accordion-header.active .accordion-toggle {
+    transform: rotate(0deg);         /* No rotation (can be adjusted if needed) */
+}
+
+/* Accordion title text */
+.accordion-title {
+    font-size: 1.2em;                /* Slightly larger than base font */
+    font-weight: 600;                /* Semi-bold weight */
+    color: #000000;                     /* Dark gray color */
+    flex: 1;                         /* Take remaining space in flex container */
+}
+
+/* Accordion content area - initially hidden */
+.accordion-content {
+    max-height: 0;                   /* Start collapsed (no height) */
+    overflow: hidden;                /* Hide overflowing content */
+    transition: max-height 0.3s ease-out;  /* Smooth collapse animation */
+    padding: 0 20px;                 /* Horizontal padding only when collapsed */
+}
+
+/* Active state for accordion content (when expanded) */
+.accordion-content.active {
+    max-height: 2000px;             /* Maximum height when expanded */
+    padding: 20px;                   /* Full padding when expanded */
+    transition: max-height 0.5s ease-in;  /* Smooth expand animation */
+}
+
+/* Paragraphs inside accordion content */
+.accordion-content p {
+    margin-bottom: 15px;             /* Space between paragraphs */
+    color: #000000;                  /* Black text color */
+}
+
+/* Image containers with credits inside accordion */
+.accordion-content .image-with-credit {
+    margin: 20px 0;                  /* Vertical spacing above and below */
+}
+
+/* Images inside accordion content */
+.accordion-content img {
+    max-width: 100%;                 /* Responsive - never exceed container width */
+    height: auto;                    /* Maintain aspect ratio */
+    margin: 20px 0;                  /* Vertical spacing */
+    border-radius: 4px;              /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);  /* Subtle shadow for depth */
 }
 

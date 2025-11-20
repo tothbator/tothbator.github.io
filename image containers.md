@@ -64,11 +64,16 @@
 
 
 
+
+
+
+
               <!-- ============================================
                  IMAGE WITH CREDIT - SINGLE IMAGE
                  Single image with photo credit below
                  Usage: Set width on container, image width should match
                  ============================================ -->
+                 
                  <div class="image-with-credit" style="width: 400px;">
                     <img src="images vulcan/VULCAN 3.webp" alt="Vulcan 3" style="width: 400px;">
                     <div class="photo-credit">VULCAN No.3</div>
