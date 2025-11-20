@@ -192,8 +192,16 @@ nav a:hover {
         gap: 0;
         margin: 0;
         padding: 0;
-        /*background-color: #fff;
-         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+        /* Semi-transparent background required for backdrop-filter to work */
+        /* Lower opacity allows more blur visibility */
+        background: rgba(255, 255, 255, 0.5);
+        /* Backdrop blur effect - blurs content behind the element */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px); /* Safari compatibility */
+        /* Create new stacking context for backdrop-filter */
+        isolation: isolate;
+        /* Optimize for backdrop-filter rendering */
+        will-change: backdrop-filter;
         z-index: 999;
     }
     
@@ -1377,7 +1385,7 @@ span.photo-credit {
 
 /* Active state for accordion content (when expanded) */
 .accordion-content.active {
-    max-height: 2000px;             /* Maximum height when expanded */
+    max-height: 4000px;             /* Maximum height when expanded */
     padding: 0px;     /* Full padding when expanded */
     transition: max-height 0.5s ease-in;  /* Smooth expand animation */
 }
