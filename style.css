@@ -192,8 +192,8 @@ nav a:hover {
         gap: 0;
         margin: 0;
         padding: 0;
-        /* background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.70) 30%, rgba(255, 255, 255, 0.3) 80%, rgba(255, 255, 255, 0) 100%); */
-        /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+        /*background-color: #fff;
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
         z-index: 999;
     }
     
@@ -202,7 +202,7 @@ nav a:hover {
     }
     
     .mobile-header nav ul li {
-        padding: 15px 20px;
+        padding: 9px 20px;
     }
     
     .mobile-header nav ul li a {
@@ -300,6 +300,13 @@ nav a:hover {
         width: 100% !important;
         box-sizing: border-box !important;
     }
+    h1 {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
     .container p {
         width: 100% !important;
         max-width: 100% !important;
@@ -336,6 +343,13 @@ nav a:hover {
         max-width: 100% !important;
         width: 100% !important;
         box-sizing: border-box !important;
+    }
+    h1 {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
     .container p {
         width: 100% !important;
@@ -374,6 +388,13 @@ nav a:hover {
         width: 100% !important;
         box-sizing: border-box !important;
     }
+    h1 {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
     .container p {
         width: 100% !important;
         max-width: 100% !important;
@@ -411,6 +432,13 @@ nav a:hover {
         width: 100% !important;
         box-sizing: border-box !important;
     }
+    h1 {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
     .container p {
         width: 100% !important;
         max-width: 100% !important;
@@ -447,6 +475,13 @@ nav a:hover {
         max-width: 100% !important;
         width: 100% !important;
         box-sizing: border-box !important;
+    }
+    h1 {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
     .container p {
         width: 100% !important;
@@ -487,10 +522,18 @@ nav a:hover {
 h1 {
     margin-top: 0em;            /* No top margin */
     margin-bottom: 0.67em;      /* Bottom margin for spacing */
+    margin-left: auto;          /* Center horizontally, matching paragraphs */
+    margin-right: auto;         /* Center horizontally, matching paragraphs */
+    width: 800px;               /* Fixed width for centered block, matching paragraphs */
+    max-width: 800px;           /* Ensure it never exceeds 800px */
+    text-align: left;           /* Left-align text */
 }
     
 .container p {
-    margin: 0 auto 2em auto;            /* Vertical margin, auto horizontal centers the block */
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 2em;
+    margin-left: auto;
     width: 800px;                /* Fixed width for centered block */
     max-width: 800px;              /* Ensure it never exceeds 800px */
     text-align: justify;         /* Align text on both left and right edges */
@@ -758,7 +801,7 @@ img[style*="width"] {
 
 /* Ensure photo credit aligns with image left edge - spans full container width for alignment */
 .image-with-credit > img + .photo-credit {
-    margin-left: auto !important;      /* Align with container/image left edge */
+    /* margin-left: auto !important;      Align with container/image left edge */
     margin-right: auto !important;     /* No right margin */
     width: 80% !important;          /* Match container width to align with image left edge */
     max-width: 100% !important;     /* Don't exceed container */
@@ -850,6 +893,13 @@ span.photo-credit {
         width: 100% !important;
         box-sizing: border-box !important;
     }
+    h1 {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
     .container p {
         margin-top: 0px;
         margin-bottom: 2em;
@@ -858,7 +908,7 @@ span.photo-credit {
         box-sizing: border-box !important;
     }
     /* Ensure all headings respect container width */
-    h1, h2, h3, h4, h5, h6 {
+    h2, h3, h4, h5, h6 {
         max-width: 100% !important;
         width: 100% !important;
         box-sizing: border-box !important;
