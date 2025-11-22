@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ============================================
+         HEAD SECTION
+         Document metadata and external resources
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Download catalogues and portfolio materials from tóthbátor - Budapest based painter.">
+    <meta name="keywords" content="tóthbátor, Bátor Tóth, downloads, catalogue, portfolio, PDF, Budapest, artist">
+    <meta name="author" content="Bátor Tóth">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tothbator.com/downloads.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tothbator.com/downloads.html">
+    <meta property="og:title" content="Downloads - tóthbátor">
+    <meta property="og:description" content="Download catalogues and portfolio materials from tóthbátor - Budapest based painter.">
+    <meta property="og:image" content="https://tothbator.com/images%20vulcan/VULCAN%201.webp">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tothbator.com/downloads.html">
+    <meta name="twitter:title" content="Downloads - tóthbátor">
+    <meta name="twitter:description" content="Download catalogues and portfolio materials from tóthbátor - Budapest based painter.">
+    <meta name="twitter:image" content="https://tothbator.com/images%20vulcan/VULCAN%201.webp">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
+    
+    <title>Downloads - tóthbátor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============================================
+         MOBILE HEADER
+         Contains hamburger menu and branding on mobile
+         ============================================ -->
+    <header class="mobile-header">
+        <nav>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+            <ul id="mobile-menu">
+                <li><a href="index.html">vulcan</a></li>
+                <li><a href="noumenon.html">noumenon</a></li>
+                <li><a href="silverpoints.html">silverpoints</a></li>
+                <li><a href="bio.html">bio</a></li>
+                <li><a href="contact.html">contact</a></li>
+                <li><a href="downloads.html">downloads</a></li>
+            </ul>
+        </nav>
+        <span class="branding">tóthbátor</span>
+    </header>
+    
+    <!-- ============================================
+         DESKTOP NAVIGATION
+         Desktop sidebar navigation (hidden on mobile)
+         ============================================ -->
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="index.html">vulcan</a></li>
+            <li><a href="noumenon.html">noumenon</a></li>
+            <li><a href="silverpoints.html">silverpoints</a></li>
+            <li><a href="bio.html">bio</a></li>
+            <li><a href="contact.html">contact</a></li>
+            <li><a href="downloads.html">downloads</a></li>
+        </ul>
+    </nav>
+    
+    <!-- ============================================
+         DESKTOP BRANDING
+         Fixed position branding element (desktop only)
+         ============================================ -->
+    <span class="branding desktop-branding">tóthbátor</span>
+    
+    <!-- ============================================
+         MOBILE MENU SCRIPT
+         Toggles mobile navigation menu on/off
+         ============================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const toggleButton = document.getElementById('mobile-menu-toggle');
+            const menu = document.getElementById('mobile-menu');
+            
+            if (toggleButton && menu) {
+                toggleButton.addEventListener('click', function() {
+                    menu.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+
+    <!-- ============================================
+         MAIN CONTENT CONTAINER
+         Wraps all page content with proper margins
+         ============================================ -->
+    <div class="container">
+        <div>
+            <!-- ============================================
+                 PAGE HEADER
+                 Main title/heading for the page
+                 ============================================ -->
+            <h1>DOWNLOADS</h1>
+
+            <!-- ============================================
+                 DOWNLOADS CONTENT
+                 Download links for catalogues and portfolio
+                 ============================================ -->
+            <div class="downloads">
+                <p>
+                    <a href="downloads/tothbator_vulcan_catalogue.pdf" download>
+                        tothbator_vulcan_catalogue.pdf
+                    </a>
+                </p>
+                <p>
+                    <a href="downloads/tothbator_portfolio.pdf" download>
+                        tothbator_portfolio.pdf
+                    </a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+

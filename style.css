@@ -1477,13 +1477,15 @@ span.photo-credit {
     justify-content: center;         /* Horizontal centering */
     margin-right: 20px;             /* Space between toggle and title */
     color: #000000;                     /* Dark gray color */
-    transition: transform 0.3s ease; /* Smooth rotation transition */
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.25s ease-in-out;  /* Smooth, elegant transition */
     flex-shrink: 0;                  /* Don't shrink when space is limited */
+    transform-origin: center;         /* Transform from center */
 }
 
 /* Active state for toggle (when accordion is open) */
 .accordion-header.active .accordion-toggle {
-    transform: rotate(0deg);         /* No rotation (can be adjusted if needed) */
+    transform: scale(1.1);  /* Subtle scale for smooth visual feedback */
 }
 
 /* Accordion title text */
