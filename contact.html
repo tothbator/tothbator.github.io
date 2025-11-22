@@ -165,15 +165,59 @@
                 });
             }
 
-            // Initialize all sliders
-            document.querySelectorAll('.image-slider').forEach((slider, index) => {
-                if (slider.id) {
-                    initCustomScrollbar(slider.id);
-                } else {
-                    slider.id = 'slider-' + (index + 1);
-                    initCustomScrollbar(slider.id);
+            // Initialize all sliders - wait for images to load
+            function initializeAllSliders() {
+                document.querySelectorAll('.image-slider').forEach((slider, index) => {
+                    if (slider.id) {
+                        initCustomScrollbar(slider.id);
+                    } else {
+                        slider.id = 'slider-' + (index + 1);
+                        initCustomScrollbar(slider.id);
+                    }
+                });
+            }
+            
+            // Wait for all images in sliders to load before initializing scrollbars
+            const sliderImages = document.querySelectorAll('.image-slider img');
+            let loadedImages = 0;
+            const totalImages = sliderImages.length;
+            
+            if (totalImages === 0) {
+                // No images, initialize immediately
+                initializeAllSliders();
+            } else {
+                // Wait for all images to load
+                sliderImages.forEach(img => {
+                    if (img.complete) {
+                        loadedImages++;
+                    } else {
+                        img.addEventListener('load', function() {
+                            loadedImages++;
+                            if (loadedImages === totalImages) {
+                                initializeAllSliders();
+                            }
+                        });
+                        img.addEventListener('error', function() {
+                            loadedImages++;
+                            if (loadedImages === totalImages) {
+                                initializeAllSliders();
+                            }
+                        });
+                    }
+                });
+                
+                // Fallback: initialize after a short delay if images take too long
+                setTimeout(function() {
+                    if (loadedImages < totalImages) {
+                        initializeAllSliders();
+                    }
+                }, 1000);
+                
+                // Also initialize if all images are already loaded
+                if (loadedImages === totalImages) {
+                    initializeAllSliders();
                 }
-            });
+            }
         });
     </script>
 
