@@ -137,13 +137,13 @@ nav a:hover {
    MOBILE RESPONSIVE STYLES
    Navigation transforms to horizontal hamburger menu
    ============================================
-   When screen width is 768px or less, these styles apply.
+   When screen width is 781px or less, these styles apply.
    The navigation changes from a sidebar to a top hamburger menu.
    - nav becomes horizontal at top
    - menu items are hidden until hamburger is clicked
    - branding moves to top-right
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 781px) {
     /* Hide desktop navigation and branding */
     .desktop-nav,
     .desktop-branding {
@@ -291,8 +291,7 @@ nav a:hover {
    - 900px: Sidebar 140px, margin 140px
    - 850px: Sidebar 100px, margin 110px
    - 800px: Sidebar 60px, margin 110px
-   - 780px: Sidebar 20px, margin 20px
-   - 768px and below: See mobile styles (sidebar becomes hamburger menu)
+   - 781px and below: See mobile styles (sidebar becomes hamburger menu)
    ============================================ */
 @media (max-width: 1024px) {
     nav {
@@ -477,64 +476,6 @@ nav a:hover {
         margin-right: 20px;
         padding: 20px 0px;
         max-width: calc(100vw - 130px); /* Viewport width minus margins */
-        box-sizing: border-box;
-        width: 100%;
-    }
-    .container > div {
-        max-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-    h1 {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-    h2 {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-    h3 {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-    .container p {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-    /* Override inline fixed widths on image containers - but preserve centering */
-    .image-with-credit[style*="width"] {
-        max-width: 100% !important;
-        /* Don't override width - let inline style work, just constrain max-width */
-        box-sizing: border-box !important;
-        margin-left: auto !important;  /* Ensure centering is preserved */
-        margin-right: auto !important;
-    }
-    /* Make poetry responsive */
-    .poetry {
-        max-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-}
-@media (max-width: 780px) {
-    nav {
-        width: 20px;
-    }
-    .container {
-        margin-left: 20px;
-        margin-right: 20px;
-        padding: 20px 0px;
-        max-width: calc(100vw - 40px); /* Viewport width minus margins */
         box-sizing: border-box;
         width: 100%;
     }
@@ -852,6 +793,7 @@ img[style*="width"] {
    Use these classes on individual .image-item elements:
    - .align-top: aligns image to top of container (default)
    - .align-bottom: aligns image to bottom of container
+   - .align-center: aligns image to center vertically
    - .align-left: aligns image to the left side of the row
    - .align-right: aligns image to the right side of the row
    ============================================ */
@@ -861,6 +803,10 @@ img[style*="width"] {
 
 .image-item.align-bottom {
     align-self: flex-end;     /* Align this item to bottom */
+}
+
+.image-item.align-center {
+    align-self: center;        /* Align this item to center vertically */
 }
 
 .image-item.align-left {
@@ -970,14 +916,14 @@ span.photo-credit {
    MOBILE RESPONSIVE - CONTAINER, IMAGES & SLIDERS
    Consolidated mobile styles for all content
    ============================================
-   When screen is 768px or narrower, these styles override desktop styles.
+   When screen is 781px or narrower, these styles override desktop styles.
    Key changes:
    - Container becomes full width (no sidebar margin)
    - Images scale responsively with mobile width controls
    - Image rows, sliders, and single images all properly sized
    - Mobile width classes (.mobile-w-*) allow fine control
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 781px) {
     /* ============================================
        CONTAINER & CONTENT
        ============================================ */
