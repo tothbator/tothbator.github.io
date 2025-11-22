@@ -1045,6 +1045,20 @@ span.photo-credit {
         width: 100% !important;
         box-sizing: border-box !important;
     }
+    /* Mobile-specific font-size classes for accordion content */
+    .accordion-content.mobile-font-small p {
+        font-size: 0.85em !important;
+    }
+    .accordion-content.mobile-font-medium p {
+        font-size: 0.95em !important;
+    }
+    .accordion-content.mobile-font-large p {
+        font-size: 1.1em !important;
+    }
+    /* Allow inline font-size to override on mobile - ensure it applies */
+    .accordion-content[style*="font-size"] p {
+        font-size: inherit !important;
+    }
     /* Ensure any div with inline width styles respects container (but not images which have specific rules) */
     div[style*="width"]:not(.image-with-credit):not(.image-item):not(.image-row):not(.slider-container):not(.image-slider-wrapper) {
         max-width: 100% !important;
@@ -1499,6 +1513,11 @@ span.photo-credit {
 .accordion-content p {
     margin-bottom: 15px;             /* Space between paragraphs */
     color: #000000;                  /* Black text color */
+}
+
+/* Allow manual font-size control for accordion content via inline styles */
+.accordion-content[style*="font-size"] p {
+    font-size: inherit;
 }
 
 /* Image containers with credits inside accordion */
