@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ============================================
+         HEAD SECTION
+         Document metadata and external resources
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="tóthbátor - Budapest based painter. VULCAN is a profound meditation on transformation, resilience, and the indomitable human spirit, wherein the elemental power of the volcano interlaces with the mythological archetype of Vulcan, the Roman god of fire.">
+    <meta name="keywords" content="tóthbátor, Bátor Tóth, artist, painting, exhibition,oil painting, Budapest, contemporary art, abstract art, VULCAN">
+    <meta name="author" content="Bátor Tóth">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tothbator.com/vulcan.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tothbator.com/vulcan.html">
+    <meta property="og:title" content="tóthbátor">
+    <meta property="og:description" content="Budapest based painter. VULCAN: a profound meditation on transformation, resilience, and the indomitable human spirit.">
+    <meta property="og:image" content="https://tothbator.com/images-social/og_vulcan.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="VULCAN - Artwork by tóthbátor">
+    <meta property="og:site_name" content="tóthbátor">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tothbator.com/vulcan.html">
+    <meta name="twitter:title" content="tóthbátor">
+    <meta name="twitter:description" content="Budapest based painter. VULCAN: a profound meditation on transformation, resilience, and the indomitable human spirit.">
+    <meta name="twitter:image" content="https://tothbator.com/images-social/og_vulcan.jpg">
+    <meta name="twitter:image:alt" content="VULCAN - Artwork by tóthbátor">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
+    
+    <title>tóthbátor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============================================
+         MOBILE HEADER
+         Contains hamburger menu and branding on mobile
+         ============================================ -->
+    <header class="mobile-header">
+        <nav>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+            <ul id="mobile-menu">
+                <li><a href="vulcan.html">vulcan</a></li>
+                <li><a href="noumenon.html">noumenon</a></li>
+                <li><a href="silverpoints.html">silverpoints</a></li>
+                <li><a href="bio.html">bio</a></li>
+                <li><a href="contact.html">contact</a></li>
+                <li><a href="downloads.html">downloads</a></li>
+            </ul>
+        </nav>
+        <span class="branding">tóthbátor</span>
+    </header>
+    
+    <!-- ============================================
+         DESKTOP NAVIGATION
+         Desktop sidebar navigation (hidden on mobile)
+         ============================================ -->
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="vulcan.html">vulcan</a></li>
+            <li><a href="noumenon.html">noumenon</a></li>
+            <li><a href="silverpoints.html">silverpoints</a></li>
+            <li><a href="bio.html">bio</a></li>
+            <li><a href="contact.html">contact</a></li>
+            <li><a href="downloads.html">downloads</a></li>
+        </ul>
+    </nav>
+    
+    <!-- ============================================
+         DESKTOP BRANDING
+         Fixed position branding element (desktop only)
+         ============================================ -->
+    <span class="branding desktop-branding">tóthbátor</span>
+    
+    <!-- ============================================
+         JAVASCRIPT FUNCTIONALITY
+         Mobile menu toggle, custom scrollbars, accordion
+         ============================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const toggleButton = document.getElementById('mobile-menu-toggle');
+            const menu = document.getElementById('mobile-menu');
+            
+            if (toggleButton && menu) {
+                toggleButton.addEventListener('click', function() {
+                    menu.classList.toggle('active');
+                });
+            }
+
+            // Custom scrollbar functionality
+            function initCustomScrollbar(sliderId) {
+                const slider = document.getElementById(sliderId);
+                if (!slider) return;
+
+                const track = slider.parentElement.querySelector('.custom-scrollbar-track');
+                const thumb = track.querySelector('.custom-scrollbar-thumb');
+                if (!track || !thumb) return;
+
+                // Calculate scrollbar dimensions
+                function updateScrollbar() {
+                    const sliderWidth = slider.clientWidth;
+                    const scrollWidth = slider.scrollWidth;
+                    const scrollable = scrollWidth > sliderWidth;
+
+                    if (!scrollable) {
+                        track.style.display = 'none';
+                        return;
+                    }
+
+                    track.style.display = 'block';
+                    const thumbWidth = (sliderWidth / scrollWidth) * track.offsetWidth;
+                    thumb.style.width = Math.max(thumbWidth, 30) + 'px';
+
+                    const maxLeft = track.offsetWidth - thumb.offsetWidth;
+                    const scrollPercent = slider.scrollLeft / (scrollWidth - sliderWidth);
+                    thumb.style.left = (scrollPercent * maxLeft) + 'px';
+                }
+
+                // Update on scroll
+                slider.addEventListener('scroll', updateScrollbar);
+                window.addEventListener('resize', updateScrollbar);
+                updateScrollbar();
+
+                // Drag functionality
+                let isDragging = false;
+                let startX = 0;
+                let startScrollLeft = 0;
+
+                thumb.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    startX = e.clientX;
+                    startScrollLeft = slider.scrollLeft;
+                    e.preventDefault();
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    const deltaX = e.clientX - startX;
+                    const trackWidth = track.offsetWidth - thumb.offsetWidth;
+                    const scrollWidth = slider.scrollWidth - slider.clientWidth;
+                    const scrollDelta = (deltaX / trackWidth) * scrollWidth;
+                    slider.scrollLeft = startScrollLeft + scrollDelta;
+                });
+
+                document.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+
+                // Click on track to jump
+                track.addEventListener('click', (e) => {
+                    if (e.target === thumb) return;
+                    const clickX = e.clientX - track.getBoundingClientRect().left;
+                    const trackWidth = track.offsetWidth;
+                    const scrollWidth = slider.scrollWidth - slider.clientWidth;
+                    const scrollPercent = clickX / trackWidth;
+                    slider.scrollLeft = scrollPercent * scrollWidth;
+                });
+            }
+
+            // Initialize all sliders - wait for images to load
+            function initializeAllSliders() {
+                document.querySelectorAll('.image-slider').forEach((slider, index) => {
+                    if (slider.id) {
+                        initCustomScrollbar(slider.id);
+                    } else {
+                        slider.id = 'slider-' + (index + 1);
+                        initCustomScrollbar(slider.id);
+                    }
+                });
+            }
+            
+            // Wait for all images in sliders to load before initializing scrollbars
+            const sliderImages = document.querySelectorAll('.image-slider img');
+            let loadedImages = 0;
+            const totalImages = sliderImages.length;
+            
+            if (totalImages === 0) {
+                // No images, initialize immediately
+                initializeAllSliders();
+            } else {
+                // Wait for all images to load
+                sliderImages.forEach(img => {
+                    if (img.complete) {
+                        loadedImages++;
+                    } else {
+                        img.addEventListener('load', function() {
+                            loadedImages++;
+                            if (loadedImages === totalImages) {
+                                initializeAllSliders();
+                            }
+                        });
+                        img.addEventListener('error', function() {
+                            loadedImages++;
+                            if (loadedImages === totalImages) {
+                                initializeAllSliders();
+                            }
+                        });
+                    }
+                });
+                
+                // Fallback: initialize after a short delay if images take too long
+                setTimeout(function() {
+                    if (loadedImages < totalImages) {
+                        initializeAllSliders();
+                    }
+                }, 1000);
+                
+                // Also initialize if all images are already loaded
+                if (loadedImages === totalImages) {
+                    initializeAllSliders();
+                }
+            }
+
+            // Accordion functionality
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const accordion = this.closest('.accordion');
+                    const content = accordion.querySelector('.accordion-content');
+                    const toggle = this.querySelector('.accordion-toggle');
+                    const isActive = this.classList.contains('active');
+                    
+                    // Toggle active state
+                    if (isActive) {
+                        // Collapse
+                        this.classList.remove('active');
+                        content.classList.remove('active');
+                        toggle.textContent = '+';
+                        this.setAttribute('aria-expanded', 'false');
+                    } else {
+                        // Expand
+                        this.classList.add('active');
+                        content.classList.add('active');
+                        toggle.textContent = '−';
+                        this.setAttribute('aria-expanded', 'true');
+                    }
+                });
+
+                // Keyboard accessibility
+                header.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- ============================================
+         MAIN CONTENT CONTAINER
+         Wraps all page content with proper margins
+         ============================================ -->
+    <div class="container">
+        <div>
+            <!-- ============================================
+                 PAGE HEADER
+                 ============================================ -->
+            <h1>VULCAN</h1>
+
+            <!-- ============================================
+                 INTRODUCTION SECTION
+                 ============================================ -->
+
+            <!--
+            <p>
+                 "Happy were those who dwelt within the eye<br>
+                 Of the volcanos, and their mountain-torch:<br>
+                 A fearful hope was all the world contain'd;"<br>
+            </p>
+            -->
+
+            <p>
+                VULCAN is a profound meditation on transformation, resilience, and the indomitable human spirit, wherein the elemental power of the volcano interlaces with the mythological archetype of Vulcan, the Roman god of fire. Through a vivid tapestry of images, symbols, and metaphors, the artist invites viewers to contemplate the alchemy of trials: how it forges, shatters, and, in propitious instances, rebirths us. The exhibition delves into the courage essential for navigating life's glowing uncertainties, carving a path atop unstable ground, and emerging not merely unscathed but metamorphosed. Ascendant, ever higher, piercing new strata of clouds.
+            </p>
+
+            <!-- ============================================
+                 GALLERY VIEW SLIDER - Opening Views
+                 ============================================ -->
+            <div class="image-with-credit" style="width: 800px;">
+                <div class="image-slider-wrapper">
+                    <div class="image-slider" id="slider-1">
+                        <div class="slider-container">
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_36.webp" alt="gallery view 1" style="width: 600px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_39_1.webp" alt="gallery view 2" style="width: 600px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_41.webp" alt="gallery view 3" style="width: 600px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_43.webp" alt="gallery view 4" style="width: 600px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Custom scrollbar -->
+                    <div class="custom-scrollbar-track" data-slider="slider-1">
+                        <div class="custom-scrollbar-thumb"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 HERO'S JOURNEY SECTION
+                 ============================================ -->
+            <p>
+                In essence, VULCAN unveils the dual nature of the Hero's Journey, whether freely undertaken or imposed by fate. The departure, whether voluntary or compelled, carries the weight the burden of abandoning the familiar, reappraising the past in pursuit of a more certain future. Like Vulcan, who was exiled yet triumphs through mastery of craft, the artist reflects on their own odyssey: exile, escape, return. Paved with personal struggles, adventures of hard-won self-discovery.
+            </p>
+                <!-- ============================================
+                 HERO'S JOURNEY SECTION - Side by Side
+                 ============================================ -->
+                 <div class="image-with-credit" style="width: 605px;">
+                    <div class="image-row" style="gap: 5px;">
+                        <div class="image-item">
+                            <img src="images vulcan/QUIESCENCE 2.webp" alt="QUIESCENCE 2" style="width: 300px;">
+                            <div class="photo-credit">Quiescence No.2</div>
+                        </div>
+                        <div class="image-item">
+                            <img src="images vulcan/QUIESCENCE 3 - REENTRY.webp" alt="QUIESCENCE 3 - REENTRY" style="width: 300px;">
+                            <div class="photo-credit">Quiescence No.3 - Reentry</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            
+
+            <!-- ============================================
+                 VULCAN SERIES DESCRIPTION
+                 ============================================ -->
+            <p>
+                The Vulcan series renders abstract geological cross-sections of the volcano, within which past, present, and future coalesce simultaneously. A powerful metaphor: the ever present potential for destruction and creation. With only the clear sky to afford perspective, the invigorating air beneath the sun, where molten chaos crystallizes into fertile soil and eternal stone.
+            </p>
+
+            <!-- ============================================
+                 VULCAN SERIES SLIDER
+                 ============================================ -->
+            <div class="image-with-credit" style="width: 800px;">
+                <div class="image-slider-wrapper">
+                    <div class="image-slider" id="slider-2">
+                        <div class="slider-container">
+                            <div class="image-item">
+                                <img src="images vulcan/VULCAN 1.webp" alt="Vulcan 1" style="width: 600px;">
+                                <div class="photo-credit">VULCAN No.1</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan/VULCAN 2.webp" alt="Vulcan 2" style="width: 600px;">
+                                <div class="photo-credit">VULCAN No.2</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan/VULCAN 4.webp" alt="Vulcan 4" style="width: 600px;">
+                                <div class="photo-credit">VULCAN No.4</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan/VULCAN 7.webp" alt="Vulcan 7" style="width: 600px;">
+                                <div class="photo-credit">VULCAN No.7</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan/VULCAN 6.webp" alt="Vulcan 6" style="width: 600px;">
+                                <div class="photo-credit">VULCAN No.6</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Custom scrollbar -->
+                    <div class="custom-scrollbar-track" data-slider="slider-2">
+                        <div class="custom-scrollbar-thumb"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 QUIESCENCE SERIES SECTION
+                 ============================================ -->
+            <p>
+                Post-eruption, the Quiescence series juxtaposes the effortless transformative cooling process with the human condition, illuminating the arduous efforts required to meet one's true volition.
+            </p>
+
+            <!-- ============================================
+                 QUIESCENCE SERIES - Side by Side Images
+                 ============================================ -->
+            <div class="image-with-credit" style="width: 800px;">
+                <div class="image-row" style="gap: 10px;">
+                    <div class="image-item">
+                        <img src="images vulcan/QUIESCENCE 1 NOT A RED CABBAGE SALAD.webp" alt="QUIESCENCE 1 NOT A RED CABBAGE SALAD" style="width: 250px;">
+                        <div class="photo-credit">Quiescence No.1</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images vulcan/QUIESCENCE 5.webp" alt="QUIESCENCE 5" style="width: 250px;">
+                        <div class="photo-credit">Quiescence No.5</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images vulcan/QUIESCENCE 4.webp" alt="QUIESCENCE 4" style="width: 250px;" class="mobile-w-120">
+                        <div class="photo-credit">Quiescence No.4</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 FORTRESS & BYRON'S DARKNESS SECTION
+                 ============================================ -->
+            <p>
+                VULCAN evokes the rhythms of motion and stillness, eruption and dormancy, destruction and rebirth. The artist hints the presence of a fortress enthroned on the volcano's slopes. A defiant stronghold, unreasonable for an enemy to attempt its capture. Here we abide. Enfolded by the three walls of the gallery adorned with mosaic painting constellations. This fortress, like certain immutable laws in nature and society, resurges after devastation, unassailable against the caprices of conquerors or the inexorable passage of time.
+                </p>
+                
+                  <!-- ============================================
+                 ABSTRACT PORTRAITS SECTION - CHAMBER & AS FROM ABOVE AS FROM BELOW
+                 ============================================ -->
+                 <div class="image-with-credit" style="width: 800px;">
+                    <div class="image-row" style="gap: 10px;">
+                        <div class="image-item">
+                            <img src="images vulcan/CHAMBER.webp" alt="CHAMBER" style="width: 250px;">
+                            <div class="photo-credit">Chamber</div>
+                        </div>
+                        <div class="image-item">
+                            <img src="images vulcan/AFAAFB.webp" alt="AFAAFB" style="width: 250px;">
+                            <div class="photo-credit">As from Above As from Below</div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+               <p> The volcano itself remains indifferent, a silent witness to human endeavors - just as we discern in Lord Byron's poem, Darkness. Irrational panic and mindless violence erupt from uncertain times; it seems the only sanctuary is peril others dare not approach.
+            </p>
+
+            <!-- ============================================
+                 POETRY QUOTE - Byron
+                 ============================================ -->
+            <!--
+            <div class="poetry">
+                "Happy were those who dwelt within the eye<br>
+                Of the volcanos, and their mountain-torch:<br>
+                A fearful hope was all the world contain'd;"
+            </div>
+            -->
+
+            <!-- ============================================
+                 ACCORDION - Darkness Poem (Full Text)
+                 ============================================ -->
+            <div class="accordion">
+                <div class="accordion-header" role="button" tabindex="0" aria-expanded="false" aria-controls="accordion-content-1">
+                    <span class="accordion-toggle">+</span>
+                    <span class="accordion-title">Darkness</span>
+                </div>
+                <div class="accordion-content mobile-font-small" id="accordion-content-1">
+                    <p>
+                        I had a dream, which was not all a dream.<br>
+                        The bright sun was extinguish'd, and the stars<br>
+                        Did wander darkling in the eternal space,<br>
+                        Rayless, and pathless, and the icy earth<br>
+                        Swung blind and blackening in the moonless air;<br>
+                        Morn came and went—and came, and brought no day,<br>
+                        And men forgot their passions in the dread<br>
+                        Of this their desolation; and all hearts<br>
+                        Were chill'd into a selfish prayer for light:<br>
+                        And they did live by watchfires—and the thrones,<br>
+                        The palaces of crowned kings—the huts,<br>
+                        The habitations of all things which dwell,<br>
+                        Were burnt for beacons; cities were consum'd,<br>
+                        And men were gather'd round their blazing homes<br>
+                        To look once more into each other's face;<br>
+                        <strong>
+                        Happy were those who dwelt within the eye<br>
+                        Of the volcanos, and their mountain-torch:<br>
+                        A fearful hope was all the world contain'd;<br>
+                        </strong>
+                        Forests were set on fire—but hour by hour<br>
+                        They fell and faded—and the crackling trunks<br>
+                        Extinguish'd with a crash—and all was black.<br>
+                        The brows of men by the despairing light<br>
+                        Wore an unearthly aspect, as by fits<br>
+                        The flashes fell upon them; some lay down<br>
+                        And hid their eyes and wept; and some did rest<br>
+                        Their chins upon their clenched hands, and smil'd;<br>
+                        And others hurried to and fro, and fed<br>
+                        Their funeral piles with fuel, and look'd up<br>
+                        With mad disquietude on the dull sky,<br>
+                        The pall of a past world; and then again<br>
+                        With curses cast them down upon the dust,<br>
+                        And gnash'd their teeth and howl'd: the wild birds shriek'd<br>
+                        And, terrified, did flutter on the ground,<br>
+                        And flap their useless wings; the wildest brutes<br>
+                        Came tame and tremulous; and vipers crawl'd<br>
+                        And twin'd themselves among the multitude,<br>
+                        Hissing, but stingless—they were slain for food.<br>
+                        And War, which for a moment was no more,<br>
+                        Did glut himself again: a meal was bought<br>
+                        With blood, and each sate sullenly apart<br>
+                        Gorging himself in gloom: no love was left;<br>
+                        All earth was but one thought—and that was death<br>
+                        Immediate and inglorious; and the pang<br>
+                        Of famine fed upon all entrails—men<br>
+                        Died, and their bones were tombless as their flesh;<br>
+                        The meagre by the meagre were devour'd,<br>
+                        Even dogs assail'd their masters, all save one,<br>
+                        And he was faithful to a corse, and kept<br>
+                        The birds and beasts and famish'd men at bay,<br>
+                        Till hunger clung them, or the dropping dead<br>
+                        Lur'd their lank jaws; himself sought out no food,<br>
+                        But with a piteous and perpetual moan,<br>
+                        And a quick desolate cry, licking the hand<br>
+                        Which answer'd not with a caress—he died.<br>
+                        The crowd was famish'd by degrees; but two<br>
+                        Of an enormous city did survive,<br>
+                        And they were enemies: they met beside<br>
+                        The dying embers of an altar-place<br>
+                        Where had been heap'd a mass of holy things<br>
+                        For an unholy usage; they rak'd up,<br>
+                        And shivering scrap'd with their cold skeleton hands<br>
+                        The feeble ashes, and their feeble breath<br>
+                        Blew for a little life, and made a flame<br>
+                        Which was a mockery; then they lifted up<br>
+                        Their eyes as it grew lighter, and beheld<br>
+                        Each other's aspects—saw, and shriek'd, and died—<br>
+                        Even of their mutual hideousness they died,<br>
+                        Unknowing who he was upon whose brow<br>
+                        Famine had written Fiend. The world was void,<br>
+                        The populous and the powerful was a lump,<br>
+                        Seasonless, herbless, treeless, manless, lifeless—<br>
+                        A lump of death—a chaos of hard clay.<br>
+                        The rivers, lakes and ocean all stood still,<br>
+                        And nothing stir'd within their silent depths;<br>
+                        Ships sailorless lay rotting on the sea,<br>
+                        And their masts fell down piecemeal: as they dropp'd<br>
+                        They slept on the abyss without a surge—<br>
+                        The waves were dead; the tides were in their grave,<br>
+                        The moon, their mistress, had expir'd before;<br>
+                        The winds were wither'd in the stagnant air,<br>
+                        And the clouds perish'd; Darkness had no need<br>
+                        Of aid from them—She was the Universe.
+                    </p>
+                </div>
+            </div>
+
+           
+
+
+
+
+
+              
+
+
+
+
+
+
+
+            <!-- ============================================
+                 ABSTRACT PORTRAITS SECTION
+                 ============================================ -->
+            
+            <!-- ============================================
+                 PORTRAIT - 48 ON PURPOSE
+                 ============================================ -->
+
+
+              <div class="image-with-credit" style="width: 700px;">
+                <div class="image-row" style="gap: 10px;">
+                    <div class="image-item">
+                        <img src="images vulcan/7 YEARS DOWN.webp" alt="7 YEARS DOWN" style="width: 200px;">
+                        <div class="photo-credit">Seven Years Down</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images vulcan/48 ON PURPOSE.webp" alt="48 ON PURPOSE" style="width: 350px;">
+                        <div class="photo-credit">48, On Purpose</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            
+            <p>  Abstract portraits emerge from the maelstrom. A purple gaze at the stars. The wind blows away the ashes of the past. A self-portrait, undecided. Is it dissipating? Or merely a suspended state of mind awaiting completion.
+            </p>
+            <!-- ============================================
+                 PORTRAITS - Side by Side
+                 ============================================ -->
+            <div class="image-with-credit" style="width: 605px;">
+                <div class="image-row" style="gap: 5px;">
+                    <div class="image-item align-bottom">
+                        <img src="images vulcan/UNFINISHED BUSINESS.webp" alt="UNFINISHED BUSINESS" style="width: 250px;">
+                        <div class="photo-credit">Unfinished Business</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images vulcan/MY FOREST MY MIND.webp" alt="MY FOREST MY MIND" style="width: 300px;">
+                        <div class="photo-credit">My Forest My Mind</div>
+                    </div>
+                </div>
+            </div>
+            <p>
+                A woman's glance askance. With discrete imperfections, a disconnected constellation.
+            </p>
+            <!-- ============================================
+                 PORTRAITS - Side by Side
+                 ============================================ -->
+            <div class="image-with-credit" style="width: 605px;">
+                <div class="image-row" style="gap: 5px;">
+                    <div class="image-item align-bottom">
+                        <img src="images vulcan/BEHIND.webp" alt="BEHIND" style="width: 280px;">
+                        <div class="photo-credit">Behind</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images vulcan/MADE UP MY MIND.webp" alt="MADE UP MY MIND" style="width: 300px;">
+                        <div class="photo-credit">Made Up My Mind</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 CONCLUSION SECTION
+                 ============================================ -->
+            <p>
+                Through VULCAN, the artist calls upon viewers to confront the paradox of existence on marshy terrain, to face the fire of trials, and to embrace the cycles of destruction and creation. This exhibition is a paean to the Hero's Journey - whether chosen or compelled - and a contemplation on the interplay of danger and vitality, isolation and community, stillness and eruption.
+            </p>
+
+            <!-- ============================================
+                 PORTRAIT - Don't Hurt the Spiders
+                 ============================================ -->
+            <div class="image-with-credit" style="width: 400px;">
+                <img src="images vulcan/DONT HURT THE SPIDERS.webp" alt="DONT HURT THE SPIDERS" style="width: 400px;">
+                <div class="photo-credit">Don't Hurt the Spiders</div>
+            </div>
+
+                                <!-- ============================================
+                                    GALLERY VIEW SECTION
+                                    ============================================ -->
+
+            <!-- ============================================
+                 GALLERY VIEW - WALL 1
+                 ============================================ -->
+            <h2>Gallery View - Wall 1#</h2>
+            
+
+   
+            <div class="image-with-credit" style="width: 800px;">
+                <div class="image-slider-wrapper">
+                    <div class="image-slider" id="slider-3">
+                        <div class="slider-container" style="gap: 50px;">
+                            <div class="image-item align-center">
+                                <img src="images vulcan gallery/Bator_Vulcan_11.webp" alt="Vulcan wall 1" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_77.webp" alt="Vulcan wall 1 closeup 1" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_119.webp" alt="Vulcan wall 1 closeup 2" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_120.webp" alt="Vulcan wall 1 closeup 3" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_125.webp" alt="Vulcan wall 1 closeup 4" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Custom scrollbar -->
+                    <div class="custom-scrollbar-track" data-slider="slider-3">
+                        <div class="custom-scrollbar-thumb"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 GALLERY VIEW - WALL 2
+                 ============================================ -->
+            <h2>Gallery View - Wall 2#</h2>
+          
+
+           
+            <div class="image-with-credit" style="width: 800px;">
+                <div class="image-slider-wrapper">
+                    <div class="image-slider" id="slider-4">
+                        <div class="slider-container" style="gap: 50px;">
+                            <div class="image-item align-center">
+                                <img src="images vulcan gallery/Bator_Vulcan_6.webp" alt="Vulcan wall 6" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_70.webp" alt="Vulcan wall 2 closeup 1" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_73.webp" alt="Vulcan wall 2 closeup 2" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_74.webp" alt="Vulcan wall 2 closeup 3" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_135_1.webp" alt="Vulcan wall 2 closeup 4" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Custom scrollbar -->
+                    <div class="custom-scrollbar-track" data-slider="slider-4">
+                        <div class="custom-scrollbar-thumb"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 GALLERY VIEW - WALL 3
+                 ============================================ -->
+            <h2>Gallery View - Wall 3#</h2>
+          
+            <div class="image-with-credit" style="width: 800px;">
+                <div class="image-slider-wrapper">
+                    <div class="image-slider" id="slider-5">
+                        <div class="slider-container" style="gap: 50px;">
+                            <div class="image-item align-center">
+                                <img src="images vulcan gallery/Bator_Vulcan_17.webp" alt="Vulcan wall 17" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_48.webp" alt="Vulcan wall 3 closeup 1" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_50_1.webp" alt="Vulcan wall 3 closeup 2" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_54.webp" alt="Vulcan wall 3 closeup 3" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_47.webp" alt="Vulcan wall 3 closeup 4" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_65.webp" alt="Vulcan wall 3 closeup 5" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_58_1.webp" alt="Vulcan wall 3 closeup 6" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_56_1.webp" alt="Vulcan wall 3 closeup 7" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_59.webp" alt="Vulcan wall 3 closeup 8" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                            <div class="image-item">
+                                <img src="images vulcan gallery/Bator_Vulcan_60_1.webp" alt="Vulcan wall 3 closeup 9" style="height: 400px;">
+                                <div class="photo-credit">Photo: Zsolt Ficsór</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Custom scrollbar -->
+                    <div class="custom-scrollbar-track" data-slider="slider-5">
+                        <div class="custom-scrollbar-thumb"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 END OF CONTENT - Spacer
+                 ============================================ -->
+            <div class="spacer-large"></div>
+
+
+
+        <!-- ============================================
+             ACCORDION - Downloads Section
+             ============================================ -->
+        <div class="accordion">
+            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false" aria-controls="accordion-content-downloads">
+                <span class="accordion-toggle">+</span>
+                <span class="accordion-title">Downloads</span>
+            </div>
+            <div class="accordion-content" id="accordion-content-downloads">
+                <div class="downloads">
+                    <a href="downloads/tothbator_vulcan_catalogue.pdf" download>
+                        tothbator_vulcan_catalogue.pdf
+                    </a>
+                    <br>
+                    <a href="downloads/tothbator_portfolio.pdf" download>
+                        tothbator_portfolio.pdf
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="spacer-large"></div>
+
+
+
+
+        </div>
+    </div>
+</body>
+</html>
