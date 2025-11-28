@@ -350,6 +350,21 @@ nav a:hover {
         width: 100% !important;
         box-sizing: border-box !important;
     }
+    /* Exhibition details responsive */
+    .exhibition-details {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    /* Exhibition info responsive */
+    .exhibition-info {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important; /* Left alignment */
+        margin-right: 0 !important;
+        text-align: left !important;
+    }
 }
 @media (max-width: 900px) {
     nav {
@@ -408,6 +423,21 @@ nav a:hover {
         width: 100% !important;
         box-sizing: border-box !important;
     }
+    /* Exhibition details responsive */
+    .exhibition-details {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    /* Exhibition info responsive */
+    .exhibition-info {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important; /* Left alignment */
+        margin-right: 0 !important;
+        text-align: left !important;
+    }
 }
 @media (max-width: 850px) {
     nav {
@@ -465,6 +495,21 @@ nav a:hover {
         max-width: 100% !important;
         width: 100% !important;
         box-sizing: border-box !important;
+    }
+    /* Exhibition details responsive */
+    .exhibition-details {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    /* Exhibition info responsive */
+    .exhibition-info {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important; /* Left alignment */
+        margin-right: 0 !important;
+        text-align: left !important;
     }
 }
 @media (max-width: 800px) {
@@ -538,12 +583,13 @@ nav a:hover {
 .container > div {
     display: block;              /* Block-level element */
     max-width: 2000px;          /* Maximum width (prevents too-wide content) */
+    width: 100%;                /* Full width to allow right alignment of children */
     text-align: left;            /* Left-align text */
-    line-height: 1.5;            /* Space between lines (1.5x font size) */
+    line-height: 1.5;           /* Space between lines (1.5x font size) */
 }
 h1 {
     margin-top: 0em;            /* No top margin */
-    margin-bottom: 0.67em;      /* Bottom margin for spacing */
+    margin-bottom: 0em;      /* Bottom margin for spacing */
     margin-left: auto;          /* Center horizontally, matching paragraphs */
     margin-right: auto;         /* Center horizontally, matching paragraphs */
     width: 800px;               /* Fixed width for centered block, matching paragraphs */
@@ -571,6 +617,98 @@ h3 {
     text-align: left;           /* Left-align text */
     color: #000000ad;
 }
+
+/* ============================================
+   EXHIBITION DETAILS SECTION
+   Creative formatting for exhibition information
+   ============================================ */
+.exhibition-details {
+   /* display: flex;               Flexbox for side-by-side layout */
+    flex-direction: row;        /* Arrange items horizontally */
+    justify-content: space-between; /* Space between date and location */
+    align-items: baseline;      /* Align to baseline for elegant typography */
+    margin-top: 0 !important;   /* No top margin */
+    margin-bottom: 2em !important; /* Bottom spacing */
+    margin-left: auto !important; /* Push to right - force override */
+    margin-right: auto !important; /* No right margin */
+    width: 800px;               /* Match paragraph width */
+    max-width: 800px;           /* Ensure it never exceeds 800px */
+    padding: 1.5em 0;          /* Vertical padding */
+   
+   
+}
+
+.exhibition-date {
+    font-size: 1.1em;           /* Slightly larger than base */
+    font-weight: 300;           /* Light weight for elegance */
+    letter-spacing: 0.05em;     /* Slight letter spacing */
+    color: #000;                /* Black text */
+    flex-shrink: 0;             /* Don't shrink */
+    text-align: right;           /* Right-align text */
+}
+
+.exhibition-location {
+    font-size: 1em;             /* Base font size */
+    font-weight: 400;           /* Regular weight */
+    font-style: italic;         /* Italic for distinction */
+    color: #333;                /* Slightly softer black */
+    text-align: right;          /* Right-align location */
+    flex: 1;                    /* Take remaining space */
+    text-align: right;           /* Right-align text */
+}
+
+/* ============================================
+   EXHIBITION INFO PARAGRAPH
+   Right-aligned exhibition information
+   ============================================ */
+.exhibition-info {
+    margin-left: auto !important; /* Left alignment */
+    margin-right: auto !important;  /* Auto right margin */
+    margin-top: 0;
+    margin-bottom: 0.6em;
+    text-align: left;            /* Left-align text content */
+    font-size: 12px;               /* Font size - adjust as needed */
+    width: auto;                  /* Auto width based on content */
+    max-width: 800px;            /* Match paragraph max-width */
+    color: rgb(144, 144, 144);
+    letter-spacing: 0.05em;
+    font-style: italic;
+    text-indent: 0px;
+
+ 
+}
+
+/* ============================================
+   CONTACT INFO PARAGRAPH
+   Custom line spacing for contact information
+   ============================================ */
+.contact-info {
+    line-height: 2em;            /* Custom line spacing - adjust as needed */
+}
+
+/* Mobile responsive - stack vertically */
+@media (max-width: 781px) {
+    .exhibition-details {
+        flex-direction: column; /* Stack vertically on mobile */
+        align-items: flex-start; /* Left-align items */
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 0.5em;             /* Smaller gap when stacked */
+        padding: 1em 0;         /* Less padding on mobile */
+    }
+    
+    .exhibition-info {
+        text-align: left;        /* Left-align on mobile */
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .exhibition-location {
+        text-align: left;        /* Left-align on mobile */
+    }
+}
     
 .container p {
     margin-top: 0;
@@ -595,6 +733,9 @@ h3 {
    ============================================
    Use <div class="spacer"></div> to add space between content.
    Available sizes: .spacer, .spacer-small, .spacer-medium, .spacer-large
+   
+   For custom em values, use inline style (inline styles override default):
+   <div class="spacer" style="height: 1.5em;"></div>
    ============================================ */
 .spacer {
     height: 2em;                /* Default spacing (2x font size) */
@@ -982,6 +1123,21 @@ span.photo-credit {
         box-sizing: border-box !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
+    }
+    /* Exhibition details responsive */
+    .exhibition-details {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    /* Exhibition info responsive */
+    .exhibition-info {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important; /* Left alignment */
+        margin-right: 0 !important;
+        text-align: left !important;
     }
     /* Ensure accordion respects container width */
     .accordion {
