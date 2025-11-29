@@ -1546,11 +1546,15 @@ span.photo-credit {
 
 /* Main accordion container */
 .accordion {
-    border: 0px solid #ddd;        /* No visible border */
-    border-radius: 4px;             /* Rounded corners */
-    margin: 0em 0em 1em 0em;                 /* Vertical spacing above and below */
-    background-color: #fff;         /* White background */
-    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */  /* Shadow disabled */
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 2em;
+    margin-left: auto;
+    width: 800px;                /* Fixed width for centered block */
+    max-width: 800px;              /* Ensure it never exceeds 800px */
+    text-align: justify;         /* Align text on both left and right edges */
+    text-align-last: left;       /* Last line of justified text stays left-aligned */
+    text-indent: 0;              /* No first-line indent */
 }
 
 /* Accordion header - clickable area with toggle and title */
