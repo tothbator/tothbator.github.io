@@ -695,7 +695,7 @@ h3 {
     max-width: 320px !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    margin-top: 1em !important;
+    margin-top: 0em !important;
     margin-bottom: 0 !important;
     box-sizing: border-box !important;
     display: block !important;
