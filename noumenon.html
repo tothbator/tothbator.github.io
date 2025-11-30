@@ -139,40 +139,92 @@
                 window.addEventListener('resize', updateScrollbar);
                 updateScrollbar();
 
-                // Drag functionality
+                // Drag functionality (mouse and touch)
                 let isDragging = false;
                 let startX = 0;
                 let startScrollLeft = 0;
 
-                thumb.addEventListener('mousedown', (e) => {
+                function startDrag(clientX) {
                     isDragging = true;
-                    startX = e.clientX;
+                    startX = clientX;
                     startScrollLeft = slider.scrollLeft;
+                }
+
+                function updateDrag(clientX) {
+                    if (!isDragging) return;
+                    const deltaX = clientX - startX;
+                    const trackWidth = track.offsetWidth - thumb.offsetWidth;
+                    const scrollWidth = slider.scrollWidth - slider.clientWidth;
+                    const scrollDelta = (deltaX / trackWidth) * scrollWidth;
+                    
+                    // Temporarily disable smooth scrolling during drag for immediate response
+                    slider.style.scrollBehavior = 'auto';
+                    slider.scrollLeft = startScrollLeft + scrollDelta;
+                }
+
+                function endDrag() {
+                    isDragging = false;
+                    // Re-enable smooth scrolling after drag
+                    slider.style.scrollBehavior = '';
+                }
+
+                // Mouse events
+                thumb.addEventListener('mousedown', (e) => {
+                    startDrag(e.clientX);
                     e.preventDefault();
                 });
 
                 document.addEventListener('mousemove', (e) => {
-                    if (!isDragging) return;
-                    const deltaX = e.clientX - startX;
-                    const trackWidth = track.offsetWidth - thumb.offsetWidth;
-                    const scrollWidth = slider.scrollWidth - slider.clientWidth;
-                    const scrollDelta = (deltaX / trackWidth) * scrollWidth;
-                    slider.scrollLeft = startScrollLeft + scrollDelta;
+                    updateDrag(e.clientX);
                 });
 
-                document.addEventListener('mouseup', () => {
-                    isDragging = false;
-                });
+                document.addEventListener('mouseup', endDrag);
 
-                // Click on track to jump
+                // Touch events for mobile
+                thumb.addEventListener('touchstart', (e) => {
+                    startDrag(e.touches[0].clientX);
+                    e.preventDefault();
+                }, { passive: false });
+
+                document.addEventListener('touchmove', (e) => {
+                    if (isDragging) {
+                        updateDrag(e.touches[0].clientX);
+                        e.preventDefault();
+                    }
+                }, { passive: false });
+
+                document.addEventListener('touchend', endDrag);
+                document.addEventListener('touchcancel', endDrag);
+
+                // Smooth scroll function
+                function smoothScrollTo(targetScroll) {
+                    slider.scrollTo({
+                        left: targetScroll,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Click on track to jump (mouse)
                 track.addEventListener('click', (e) => {
                     if (e.target === thumb) return;
                     const clickX = e.clientX - track.getBoundingClientRect().left;
                     const trackWidth = track.offsetWidth;
                     const scrollWidth = slider.scrollWidth - slider.clientWidth;
                     const scrollPercent = clickX / trackWidth;
-                    slider.scrollLeft = scrollPercent * scrollWidth;
+                    smoothScrollTo(scrollPercent * scrollWidth);
                 });
+
+                // Tap on track to jump (touch)
+                track.addEventListener('touchend', (e) => {
+                    if (e.target === thumb || isDragging) return;
+                    const touch = e.changedTouches[0];
+                    const clickX = touch.clientX - track.getBoundingClientRect().left;
+                    const trackWidth = track.offsetWidth;
+                    const scrollWidth = slider.scrollWidth - slider.clientWidth;
+                    const scrollPercent = clickX / trackWidth;
+                    smoothScrollTo(scrollPercent * scrollWidth);
+                    e.preventDefault();
+                }, { passive: false });
             }
 
             // Initialize all sliders - wait for images to load

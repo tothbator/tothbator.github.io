@@ -1653,6 +1653,9 @@ span.photo-credit {
     overflow-y: hidden;        /* Disable vertical scrolling */
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     scroll-behavior: smooth;   /* Animated scrolling */
+    touch-action: pan-x;       /* Enable horizontal panning, disable vertical */
+    overscroll-behavior-x: contain; /* Prevent scroll chaining on mobile */
+    will-change: scroll-position; /* Optimize for scrolling performance */
     /* Hide native scrollbar */
     scrollbar-width: none;     /* Firefox: hide scrollbar */
     -ms-overflow-style: none;  /* IE/Edge: hide scrollbar */
