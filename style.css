@@ -707,8 +707,10 @@ h3 {
     .klaviyo-form-YbDRAD {
         width: 350px !important;
         max-width: 350px !important;
-        margin-left: calc((100% - 800px) / 2) !important;
+        margin-left: auto !important;
         margin-right: auto !important;
+        /* Shift left to align with left edge of 800px centered paragraphs */
+        margin-left: calc(50% - 400px) !important;
     }
 }
 
@@ -716,8 +718,19 @@ h3 {
 .klaviyo-form-YbDRAD[style] {
     width: 350px !important;
     max-width: 350px !important;
-    margin-left: calc((100% - 800px) / 2) !important;
     margin-right: auto !important;
+    /* Shift left to align with left edge of 800px centered paragraphs */
+    margin-left: calc(50% - 400px) !important;
+}
+
+/* Mobile: override inline styles for responsive behavior */
+@media (max-width: 781px) {
+    .klaviyo-form-YbDRAD[style] {
+        width: 100% !important;
+        max-width: 350px !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
 }
 
 /* Override all nested elements within the Klaviyo form */
@@ -1295,8 +1308,10 @@ span.photo-credit {
         padding-left: 20px !important;
     }
     .klaviyo-form-YbDRAD {
-        max-width: 100% !important;
+        max-width: 350px !important;
         width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
         box-sizing: border-box !important;
     }
     /* Ensure all nested Klaviyo form elements respect mobile width */
