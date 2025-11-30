@@ -691,8 +691,8 @@ h3 {
    Style form to behave like part of a paragraph
    ============================================ */
 .klaviyo-form-YbDRAD {
-    width: 320px !important;
-    max-width: 320px !important;
+    width: 350px !important;
+    max-width: 350px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     margin-top: 0em !important;
@@ -705,8 +705,8 @@ h3 {
 /* Match paragraph positioning - form should align with left edge of 800px paragraph block */
 @media (min-width: 782px) {
     .klaviyo-form-YbDRAD {
-        width: 320px !important;
-        max-width: 320px !important;
+        width: 350px !important;
+        max-width: 350px !important;
         margin-left: calc((100% - 800px) / 2) !important;
         margin-right: auto !important;
     }
@@ -714,8 +714,8 @@ h3 {
 
 /* Override inline styles that Klaviyo injects */
 .klaviyo-form-YbDRAD[style] {
-    width: 320px !important;
-    max-width: 320px !important;
+    width: 350px !important;
+    max-width: 350px !important;
     margin-left: calc((100% - 800px) / 2) !important;
     margin-right: auto !important;
 }
@@ -765,8 +765,8 @@ h3 {
 /* Desktop-specific: Ensure form content is properly contained and aligned */
 @media (min-width: 782px) {
     .klaviyo-form-YbDRAD {
-        width: 320px !important;
-        max-width: 320px !important;
+        width: 350px !important;
+        max-width: 350px !important;
         margin-left: calc((100% - 800px) / 2) !important;
         margin-right: auto !important;
         padding: 0 !important;
