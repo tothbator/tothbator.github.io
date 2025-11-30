@@ -686,6 +686,159 @@ h3 {
     line-height: 2em;            /* Custom line spacing - adjust as needed */
 }
 
+/* ============================================
+   KLAVIYO FORM CONTAINER
+   Style form to behave like part of a paragraph
+   ============================================ */
+.klaviyo-form-YbDRAD {
+    width: 320px !important;
+    max-width: 320px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 1em !important;
+    margin-bottom: 0 !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    text-align: left !important;
+}
+
+/* Match paragraph positioning - form should align with left edge of 800px paragraph block */
+@media (min-width: 782px) {
+    .klaviyo-form-YbDRAD {
+        width: 320px !important;
+        max-width: 320px !important;
+        margin-left: calc((100% - 800px) / 2) !important;
+        margin-right: auto !important;
+    }
+}
+
+/* Override inline styles that Klaviyo injects */
+.klaviyo-form-YbDRAD[style] {
+    width: 320px !important;
+    max-width: 320px !important;
+    margin-left: calc((100% - 800px) / 2) !important;
+    margin-right: auto !important;
+}
+
+/* Override all nested elements within the Klaviyo form */
+.klaviyo-form-YbDRAD *,
+.klaviyo-form-YbDRAD *::before,
+.klaviyo-form-YbDRAD *::after {
+    box-sizing: border-box !important;
+}
+
+/* Form wrapper elements - override Klaviyo's nested structure */
+.klaviyo-form-YbDRAD form,
+.klaviyo-form-YbDRAD .needsclick,
+.klaviyo-form-YbDRAD .klaviyo-form-wrapper,
+.klaviyo-form-YbDRAD .klaviyo-form,
+.klaviyo-form-YbDRAD .klaviyo-form.klaviyo-form.klaviyo-form,
+.klaviyo-form-YbDRAD > div,
+.klaviyo-form-YbDRAD > div > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Override inline styles on nested divs */
+.klaviyo-form-YbDRAD > div[style],
+.klaviyo-form-YbDRAD .klaviyo-form[style],
+.klaviyo-form-YbDRAD form[style] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Fix flex layout to prevent crooked appearance */
+.klaviyo-form-YbDRAD[style*="flex-direction"],
+.klaviyo-form-YbDRAD > div[style*="flex-direction"],
+.klaviyo-form-YbDRAD .klaviyo-form[style*="flex-direction"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Desktop-specific: Ensure form content is properly contained and aligned */
+@media (min-width: 782px) {
+    .klaviyo-form-YbDRAD {
+        width: 320px !important;
+        max-width: 320px !important;
+        margin-left: calc((100% - 800px) / 2) !important;
+        margin-right: auto !important;
+        padding: 0 !important;
+    }
+    
+    /* Ensure all form content respects the container */
+    .klaviyo-form-YbDRAD * {
+        max-width: 100% !important;
+    }
+    
+    /* Prevent any nested elements from breaking out */
+    .klaviyo-form-YbDRAD input,
+    .klaviyo-form-YbDRAD button,
+    .klaviyo-form-YbDRAD textarea,
+    .klaviyo-form-YbDRAD select {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Ensure text content doesn't overflow */
+    .klaviyo-form-YbDRAD p,
+    .klaviyo-form-YbDRAD span,
+    .klaviyo-form-YbDRAD div,
+    .klaviyo-form-YbDRAD label {
+        max-width: 100% !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+}
+
+/* Ensure form content doesn't overflow */
+.klaviyo-form-YbDRAD input,
+.klaviyo-form-YbDRAD button,
+.klaviyo-form-YbDRAD label,
+.klaviyo-form-YbDRAD div,
+.klaviyo-form-YbDRAD span,
+.klaviyo-form-YbDRAD p {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Left-align all text content inside the form to match paragraph alignment */
+.klaviyo-form-YbDRAD {
+    text-align: left !important;
+}
+
+/* Left-align form elements */
+.klaviyo-form-YbDRAD form {
+    text-align: left !important;
+}
+
+/* Left-align headings and text elements */
+.klaviyo-form-YbDRAD h1,
+.klaviyo-form-YbDRAD h2,
+.klaviyo-form-YbDRAD h3,
+.klaviyo-form-YbDRAD h4,
+.klaviyo-form-YbDRAD h5,
+.klaviyo-form-YbDRAD h6,
+.klaviyo-form-YbDRAD p,
+.klaviyo-form-YbDRAD span,
+.klaviyo-form-YbDRAD div,
+.klaviyo-form-YbDRAD label {
+    text-align: left !important;
+}
+
+/* Input fields and buttons - keep input text left, button text can be centered */
+.klaviyo-form-YbDRAD input,
+.klaviyo-form-YbDRAD textarea {
+    text-align: left !important;
+}
+
 /* Mobile responsive - stack vertically */
 @media (max-width: 781px) {
     .exhibition-details {
@@ -720,6 +873,28 @@ h3 {
     text-align: justify;         /* Align text on both left and right edges */
     text-align-last: left;       /* Last line of justified text stays left-aligned */
     text-indent: 0;              /* No first-line indent */
+}
+
+/* ============================================
+   LISTS
+   Style lists to match paragraph alignment
+   ============================================ */
+.container ul,
+.container ol {
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 2em;
+    margin-left: auto;
+    width: 800px;                /* Fixed width for centered block, matching paragraphs */
+    max-width: 800px;              /* Ensure it never exceeds 800px */
+    padding-left: 0;              /* Remove default padding */
+    list-style-position: inside;  /* Bullets/numbers inside the content area */
+    text-align: left;            /* Left-align list items */
+}
+
+.container li {
+    margin-bottom: 0.5em;        /* Space between list items */
+    padding-left: 0;              /* No additional padding */
 }
 
 /* Paragraph without first-line indent (use when you don't want indentation) */
@@ -1106,6 +1281,31 @@ span.photo-credit {
     .container p {
         margin-top: 0px;
         margin-bottom: 2em;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .container ul,
+    .container ol {
+        margin-top: 0px;
+        margin-bottom: 2em;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding-left: 20px !important;
+    }
+    .klaviyo-form-YbDRAD {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    /* Ensure all nested Klaviyo form elements respect mobile width */
+    .klaviyo-form-YbDRAD *,
+    .klaviyo-form-YbDRAD form,
+    .klaviyo-form-YbDRAD .needsclick,
+    .klaviyo-form-YbDRAD .klaviyo-form-wrapper,
+    .klaviyo-form-YbDRAD > div,
+    .klaviyo-form-YbDRAD > div > div {
         max-width: 100% !important;
         width: 100% !important;
         box-sizing: border-box !important;
