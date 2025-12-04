@@ -304,102 +304,171 @@
     <!-- ============================================
          KLAVIYO NEWSLETTER INTEGRATION
          ============================================ -->
-    <script async type='text/javascript' src='https://static.klaviyo.com/onsite/js/T6VuUX/klaviyo.js?company_id=T6VuUX'></script>
     <script type="text/javascript"> 
         //Initialize Klaviyo object on page load
         !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}(); 
-        
-        // Ensure Klaviyo form loads reliably with retry mechanism
+    </script>
+    <script type='text/javascript' src='https://static.klaviyo.com/onsite/js/T6VuUX/klaviyo.js?company_id=T6VuUX' onload="window._klaviyoScriptLoaded = true;"></script>
+    <script type="text/javascript"> 
+        // Ultra-reliable Klaviyo form loading - waits for script to fully load
         (function() {
             const formContainer = document.querySelector('.klaviyo-form-YbDRAD');
             if (!formContainer) return;
             
-            let attempts = 0;
-            const maxAttempts = 15; // Increased attempts
-            const retryDelay = 300; // Check every 300ms
             let formLoaded = false;
+            let scriptFullyLoaded = false;
+            let checkInterval = null;
             
-            function checkFormLoaded() {
-                // Check multiple ways the form might be rendered
-                return formContainer.children.length > 0 || 
-                       formContainer.innerHTML.trim().length > 0 ||
-                       formContainer.querySelector('form') !== null ||
-                       formContainer.querySelector('iframe') !== null ||
-                       formContainer.querySelector('[class*="klaviyo"]') !== null ||
-                       formContainer.offsetHeight > 0;
+            // Check if form is actually rendered
+            function isFormLoaded() {
+                if (!formContainer) return false;
+                
+                // Check for actual form content
+                const hasForm = formContainer.querySelector('form') !== null;
+                const hasIframe = formContainer.querySelector('iframe') !== null;
+                const hasInputs = formContainer.querySelector('input[type="email"], input[type="text"], button[type="submit"]') !== null;
+                const hasKlaviyoContent = formContainer.innerHTML.includes('klaviyo') && formContainer.children.length > 0;
+                const hasVisibleContent = formContainer.offsetHeight > 20; // More than just padding
+                
+                return (hasForm || hasIframe) && (hasInputs || hasKlaviyoContent) && hasVisibleContent;
             }
             
-            function ensureFormLoads() {
-                if (formLoaded) return;
+            // Check if Klaviyo script is fully loaded and ready
+            function isKlaviyoReady() {
+                // Check multiple indicators that Klaviyo is ready
+                const hasScriptLoaded = window._klaviyoScriptLoaded === true;
+                const hasKlaviyoObject = typeof window.klaviyo !== 'undefined' && window.klaviyo !== null;
+                const hasLoadMethod = hasKlaviyoObject && typeof window.klaviyo.load === 'function';
+                const hasPushMethod = hasKlaviyoObject && typeof window.klaviyo.push === 'function';
                 
-                attempts++;
+                return hasScriptLoaded && hasKlaviyoObject && (hasLoadMethod || hasPushMethod);
+            }
+            
+            // Render form using Klaviyo's API
+            function renderForm() {
+                if (!isKlaviyoReady()) return false;
                 
-                // Check if form is already loaded
-                if (checkFormLoaded()) {
+                try {
+                    // Primary method: Use klaviyo.load('forms') - this is the official way
+                    if (typeof window.klaviyo.load === 'function') {
+                        window.klaviyo.load('forms', { async: true });
+                    }
+                    
+                    // Secondary method: Use klaviyo.push to explicitly render this form
+                    if (typeof window.klaviyo.push === 'function') {
+                        window.klaviyo.push(['render', 'YbDRAD']);
+                    }
+                    
+                    return true;
+                } catch (e) {
+                    console.error('Klaviyo form render error:', e);
+                    return false;
+                }
+            }
+            
+            // Main checking function
+            function checkAndRender() {
+                // If form is already loaded, stop checking
+                if (isFormLoaded()) {
                     formLoaded = true;
+                    if (checkInterval) {
+                        clearInterval(checkInterval);
+                        checkInterval = null;
+                    }
                     return;
                 }
                 
-                // Try to load form if Klaviyo is available
-                if (window.klaviyo) {
-                    try {
-                        // Use Klaviyo's proper form rendering method
-                        if (typeof window.klaviyo.load === 'function') {
-                            window.klaviyo.load('forms', {
-                                async: true
-                            });
-                        }
-                        // Also try the render method if available
-                        if (typeof window.klaviyo.render === 'function') {
-                            window.klaviyo.render('forms', {
-                                async: true
-                            });
-                        }
-                    } catch (e) {
-                        // Silently continue retrying
+                // If Klaviyo is ready but form not loaded, try to render
+                if (isKlaviyoReady()) {
+                    if (!scriptFullyLoaded) {
+                        scriptFullyLoaded = true;
+                        // Script just became ready, render immediately
+                        renderForm();
+                    } else {
+                        // Script was ready, but form still not loaded - try rendering again
+                        renderForm();
                     }
                 }
-                
-                // Continue retrying if not loaded yet
-                if (attempts < maxAttempts && !formLoaded) {
-                    setTimeout(ensureFormLoads, retryDelay);
+            }
+            
+            // Start checking immediately
+            checkAndRender();
+            
+            // Set up continuous checking
+            checkInterval = setInterval(checkAndRender, 300);
+            
+            // Also check on various events
+            ['DOMContentLoaded', 'load'].forEach(function(eventName) {
+                if (document.readyState === 'loading' && eventName === 'DOMContentLoaded') {
+                    document.addEventListener(eventName, function() {
+                        setTimeout(checkAndRender, 100);
+                    });
+                } else if (eventName === 'load') {
+                    window.addEventListener(eventName, function() {
+                        setTimeout(checkAndRender, 200);
+                    });
                 }
-            }
+            });
             
-            // Start checking immediately and on DOM ready
-            function startChecking() {
-                setTimeout(ensureFormLoads, 100);
-            }
-            
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', startChecking);
-            } else {
-                startChecking();
-            }
-            
-            // Use MutationObserver to detect when form is dynamically added
-            const observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
-                    if (mutation.addedNodes.length > 0 && checkFormLoaded()) {
-                        formLoaded = true;
-                        observer.disconnect();
-                    }
+            // Watch for script load event
+            const klaviyoScript = document.querySelector('script[src*="klaviyo.js"]');
+            if (klaviyoScript && !klaviyoScript.hasAttribute('onload')) {
+                klaviyoScript.addEventListener('load', function() {
+                    window._klaviyoScriptLoaded = true;
+                    setTimeout(checkAndRender, 100);
                 });
+            }
+            
+            // MutationObserver to detect when form is added
+            const observer = new MutationObserver(function(mutations) {
+                for (let mutation of mutations) {
+                    if (mutation.addedNodes.length > 0) {
+                        if (isFormLoaded()) {
+                            formLoaded = true;
+                            observer.disconnect();
+                            if (checkInterval) {
+                                clearInterval(checkInterval);
+                                checkInterval = null;
+                            }
+                            break;
+                        }
+                    }
+                }
             });
             
             observer.observe(formContainer, {
                 childList: true,
                 subtree: true,
-                attributes: true,
-                attributeFilter: ['class', 'style']
+                attributes: false
             });
             
-            // Also listen for Klaviyo ready event if available
-            if (window.addEventListener) {
-                window.addEventListener('klaviyoForms', function() {
-                    setTimeout(ensureFormLoads, 100);
-                });
-            }
+            // Watch for Klaviyo initialization
+            const initObserver = new MutationObserver(function() {
+                if (isKlaviyoReady() && !scriptFullyLoaded) {
+                    scriptFullyLoaded = true;
+                    checkAndRender();
+                }
+            });
+            
+            initObserver.observe(document.head, {
+                childList: true,
+                subtree: false
+            });
+            
+            // Fallback: Keep checking for up to 20 seconds
+            setTimeout(function() {
+                if (!formLoaded && isKlaviyoReady()) {
+                    // Last attempt - render one more time
+                    renderForm();
+                    // Give it 2 more seconds
+                    setTimeout(function() {
+                        if (!isFormLoaded() && checkInterval) {
+                            clearInterval(checkInterval);
+                            checkInterval = null;
+                        }
+                    }, 2000);
+                }
+            }, 20000);
         })();
     </script>
 </body>
