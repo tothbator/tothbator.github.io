@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ============================================
+         HEAD SECTION
+         Document metadata and external resources
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="tóthbátor - Budapest based painter. Vulcan Studies">
+    <meta name="keywords" content="tóthbátor, Bátor Tóth, artist, painting, exhibition, oil painting, Budapest, contemporary art, abstract art">
+    <meta name="author" content="Bátor Tóth">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://tothbator.com/releases/vulcanstudies.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tothbator.com/releases/vulcanstudies.html">
+    <meta property="og:title" content="Vulcan Studies - tóthbátor">
+    <meta property="og:description" content="tóthbátor - Budapest based painter. Vulcan Studies">
+    <meta property="og:image" content="https://tothbator.com/assets/images/images-social/og_vulcan.jpg">
+    <meta property="og:image:url" content="https://tothbator.com/assets/images/images-social/og_vulcan.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:secure_url" content="https://tothbator.com/assets/images/images-social/og_vulcan.jpg">
+    <meta property="og:image:alt" content="Vulcan Studies - Artwork by tóthbátor">
+    <meta property="og:site_name" content="tóthbátor">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@itstothbator">
+    <meta name="twitter:url" content="https://tothbator.com/releases/vulcanstudies.html">
+    <meta name="twitter:title" content="Vulcan Studies - tóthbátor">
+    <meta name="twitter:description" content="tóthbátor - Budapest based painter. Vulcan Studies">
+    <meta name="twitter:image" content="https://tothbator.com/assets/images/images-social/og_vulcan.jpg">
+    <meta name="twitter:image:alt" content="Vulcan Studies - Artwork by tóthbátor">
+    <meta name="twitter:image:width" content="1200">
+    <meta name="twitter:image:height" content="630">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.klaviyo.com https://static-forms.klaviyo.com; connect-src 'self' https://*.klaviyo.com https://fast.a.klaviyo.com https://static-forms.klaviyo.com;">
+    
+    <title>Vulcan Studies - tóthbátor</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- ============================================
+         MOBILE HEADER
+         Contains hamburger menu and branding on mobile
+         ============================================ -->
+    <header class="mobile-header">
+        <nav>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+            <ul id="mobile-menu">
+                <li><a href="../pages/vulcan.html">vulcan</a></li>
+                <li><a href="../pages/noumenon.html">noumenon</a></li>
+                <li><a href="../pages/silverpoints.html">silverpoints</a></li>
+                <li><a href="../pages/bio.html">bio</a></li>
+                <li><a href="../pages/contact.html">contact</a></li>
+                <!-- <li><a href="downloads.html">downloads</a></li> -->
+            </ul>
+        </nav>
+        <span class="branding">tóthbátor</span>
+    </header>
+    
+    <!-- ============================================
+         DESKTOP NAVIGATION
+         Desktop sidebar navigation (hidden on mobile)
+         ============================================ -->
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="../pages/vulcan.html">vulcan</a></li>
+            <li><a href="../pages/noumenon.html">noumenon</a></li>
+            <li><a href="../pages/silverpoints.html">silverpoints</a></li>
+            <li><a href="../pages/bio.html">bio</a></li>
+            <li><a href="../pages/contact.html">contact</a></li>
+            <!-- <li><a href="downloads.html">downloads</a></li> -->
+        </ul>
+    </nav>
+    
+    <!-- ============================================
+         DESKTOP BRANDING
+         Fixed position branding element (desktop only)
+         ============================================ -->
+    <span class="branding desktop-branding">tóthbátor</span>
+    
+    <!-- ============================================
+         JAVASCRIPT FUNCTIONALITY
+         Mobile menu toggle, custom scrollbars, accordion
+         ============================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const toggleButton = document.getElementById('mobile-menu-toggle');
+            const menu = document.getElementById('mobile-menu');
+            
+            if (toggleButton && menu) {
+                toggleButton.addEventListener('click', function() {
+                    menu.classList.toggle('active');
+                });
+            }
+
+            // Custom scrollbar functionality
+            function initCustomScrollbar(sliderId) {
+                const slider = document.getElementById(sliderId);
+                if (!slider) return;
+
+                const track = slider.parentElement.querySelector('.custom-scrollbar-track');
+                const thumb = track.querySelector('.custom-scrollbar-thumb');
+                if (!track || !thumb) return;
+
+                // Calculate scrollbar dimensions
+                function updateScrollbar() {
+                    const sliderWidth = slider.clientWidth;
+                    const scrollWidth = slider.scrollWidth;
+                    const scrollable = scrollWidth > sliderWidth;
+
+                    if (!scrollable) {
+                        track.style.display = 'none';
+                        return;
+                    }
+
+                    track.style.display = 'block';
+                    const thumbWidth = (sliderWidth / scrollWidth) * track.offsetWidth;
+                    thumb.style.width = Math.max(thumbWidth, 30) + 'px';
+
+                    const maxLeft = track.offsetWidth - thumb.offsetWidth;
+                    const scrollPercent = slider.scrollLeft / (scrollWidth - sliderWidth);
+                    thumb.style.left = (scrollPercent * maxLeft) + 'px';
+                }
+
+                // Update on scroll
+                slider.addEventListener('scroll', updateScrollbar);
+                window.addEventListener('resize', updateScrollbar);
+                updateScrollbar();
+
+                // Drag functionality (mouse and touch)
+                let isDragging = false;
+                let startX = 0;
+                let startScrollLeft = 0;
+
+                function startDrag(clientX) {
+                    isDragging = true;
+                    startX = clientX;
+                    startScrollLeft = slider.scrollLeft;
+                }
+
+                function updateDrag(clientX) {
+                    if (!isDragging) return;
+                    const deltaX = clientX - startX;
+                    const trackWidth = track.offsetWidth - thumb.offsetWidth;
+                    const scrollWidth = slider.scrollWidth - slider.clientWidth;
+                    const scrollDelta = (deltaX / trackWidth) * scrollWidth;
+                    
+                    // Temporarily disable smooth scrolling during drag for immediate response
+                    slider.style.scrollBehavior = 'auto';
+                    slider.scrollLeft = startScrollLeft + scrollDelta;
+                }
+
+                function endDrag() {
+                    isDragging = false;
+                    // Re-enable smooth scrolling after drag
+                    slider.style.scrollBehavior = '';
+                }
+
+                // Mouse events
+                thumb.addEventListener('mousedown', (e) => {
+                    startDrag(e.clientX);
+                    e.preventDefault();
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    updateDrag(e.clientX);
+                });
+
+                document.addEventListener('mouseup', endDrag);
+
+                // Touch events for mobile
+                thumb.addEventListener('touchstart', (e) => {
+                    startDrag(e.touches[0].clientX);
+                    e.preventDefault();
+                }, { passive: false });
+
+                document.addEventListener('touchmove', (e) => {
+                    if (isDragging) {
+                        updateDrag(e.touches[0].clientX);
+                        e.preventDefault();
+                    }
+                }, { passive: false });
+
+                document.addEventListener('touchend', endDrag);
+                document.addEventListener('touchcancel', endDrag);
+
+                // Smooth scroll function
+                function smoothScrollTo(targetScroll) {
+                    slider.scrollTo({
+                        left: targetScroll,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Click on track to jump (mouse)
+                track.addEventListener('click', (e) => {
+                    if (e.target === thumb) return;
+                    const clickX = e.clientX - track.getBoundingClientRect().left;
+                    const trackWidth = track.offsetWidth;
+                    const scrollWidth = slider.scrollWidth - slider.clientWidth;
+                    const scrollPercent = clickX / trackWidth;
+                    smoothScrollTo(scrollPercent * scrollWidth);
+                });
+
+                // Tap on track to jump (touch)
+                track.addEventListener('touchend', (e) => {
+                    if (e.target === thumb || isDragging) return;
+                    const touch = e.changedTouches[0];
+                    const clickX = touch.clientX - track.getBoundingClientRect().left;
+                    const trackWidth = track.offsetWidth;
+                    const scrollWidth = slider.scrollWidth - slider.clientWidth;
+                    const scrollPercent = clickX / trackWidth;
+                    smoothScrollTo(scrollPercent * scrollWidth);
+                    e.preventDefault();
+                }, { passive: false });
+            }
+
+            // Initialize all sliders - wait for images to load
+            function initializeAllSliders() {
+                document.querySelectorAll('.image-slider').forEach((slider, index) => {
+                    if (slider.id) {
+                        initCustomScrollbar(slider.id);
+                    } else {
+                        slider.id = 'slider-' + (index + 1);
+                        initCustomScrollbar(slider.id);
+                    }
+                });
+            }
+            
+            // Wait for all images in sliders to load before initializing scrollbars
+            const sliderImages = document.querySelectorAll('.image-slider img');
+            let loadedImages = 0;
+            const totalImages = sliderImages.length;
+            
+            if (totalImages === 0) {
+                // No images, initialize immediately
+                initializeAllSliders();
+            } else {
+                // Wait for all images to load
+                sliderImages.forEach(img => {
+                    if (img.complete) {
+                        loadedImages++;
+                    } else {
+                        img.addEventListener('load', function() {
+                            loadedImages++;
+                            if (loadedImages === totalImages) {
+                                initializeAllSliders();
+                            }
+                        });
+                        img.addEventListener('error', function() {
+                            loadedImages++;
+                            if (loadedImages === totalImages) {
+                                initializeAllSliders();
+                            }
+                        });
+                    }
+                });
+                
+                // Fallback: initialize after a short delay if images take too long
+                setTimeout(function() {
+                    if (loadedImages < totalImages) {
+                        initializeAllSliders();
+                    }
+                }, 1000);
+                
+                // Also initialize if all images are already loaded
+                if (loadedImages === totalImages) {
+                    initializeAllSliders();
+                }
+            }
+
+            // Accordion functionality
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const accordion = this.closest('.accordion');
+                    const content = accordion.querySelector('.accordion-content');
+                    const toggle = this.querySelector('.accordion-toggle');
+                    const isActive = this.classList.contains('active');
+                    
+                    // Toggle active state
+                    if (isActive) {
+                        // Collapse
+                        this.classList.remove('active');
+                        content.classList.remove('active');
+                        toggle.textContent = '+';
+                        this.setAttribute('aria-expanded', 'false');
+                    } else {
+                        // Expand
+                        this.classList.add('active');
+                        content.classList.add('active');
+                        toggle.textContent = '−';
+                        this.setAttribute('aria-expanded', 'true');
+                    }
+                });
+
+                // Keyboard accessibility
+                header.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- ============================================
+         MAIN CONTENT CONTAINER
+         Wraps all page content with proper margins
+         ============================================ -->
+    <div class="container">
+        <div>
+            <!-- ============================================
+                 PAGE HEADER
+                 ============================================ -->
+            <h1>VULCAN STUDIES</h1>
+
+            <!-- ============================================
+                 CONTENT SECTION
+                 Dynamically populated from CSV
+                 ============================================ -->
+            
+            <div id="vulcan-studies-container">
+                <!-- Images and text will be generated here from CSV -->
+            </div>
+            
+            <div class="spacer-large"></div>
+
+        </div>
+    </div>
+
+    <!-- ============================================
+         KLAVIYO NEWSLETTER INTEGRATION
+         ============================================ -->
+    <script async type='text/javascript' src='https://static.klaviyo.com/onsite/js/T6VuUX/klaviyo.js?company_id=T6VuUX'></script>
+    <script type="text/javascript"> 
+        //Initialize Klaviyo object on page load
+        !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}(); 
+    </script>
+
+    <!-- ============================================
+         CSV PARSER AND DYNAMIC CONTENT GENERATOR
+         ============================================ -->
+    <script>
+        // Function to parse CSV text
+        function parseCSV(text) {
+            const lines = text.split('\n').filter(line => line.trim());
+            
+            // Find column indices (A=0, B=1, C=2, etc.)
+            const colA = 0;  // Artist
+            const colB = 1;  // serial
+            const colC = 2;  // Title
+            const colE = 4;  // Place Created
+            const colF = 5;  // Year Created
+            const colH = 7;  // Medium
+            const colJ = 9;  // Size (cm)
+            const colQ = 16; // Finish
+            const colS = 18; // Price (HUF)
+            const colT = 19; // Price (EUR)
+            const colU = 20; // Price (USD)
+            
+            const rows = [];
+            
+            // Start from row 2 (index 2) to skip header rows
+            for (let i = 2; i < lines.length; i++) {
+                const values = parseCSVLine(lines[i]);
+                if (values.length < 21) continue; // Skip incomplete rows
+                
+                rows.push({
+                    artist: values[colA] || '',
+                    serial: values[colB] || '',
+                    title: values[colC] || '',
+                    placeCreated: values[colE] || '',
+                    yearCreated: values[colF] || '',
+                    medium: values[colH] || '',
+                    size: values[colJ] || '',
+                    finish: values[colQ] || '',
+                    priceHUF: values[colS] || '',
+                    priceEUR: values[colT] || '',
+                    priceUSD: values[colU] || ''
+                });
+            }
+            
+            return rows;
+        }
+        
+        // Handle CSV parsing with quoted fields
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current.trim());
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current.trim());
+            return result;
+        }
+        
+        // Convert title to image filename
+        function titleToFilename(title) {
+            // "VULCAN Study No.2" -> "VULCAN_Study_No2_2025_4000px.webp"
+            // "VULCAN Study No. X" -> "VULCAN_Study_NoX_2025_4000px.webp"
+            let filename = title
+                .replace(/VULCAN Study No\./g, 'VULCAN_Study_No')
+                .replace(/ /g, '_')
+                .replace(/\./g, '');
+            
+            // Handle "No X" -> "NoX"
+            filename = filename.replace(/No_X/g, 'NoX');
+            
+            // Add suffix
+            filename += '_2025_4000px.webp';
+            
+            return filename;
+        }
+        
+        // Generate HTML for each row
+        function generateRow(data) {
+            const filename = titleToFilename(data.title);
+            const imagePath = `../assets/images/catalogimages/vulcanstudies/${filename}`;
+            
+            // Build text content with all fields stacked vertically (A, C, E, F, H, Q, J+cm, B, S, T, U)
+            // Each field on its own line with proper spacing
+            const textContent = `
+                <p style="margin: 0 0 0.5em 0;">${data.artist}</p>
+                <p style="margin: 0 0 0.5em 0;">${data.title}</p>
+                <p style="margin: 0 0 0.5em 0;">${data.placeCreated}</p>
+                <p style="margin: 0 0 0.5em 0;">${data.yearCreated}</p>
+                <p style="margin: 0 0 0.5em 0;">${data.medium}</p>
+                <p style="margin: 0 0 0.5em 0;">${data.finish}</p>
+                <p style="margin: 0 0 0.5em 0;">${data.size} cm</p>
+                <p style="margin: 0 0 0.5em 0;">${data.serial}</p>
+                <p style="margin: 0 0 0.5em 0;">${data.priceHUF}</p>
+                <p style="margin: 0 0 0.5em 0;">${data.priceEUR}</p>
+                <p style="margin: 0 0 0;">${data.priceUSD}</p>
+            `;
+            
+            return `
+                <div class="image-text-row">
+                    <div class="image-wrapper" style="width: 400px;">
+                        <img src="${imagePath}" alt="${data.title}">
+                    </div>
+                    <div class="text-content">
+                        ${textContent}
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Load and process CSV
+        async function loadVulcanStudies() {
+            try {
+                const response = await fetch('csv/vulcanstudies.csv');
+                const csvText = await response.text();
+                const rows = parseCSV(csvText);
+                
+                const container = document.getElementById('vulcan-studies-container');
+                container.innerHTML = rows.map(row => generateRow(row)).join('');
+            } catch (error) {
+                console.error('Error loading CSV:', error);
+                document.getElementById('vulcan-studies-container').innerHTML = 
+                    '<p>Error loading study data. Please check the CSV file.</p>';
+            }
+        }
+        
+        // Load on page ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadVulcanStudies);
+        } else {
+            loadVulcanStudies();
+        }
+    </script>
+</body>
+</html>
