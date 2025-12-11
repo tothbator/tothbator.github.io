@@ -332,14 +332,41 @@
                  PAGE HEADER
                  ============================================ -->
             <h1>VULCAN STUDIES</h1>
-
+<div class="spacer-small"></div>
             <!-- ============================================
                  CONTENT SECTION
                  Dynamically populated from CSV
                  ============================================ -->
+            <!-- ============================================
+                 ACCORDION / DROPDOWN SECTION
+                 STORY
+                 ============================================ -->
+            <div class="accordion" style="margin-bottom: 1em;">
+                <div class="accordion-header" role="button" tabindex="0" aria-expanded="false" aria-controls="accordion-content-story">
+                    <span class="accordion-toggle">+</span>
+                    <span class="accordion-title">STORY</span>
+                </div>
+                <div class="accordion-content" id="accordion-content-story">
+                    <p>The VULCAN project started around the summer of 2024. By intense conversations about culture and certain ideologies that shape the times we live in; ideologies that shaped our past, misunderstood not so much for good but rather for bad as it is often the case. Met with the concerns of what this means for our future. I started to map out these ideas and wrap them into abstract allegories and metaphors. While all this on my mind already, in April 2025, I drew a sketch, drawn in a hospital visit, on a random piece of paper, with children's crayons. I loved it, and I wanted to expand on it so I started to do small scale studies with oil pastels - at this time I already heard VULCAN in the back of my mind. All this followed by months of research, taking notes, writing drafts and transferring the studies to canvas with oil sticks and oil paint.</p>
+                    
+                    <p>The story of Vulcan, and other heroic journeys inspired me to think about longing for adventure, exile, hermitude; and the return - to oneself and into culture and society. What are the indestructable underlying elements of our existence that will always grow back with the same mechanisms. Are these unavoidable forever? Or does the future hold some extreme - yet unimaginable - transformation that relieves Humanity from it's hardships? Can we change? Can we change in ways that really matter?</p>
+                </div>
+            </div>
             
+            <p>
+                Below are the unique original VULCAN studies, that became the namesake and later on the VULCAN paintings.
+                <br><br>
+                <b>
+                  If you wish to acquire one of them please send an email to 
+                  <a href="mailto:hello@tothbator.com" style="color: inherit; text-decoration: underline;">hello@tothbator.com</a>.
+                </b>
+                <br><br>
+                <i>Signed, varnished, and shipped unframed within 3 days. Shipping cost included within Europe.</i>
+            </p>
+                 
             <div id="vulcan-studies-container">
                 <!-- Images and text will be generated here from CSV -->
+                 
             </div>
             
             <div class="spacer-large"></div>
@@ -360,19 +387,46 @@
          CSV PARSER AND DYNAMIC CONTENT GENERATOR
          ============================================ -->
     <script>
+        // Global variable to store headers
+        let csvHeaders = [];
+        
         // Function to parse CSV text
         function parseCSV(text) {
             const lines = text.split('\n').filter(line => line.trim());
             
-            // Find column indices (A=0, B=1, C=2, etc.)
+            // Parse headers - handle the split "MEDIUM CODE" field across two lines
+            // Line 0 ends with: Finish,"MEDIUM
+            // Line 1 starts with: CODE",Price (HUF),...
+            const headerLine1 = parseCSVLine(lines[0]);
+            const headerLine2 = parseCSVLine(lines[1]);
+            
+            // Combine headers
+            csvHeaders = [...headerLine1];
+            // The last field in line1 is "MEDIUM" (from the split "MEDIUM CODE")
+            // The first field in line2 is "CODE" (from the split "MEDIUM CODE")
+            if (csvHeaders.length > 0 && headerLine2.length > 0) {
+                const lastHeader = csvHeaders[csvHeaders.length - 1];
+                const firstHeader2 = headerLine2[0];
+                
+                // Check if we have the split "MEDIUM CODE"
+                if (lastHeader.includes('MEDIUM') && firstHeader2.includes('CODE')) {
+                    csvHeaders[csvHeaders.length - 1] = 'MEDIUM CODE';
+                    csvHeaders = csvHeaders.concat(headerLine2.slice(1));
+                } else {
+                    csvHeaders = csvHeaders.concat(headerLine2);
+                }
+            } else {
+                csvHeaders = csvHeaders.concat(headerLine2);
+            }
+            
+            // Find column indices (A=0, C=2, E=4, F=5, H=7, J=9, O=14, S=18, T=19, U=20)
             const colA = 0;  // Artist
-            const colB = 1;  // serial
             const colC = 2;  // Title
             const colE = 4;  // Place Created
             const colF = 5;  // Year Created
             const colH = 7;  // Medium
             const colJ = 9;  // Size (cm)
-            const colQ = 16; // Finish
+            const colO = 14; // Status
             const colS = 18; // Price (HUF)
             const colT = 19; // Price (EUR)
             const colU = 20; // Price (USD)
@@ -386,13 +440,12 @@
                 
                 rows.push({
                     artist: values[colA] || '',
-                    serial: values[colB] || '',
                     title: values[colC] || '',
                     placeCreated: values[colE] || '',
                     yearCreated: values[colF] || '',
                     medium: values[colH] || '',
                     size: values[colJ] || '',
-                    finish: values[colQ] || '',
+                    status: values[colO] || '',
                     priceHUF: values[colS] || '',
                     priceEUR: values[colT] || '',
                     priceUSD: values[colU] || ''
@@ -447,30 +500,74 @@
             const filename = titleToFilename(data.title);
             const imagePath = `../assets/images/catalogimages/vulcanstudies/${filename}`;
             
-            // Build text content with all fields stacked vertically (A, C, E, F, H, Q, J+cm, B, S, T, U)
-            // Each field on its own line with proper spacing
-            const textContent = `
-                <p style="margin: 0 0 0.5em 0;">${data.artist}</p>
-                <p style="margin: 0 0 0.5em 0;">${data.title}</p>
-                <p style="margin: 0 0 0.5em 0;">${data.placeCreated}</p>
-                <p style="margin: 0 0 0.5em 0;">${data.yearCreated}</p>
-                <p style="margin: 0 0 0.5em 0;">${data.medium}</p>
-                <p style="margin: 0 0 0.5em 0;">${data.finish}</p>
-                <p style="margin: 0 0 0.5em 0;">${data.size} cm</p>
-                <p style="margin: 0 0 0.5em 0;">${data.serial}</p>
-                <p style="margin: 0 0 0.5em 0;">${data.priceHUF}</p>
-                <p style="margin: 0 0 0.5em 0;">${data.priceEUR}</p>
-                <p style="margin: 0 0 0;">${data.priceUSD}</p>
+            // Get header labels (A=0, C=2, E=4, F=5, H=7, J=9, O=14, S=18, T=19, U=20)
+            const labels = {
+                title: csvHeaders[2] || 'Title',
+                placeCreated: csvHeaders[4] || 'Place Created',
+                yearCreated: csvHeaders[5] || 'Year Created',
+                medium: csvHeaders[7] || 'Medium',
+                size: csvHeaders[9] || 'Size (cm)',
+                status: csvHeaders[14] || 'Status',
+                priceHUF: csvHeaders[18] || 'Price (HUF)',
+                priceEUR: csvHeaders[19] || 'Price (EUR)',
+                priceUSD: csvHeaders[20] || 'Price (USD)'
+            };
+            
+            // Format size: "14.8x21" -> "14.8 × 21"
+            const formattedSize = data.size ? data.size.replace(/x/gi, ' × ') : '';
+            
+            // Format status - check if available or taken
+            const statusLower = (data.status || '').toLowerCase();
+            const isAvailable = statusLower === 'available';
+            const isTaken = statusLower === 'taken';
+            const statusDisplay = data.status || '';
+            
+            // Build desktop text content (mobile-style text design, no labels)
+            const desktopTextContent = `
+                <h2 class="desktop-artwork-title">${data.title}</h2>
+                <p class="desktop-artwork-artist">${data.artist}</p>
+                <p class="desktop-artwork-details">${formattedSize} cm • ${data.medium} • ${data.placeCreated} • ${data.yearCreated}</p>
+                <div class="desktop-artwork-price-row">
+                    <span class="desktop-artwork-price">${data.priceHUF}</span>
+                </div>
+                <p class="desktop-artwork-price-secondary">${data.priceEUR} • ${data.priceUSD}</p>
+                <div class="desktop-artwork-status-row">
+                    ${isAvailable ? '<span class="desktop-artwork-status available">Available</span>' : ''}
+                    ${isTaken ? '<span class="desktop-artwork-status taken">Taken</span>' : ''}
+                </div>
+            `;
+            
+            // Build mobile card content (gallery card style)
+            const mobileCardContent = `
+                <div class="artwork-card-mobile">
+                    <div class="artwork-card-image">
+                        <img src="${imagePath}" alt="${data.title}">
+                    </div>
+                    <div class="artwork-card-content">
+                        <h2 class="artwork-card-title">${data.title}</h2>
+                        <p class="artwork-card-artist">${data.artist}</p>
+                        <p class="artwork-card-details">${formattedSize} cm • ${data.medium} • ${data.placeCreated} • ${data.yearCreated}</p>
+                        <div class="artwork-card-price-row">
+                            <span class="artwork-card-price">${data.priceHUF}</span>
+                            ${isAvailable ? '<span class="artwork-card-status available">Available</span>' : ''}
+                            ${isTaken ? '<span class="artwork-card-status taken">Taken</span>' : ''}
+                        </div>
+                        <p class="artwork-card-price-secondary">${data.priceEUR} • ${data.priceUSD}</p>
+                    </div>
+                </div>
             `;
             
             return `
                 <div class="image-text-row">
-                    <div class="image-wrapper" style="width: 400px;">
-                        <img src="${imagePath}" alt="${data.title}">
+                    <div class="desktop-layout desktop-only">
+                        <div class="image-wrapper" style="width: 400px;">
+                            <img src="${imagePath}" alt="${data.title}">
+                        </div>
+                        <div class="text-content">
+                            ${desktopTextContent}
+                        </div>
                     </div>
-                    <div class="text-content">
-                        ${textContent}
-                    </div>
+                    ${mobileCardContent}
                 </div>
             `;
         }
