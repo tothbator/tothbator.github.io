@@ -1118,6 +1118,35 @@ img[style*="height"] {
 }
 
 /* ============================================
+   PAINTING TRIO
+   Three portrait paintings in a row on desktop,
+   stacked on mobile.
+   ============================================ */
+.painting-trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto 2em;
+}
+.painting-trio .image-with-credit {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+.painting-trio .image-with-credit > img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+@media (max-width: 600px) {
+    .painting-trio {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
    IMAGE ITEM
    Individual image with credit wrapper for rows and sliders
    ============================================
