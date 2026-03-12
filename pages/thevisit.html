@@ -25,7 +25,6 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@itstothbator">
-    <meta name="twitter:url" content="https://tothbator.com/pages/thevisit.html">
     <meta name="twitter:title" content="the visit - tóthbátor">
     <meta name="twitter:description" content="the visit - artwork by tóthbátor. Budapest based artist exploring abstract landscapes and portraiture.">
 
@@ -75,14 +74,10 @@
          ============================================ -->
     <span class="branding desktop-branding">tóthbátor</span>
 
-    <!-- ============================================
-         MOBILE MENU SCRIPT
-         ============================================ -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const toggleButton = document.getElementById('mobile-menu-toggle');
             const menu = document.getElementById('mobile-menu');
-
             if (toggleButton && menu) {
                 toggleButton.addEventListener('click', function() {
                     menu.classList.toggle('active');
@@ -95,19 +90,30 @@
         <div>
             <h1>THE VISIT</h1>
 
-            <div class="image-with-credit" style="width: 460px;">
-                <img src="../assets/images/images-thevisit/visit.JPG" alt="visit" style="width: 460px;">
+            <!-- Hero painting -->
+            <div class="image-with-credit" style="max-width: 700px;">
+                <img src="../assets/images/images-thevisit/visit.webp"
+                     alt="Visit"
+                     width="2600" height="3713">
                 <div class="photo-credit">Visit</div>
             </div>
 
-            <div class="image-with-credit" style="width: 460px;">
-                <img src="../assets/images/images-thevisit/adapt.JPG" alt="adapt" style="width: 460px;">
-                <div class="photo-credit">Adapt</div>
-            </div>
-
-            <div class="image-with-credit" style="width: 460px;">
-                <img src="../assets/images/images-thevisit/forget.JPG" alt="forget" style="width: 460px;">
-                <div class="photo-credit">Forget</div>
+            <!-- Two paintings side by side -->
+            <div class="painting-pair">
+                <div class="image-with-credit">
+                    <img src="../assets/images/images-thevisit/adapt.webp"
+                         alt="Adapt"
+                         width="2634" height="3687"
+                         loading="lazy">
+                    <div class="photo-credit">Adapt</div>
+                </div>
+                <div class="image-with-credit">
+                    <img src="../assets/images/images-thevisit/forget.webp"
+                         alt="Forget"
+                         width="2670" height="3778"
+                         loading="lazy">
+                    <div class="photo-credit">Forget</div>
+                </div>
             </div>
 
             <div class="spacer-large"></div>

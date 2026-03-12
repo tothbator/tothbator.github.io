@@ -1054,8 +1054,10 @@ picture img {
 img[style*="height"] {
     width: auto;                /* If height is set, let width adjust automatically */
 }
-img[style*="width"] {
-    max-width: none;            /* If width is set inline, allow it to exceed container */
+/* Slider images must be able to exceed the visible slider area (it scrolls) */
+.image-slider img {
+    max-width: none;
+    flex-shrink: 0;
 }
 
 /* ============================================
@@ -1085,6 +1087,35 @@ img[style*="width"] {
     flex-shrink: 0;
 }
 */
+
+/* ============================================
+   PAINTING PAIR
+   Two portrait paintings displayed side by side on desktop,
+   stacked on mobile. No inline widths needed — just use the class.
+   ============================================ */
+.painting-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto 2em;
+}
+.painting-pair .image-with-credit {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+.painting-pair .image-with-credit > img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+@media (max-width: 600px) {
+    .painting-pair {
+        grid-template-columns: 1fr;
+    }
+}
 
 /* ============================================
    IMAGE ITEM
