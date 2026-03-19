@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="tóthbátor - Budapest based painter. VULCAN is a profound meditation on transformation, resilience, and the indomitable human spirit, wherein the elemental power of the volcano interlaces with the mythological archetype of Vulcan, the Roman god of fire.">
+    <meta name="keywords" content="tóthbátor, Bátor Tóth, artist, painting, exhibition,oil painting, Budapest, contemporary art, abstract art, VULCAN">
+    <meta name="author" content="Bátor Tóth">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tothbator.com/pages/vulcan.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tothbator.com/pages/vulcan.html">
+    <meta property="og:title" content="tóthbátor">
+    <meta property="og:description" content="Budapest based painter. VULCAN: a profound meditation on transformation, resilience, and the indomitable human spirit.">
+    <meta property="og:image" content="https://tothbator.com/assets/images/images-social/og_vulcan.jpg">
+    <meta property="og:image:url" content="https://tothbator.com/assets/images/images-social/og_vulcan.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:secure_url" content="https://tothbator.com/assets/images/images-social/og_vulcan.jpg">
+    <meta property="og:image:alt" content="VULCAN - Artwork by tóthbátor">
+    <meta property="og:site_name" content="tóthbátor">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@itstothbator">
+    <meta name="twitter:url" content="https://tothbator.com/pages/vulcan.html">
+    <meta name="twitter:title" content="tóthbátor">
+    <meta name="twitter:description" content="Budapest based painter. VULCAN: a profound meditation on transformation, resilience, and the indomitable human spirit.">
+    <meta name="twitter:image" content="https://tothbator.com/assets/images/images-social/og_vulcan.jpg">
+    <meta name="twitter:image:alt" content="VULCAN - Artwork by tóthbátor">
+    <meta name="twitter:image:width" content="1200">
+    <meta name="twitter:image:height" content="630">
+
+    <title>tóthbátor — VULCAN</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,900;1,300;1,400;1,600;1,900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0d0b09;
+            --text: #e8e0d4;
+            --accent: #8B1A1A;
+            --rule: #2a2520;
+            --caption: #555;
+            --credit: #444;
+        }
+
+        html {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 300;
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ================================================
+           NAVIGATION — absolute, vertical, top-left
+        ================================================ */
+        .site-nav {
+            position: fixed;
+            top: 48px;
+            left: 32px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .site-nav a {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            font-weight: 400;
+            letter-spacing: 0.35em;
+            text-transform: lowercase;
+            color: var(--text);
+            text-decoration: none;
+            opacity: 0.45;
+            transition: opacity 0.3s ease;
+            position: relative;
+        }
+
+        .site-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--text);
+            transition: width 0.4s ease;
+        }
+
+        .site-nav a:hover {
+            opacity: 1;
+        }
+
+        .site-nav a:hover::after {
+            width: 100%;
+        }
+
+        .site-nav a.active {
+            opacity: 0.9;
+        }
+
+        /* Mobile nav */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            background: var(--bg);
+            border-bottom: 1px solid var(--rule);
+            padding: 16px 20px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .mobile-nav-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            color: var(--text);
+            opacity: 0.7;
+        }
+
+        .mobile-nav-toggle {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+
+        .mobile-nav-menu {
+            display: none;
+            flex-direction: column;
+            gap: 0;
+            background: var(--bg);
+            border-top: 1px solid var(--rule);
+            padding: 12px 20px 20px;
+        }
+
+        .mobile-nav-menu.open {
+            display: flex;
+        }
+
+        .mobile-nav-menu a {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.3em;
+            color: var(--text);
+            text-decoration: none;
+            opacity: 0.6;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        /* ================================================
+           PAGE STRUCTURE
+        ================================================ */
+        .page-wrapper {
+            padding-left: 130px;
+            padding-right: 0;
+        }
+
+        /* ================================================
+           HERO HEADER — exhibition info + massive title
+        ================================================ */
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 0;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .exhibition-meta {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: var(--text);
+            opacity: 0.45;
+            margin-bottom: 32px;
+            padding-left: 4px;
+        }
+
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 900;
+            font-size: clamp(80px, 14vw, 220px);
+            line-height: 0.88;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin: 0;
+            padding-right: 0;
+            /* Geological — slightly clipped on right edge */
+            overflow: visible;
+            white-space: nowrap;
+        }
+
+        .page-title:hover {
+            color: var(--accent);
+            transition: color 0.6s ease;
+        }
+
+        /* ================================================
+           SECTION DIVIDER
+        ================================================ */
+        .divider {
+            border: none;
+            border-top: 1px solid var(--rule);
+            margin: 80px 0;
+        }
+
+        /* ================================================
+           BODY TEXT — two-column intro on desktop
+        ================================================ */
+        .intro-text {
+            max-width: 900px;
+            column-count: 2;
+            column-gap: 64px;
+            line-height: 2.2;
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text);
+            padding-right: 80px;
+        }
+
+        .body-text {
+            max-width: 560px;
+            line-height: 2.1;
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text);
+        }
+
+        /* ================================================
+           SECTION SPACING
+        ================================================ */
+        .section {
+            margin-top: 120px;
+            margin-bottom: 0;
+        }
+
+        .section-sm {
+            margin-top: 64px;
+        }
+
+        /* ================================================
+           IMAGE LAYOUTS
+        ================================================ */
+
+        /* Full bleed — edge to edge */
+        .img-full-bleed {
+            width: 100vw;
+            margin-left: -130px;
+            display: block;
+        }
+
+        .img-full-bleed img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Offset left by 15% */
+        .img-offset {
+            margin-left: 15%;
+            max-width: 70%;
+        }
+
+        .img-offset img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Asymmetric pair 70/30 */
+        .img-pair-asymmetric {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            max-width: 820px;
+        }
+
+        .img-pair-asymmetric .img-large {
+            flex: 0 0 68%;
+        }
+
+        .img-pair-asymmetric .img-small {
+            flex: 0 0 calc(32% - 12px);
+        }
+
+        .img-pair-asymmetric img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Pair even */
+        .img-pair-even {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            max-width: 680px;
+        }
+
+        .img-pair-even .img-item {
+            flex: 1;
+        }
+
+        .img-pair-even img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Triple row */
+        .img-triple {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            max-width: 860px;
+        }
+
+        .img-triple .img-item {
+            flex: 1;
+        }
+
+        .img-triple img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Single image, constrained */
+        .img-single {
+            max-width: 420px;
+        }
+
+        .img-single img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ================================================
+           CAPTIONS
+        ================================================ */
+        .caption {
+            font-family: 'DM Mono', monospace;
+            font-size: 9.5px;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            color: var(--caption);
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        .photo-credit-mono {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            color: var(--credit);
+            margin-top: 5px;
+        }
+
+        /* Captions inside image wrappers */
+        .img-caption-wrap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ================================================
+           GALLERY STRIP — horizontal scroll
+        ================================================ */
+        .gallery-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            font-weight: 400;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--text);
+            opacity: 0.35;
+            margin-bottom: 20px;
+            padding-left: 2px;
+        }
+
+        .gallery-strip-wrapper {
+            width: 100vw;
+            margin-left: -130px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-strip {
+            display: flex;
+            gap: 4px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 0 130px 0 130px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            align-items: flex-end;
+        }
+
+        .gallery-strip::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery-strip .strip-item {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-strip .strip-item img {
+            height: 380px;
+            width: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* ================================================
+           BYRON POEM SECTION
+        ================================================ */
+        .poem-section {
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: 80px;
+        }
+
+        .poem-trigger {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            color: var(--text);
+            opacity: 0.5;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            transition: opacity 0.3s ease;
+            text-transform: lowercase;
+        }
+
+        .poem-trigger:hover {
+            opacity: 1;
+        }
+
+        .poem-block {
+            display: none;
+            margin-top: 48px;
+        }
+
+        .poem-block.open {
+            display: block;
+        }
+
+        .poem-rule {
+            border: none;
+            border-top: 1px solid var(--rule);
+            margin-bottom: 48px;
+        }
+
+        .poem-rule-bottom {
+            border: none;
+            border-top: 1px solid var(--rule);
+            margin-top: 48px;
+        }
+
+        .poem-title-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.35em;
+            color: var(--text);
+            opacity: 0.3;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .poem-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--text);
+            opacity: 0.8;
+        }
+
+        .poem-text .poem-highlight {
+            font-weight: 600;
+            font-style: italic;
+            opacity: 1;
+            color: var(--text);
+        }
+
+        /* ================================================
+           SECTION HEADINGS (gallery wall labels)
+        ================================================ */
+        .wall-heading {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.45em;
+            text-transform: uppercase;
+            color: var(--text);
+            opacity: 0.3;
+            margin-bottom: 20px;
+            padding-left: 2px;
+        }
+
+        /* ================================================
+           FOOTER
+        ================================================ */
+        .site-footer {
+            margin-top: 160px;
+            padding: 80px 0 60px;
+            border-top: 1px solid var(--rule);
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: clamp(40px, 6vw, 90px);
+            letter-spacing: 0.05em;
+            color: var(--text);
+            opacity: 0.12;
+        }
+
+        /* ================================================
+           RESPONSIVE
+        ================================================ */
+        @media (max-width: 900px) {
+            .site-nav {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: flex;
+            }
+
+            .page-wrapper {
+                padding-left: 0;
+                padding-top: 60px;
+            }
+
+            .hero {
+                padding-top: 80px;
+                padding-left: 20px;
+                padding-right: 20px;
+                min-height: 50vh;
+            }
+
+            .page-title {
+                font-size: clamp(60px, 18vw, 120px);
+            }
+
+            .intro-text {
+                column-count: 1;
+                padding-right: 20px;
+                padding-left: 20px;
+            }
+
+            .body-text {
+                padding: 0 20px;
+            }
+
+            .section {
+                margin-top: 64px;
+                padding: 0 20px;
+            }
+
+            .section-sm {
+                margin-top: 40px;
+                padding: 0 20px;
+            }
+
+            .img-full-bleed {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .img-offset {
+                margin-left: 0;
+                max-width: 100%;
+                padding: 0 20px;
+            }
+
+            .img-pair-asymmetric {
+                flex-direction: column;
+                padding: 0 20px;
+            }
+
+            .img-pair-asymmetric .img-large,
+            .img-pair-asymmetric .img-small {
+                flex: 0 0 100%;
+            }
+
+            .img-pair-even {
+                padding: 0 20px;
+            }
+
+            .img-triple {
+                flex-direction: column;
+                padding: 0 20px;
+            }
+
+            .img-single {
+                padding: 0 20px;
+            }
+
+            .gallery-strip-wrapper {
+                margin-left: 0;
+            }
+
+            .gallery-strip {
+                padding: 0 20px;
+            }
+
+            .gallery-label,
+            .wall-heading {
+                padding-left: 20px;
+            }
+
+            .poem-section {
+                margin-right: 20px;
+                margin-left: 20px;
+                max-width: 100%;
+            }
+
+            .divider {
+                margin: 48px 20px;
+            }
+
+            .site-footer {
+                margin-top: 80px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .img-pair-even {
+                flex-direction: column;
+            }
+
+            .gallery-strip .strip-item img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobile-nav">
+        <span class="mobile-nav-brand">tóthbátor</span>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle">menu</button>
+    </div>
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a href="vulcan.html">vulcan</a>
+        <a href="noumenon.html">noumenon</a>
+        <a href="silverpoints.html">silverpoints</a>
+        <a href="thevisit.html">the visit</a>
+        <a href="bio.html">bio</a>
+        <a href="contact.html">contact</a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="site-nav">
+        <a href="vulcan.html" class="active">vulcan</a>
+        <a href="noumenon.html">noumenon</a>
+        <a href="silverpoints.html">silverpoints</a>
+        <a href="thevisit.html">the visit</a>
+        <a href="bio.html">bio</a>
+        <a href="contact.html">contact</a>
+    </nav>
+
+    <div class="page-wrapper">
+
+        <!-- HERO -->
+        <div class="hero">
+            <div class="exhibition-meta">21.10.2025&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Random Gallery, Budapest</div>
+            <h1 class="page-title">VULCAN</h1>
+        </div>
+
+        <hr class="divider">
+
+        <!-- INTRO TEXT -->
+        <div class="section">
+            <p class="intro-text">
+                VULCAN is a profound meditation on transformation, resilience, and the indomitable human spirit, wherein the elemental power of the volcano interlaces with the mythological archetype of Vulcan, the Roman god of fire. Through a vivid tapestry of images, symbols, and metaphors, the artist invites viewers to contemplate the alchemy of trials: how it forges, shatters, and, in propitious instances, rebirths us. The exhibition delves into the courage essential for navigating life's glowing uncertainties, carving a path atop unstable ground, and emerging not merely unscathed but metamorphosed. Ascendant, ever higher, piercing new strata of clouds.
+            </p>
+        </div>
+
+        <!-- GALLERY STRIP — Opening Views -->
+        <div class="section">
+            <div class="gallery-label">Opening Views</div>
+            <div class="gallery-strip-wrapper">
+                <div class="gallery-strip" id="strip-1">
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_36.webp" alt="gallery view 1">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_39_1.webp" alt="gallery view 2" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_41.webp" alt="gallery view 3" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_43.webp" alt="gallery view 4" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- HERO'S JOURNEY TEXT -->
+        <div class="section">
+            <p class="body-text">
+                In essence, VULCAN unveils the dual nature of the Hero's Journey, whether freely undertaken or imposed by fate. The departure, whether voluntary or compelled, carries the weight the burden of abandoning the familiar, reappraising the past in pursuit of a more certain future. Like Vulcan, who was exiled yet triumphs through mastery of craft, the artist reflects on their own odyssey: exile, escape, return. Paved with personal struggles, adventures of hard-won self-discovery.
+            </p>
+        </div>
+
+        <!-- QUIESCENCE 2 + 3 — offset, asymmetric -->
+        <div class="section-sm">
+            <div class="img-offset">
+                <div class="img-pair-even">
+                    <div class="img-item img-caption-wrap">
+                        <img src="../assets/images/images vulcan/QUIESCENCE 2.webp" alt="QUIESCENCE 2" loading="lazy">
+                        <div class="caption">Quiescence No.2</div>
+                    </div>
+                    <div class="img-item img-caption-wrap">
+                        <img src="../assets/images/images vulcan/QUIESCENCE 3 - REENTRY.webp" alt="QUIESCENCE 3 - REENTRY" loading="lazy">
+                        <div class="caption">Quiescence No.3 — Reentry</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- VULCAN SERIES TEXT -->
+        <div class="section">
+            <p class="body-text">
+                The Vulcan series renders abstract geological cross-sections of the volcano, within which past, present, and future coalesce simultaneously. A powerful metaphor: the ever present potential for destruction and creation. With only the clear sky to afford perspective, the invigorating air beneath the sun, where molten chaos crystallizes into fertile soil and eternal stone.
+            </p>
+        </div>
+
+        <!-- VULCAN SERIES STRIP -->
+        <div class="section-sm">
+            <div class="gallery-label">Vulcan Series</div>
+            <div class="gallery-strip-wrapper">
+                <div class="gallery-strip" id="strip-2">
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan/VULCAN 1.webp" alt="Vulcan 1" loading="lazy">
+                        <div class="caption">VULCAN No.1</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan/VULCAN 2.webp" alt="Vulcan 2" loading="lazy">
+                        <div class="caption">VULCAN No.2</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan/VULCAN 4.webp" alt="Vulcan 4" loading="lazy">
+                        <div class="caption">VULCAN No.4</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan/VULCAN 7.webp" alt="Vulcan 7" loading="lazy">
+                        <div class="caption">VULCAN No.7</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan/VULCAN 6.webp" alt="Vulcan 6" loading="lazy">
+                        <div class="caption">VULCAN No.6</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- QUIESCENCE TEXT -->
+        <div class="section">
+            <p class="body-text">
+                Post-eruption, the Quiescence series juxtaposes the effortless transformative cooling process with the human condition, illuminating the arduous efforts required to meet one's true volition.
+            </p>
+        </div>
+
+        <!-- QUIESCENCE 1, 5, 4 — triple, slightly offset -->
+        <div class="section-sm">
+            <div class="img-triple">
+                <div class="img-item img-caption-wrap">
+                    <img src="../assets/images/images vulcan/QUIESCENCE 1 NOT A RED CABBAGE SALAD.webp" alt="QUIESCENCE 1 NOT A RED CABBAGE SALAD" loading="lazy">
+                    <div class="caption">Quiescence No.1</div>
+                </div>
+                <div class="img-item img-caption-wrap">
+                    <img src="../assets/images/images vulcan/QUIESCENCE 5.webp" alt="QUIESCENCE 5" loading="lazy">
+                    <div class="caption">Quiescence No.5</div>
+                </div>
+                <div class="img-item img-caption-wrap">
+                    <img src="../assets/images/images vulcan/QUIESCENCE 4.webp" alt="QUIESCENCE 4" loading="lazy">
+                    <div class="caption">Quiescence No.4</div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- FORTRESS TEXT -->
+        <div class="section">
+            <p class="body-text">
+                VULCAN evokes the rhythms of motion and stillness, eruption and dormancy, destruction and rebirth. The artist hints the presence of a fortress enthroned on the volcano's slopes. A defiant stronghold, unreasonable for an enemy to attempt its capture. Here we abide. Enfolded by the three walls of the gallery adorned with mosaic painting constellations. This fortress, like certain immutable laws in nature and society, resurges after devastation, unassailable against the caprices of conquerors or the inexorable passage of time.
+            </p>
+        </div>
+
+        <!-- CHAMBER + AFAAFB — asymmetric pair -->
+        <div class="section-sm">
+            <div class="img-pair-asymmetric">
+                <div class="img-large img-caption-wrap">
+                    <img src="../assets/images/images vulcan/AFAAFB.webp" alt="AFAAFB" loading="lazy">
+                    <div class="caption">As from Above As from Below</div>
+                </div>
+                <div class="img-small img-caption-wrap">
+                    <img src="../assets/images/images vulcan/CHAMBER.webp" alt="CHAMBER" loading="lazy">
+                    <div class="caption">Chamber</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BYRON TRANSITION TEXT -->
+        <div class="section">
+            <p class="body-text">
+                The volcano itself remains indifferent, a silent witness to human endeavors — just as we discern in Lord Byron's poem, Darkness. Irrational panic and mindless violence erupt from uncertain times; it seems the only sanctuary is peril others dare not approach.
+            </p>
+        </div>
+
+        <!-- BYRON POEM ACCORDION -->
+        <div class="section-sm">
+            <div class="poem-section">
+                <button class="poem-trigger" id="poem-trigger" aria-expanded="false">open poem +</button>
+
+                <div class="poem-block" id="poem-block">
+                    <hr class="poem-rule">
+                    <div class="poem-title-label">Lord Byron — Darkness, 1816</div>
+                    <div class="poem-text">
+                        I had a dream, which was not all a dream.<br>
+                        The bright sun was extinguish'd, and the stars<br>
+                        Did wander darkling in the eternal space,<br>
+                        Rayless, and pathless, and the icy earth<br>
+                        Swung blind and blackening in the moonless air;<br>
+                        Morn came and went—and came, and brought no day,<br>
+                        And men forgot their passions in the dread<br>
+                        Of this their desolation; and all hearts<br>
+                        Were chill'd into a selfish prayer for light:<br>
+                        And they did live by watchfires—and the thrones,<br>
+                        The palaces of crowned kings—the huts,<br>
+                        The habitations of all things which dwell,<br>
+                        Were burnt for beacons; cities were consum'd,<br>
+                        And men were gather'd round their blazing homes<br>
+                        To look once more into each other's face;<br>
+                        <span class="poem-highlight">
+                        Happy were those who dwelt within the eye<br>
+                        Of the volcanos, and their mountain-torch:<br>
+                        A fearful hope was all the world contain'd;<br>
+                        </span>
+                        Forests were set on fire—but hour by hour<br>
+                        They fell and faded—and the crackling trunks<br>
+                        Extinguish'd with a crash—and all was black.<br>
+                        The brows of men by the despairing light<br>
+                        Wore an unearthly aspect, as by fits<br>
+                        The flashes fell upon them; some lay down<br>
+                        And hid their eyes and wept; and some did rest<br>
+                        Their chins upon their clenched hands, and smil'd;<br>
+                        And others hurried to and fro, and fed<br>
+                        Their funeral piles with fuel, and look'd up<br>
+                        With mad disquietude on the dull sky,<br>
+                        The pall of a past world; and then again<br>
+                        With curses cast them down upon the dust,<br>
+                        And gnash'd their teeth and howl'd: the wild birds shriek'd<br>
+                        And, terrified, did flutter on the ground,<br>
+                        And flap their useless wings; the wildest brutes<br>
+                        Came tame and tremulous; and vipers crawl'd<br>
+                        And twin'd themselves among the multitude,<br>
+                        Hissing, but stingless—they were slain for food.<br>
+                        And War, which for a moment was no more,<br>
+                        Did glut himself again: a meal was bought<br>
+                        With blood, and each sate sullenly apart<br>
+                        Gorging himself in gloom: no love was left;<br>
+                        All earth was but one thought—and that was death<br>
+                        Immediate and inglorious; and the pang<br>
+                        Of famine fed upon all entrails—men<br>
+                        Died, and their bones were tombless as their flesh;<br>
+                        The meagre by the meagre were devour'd,<br>
+                        Even dogs assail'd their masters, all save one,<br>
+                        And he was faithful to a corse, and kept<br>
+                        The birds and beasts and famish'd men at bay,<br>
+                        Till hunger clung them, or the dropping dead<br>
+                        Lur'd their lank jaws; himself sought out no food,<br>
+                        But with a piteous and perpetual moan,<br>
+                        And a quick desolate cry, licking the hand<br>
+                        Which answer'd not with a caress—he died.<br>
+                        The crowd was famish'd by degrees; but two<br>
+                        Of an enormous city did survive,<br>
+                        And they were enemies: they met beside<br>
+                        The dying embers of an altar-place<br>
+                        Where had been heap'd a mass of holy things<br>
+                        For an unholy usage; they rak'd up,<br>
+                        And shivering scrap'd with their cold skeleton hands<br>
+                        The feeble ashes, and their feeble breath<br>
+                        Blew for a little life, and made a flame<br>
+                        Which was a mockery; then they lifted up<br>
+                        Their eyes as it grew lighter, and beheld<br>
+                        Each other's aspects—saw, and shriek'd, and died—<br>
+                        Even of their mutual hideousness they died,<br>
+                        Unknowing who he was upon whose brow<br>
+                        Famine had written Fiend. The world was void,<br>
+                        The populous and the powerful was a lump,<br>
+                        Seasonless, herbless, treeless, manless, lifeless—<br>
+                        A lump of death—a chaos of hard clay.<br>
+                        The rivers, lakes and ocean all stood still,<br>
+                        And nothing stir'd within their silent depths;<br>
+                        Ships sailorless lay rotting on the sea,<br>
+                        And their masts fell down piecemeal: as they dropp'd<br>
+                        They slept on the abyss without a surge—<br>
+                        The waves were dead; the tides were in their grave,<br>
+                        The moon, their mistress, had expir'd before;<br>
+                        The winds were wither'd in the stagnant air,<br>
+                        And the clouds perish'd; Darkness had no need<br>
+                        Of aid from them—She was the Universe.
+                    </div>
+                    <hr class="poem-rule-bottom">
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ABSTRACT PORTRAITS TEXT -->
+        <div class="section">
+            <!-- 7 YEARS DOWN + 48 ON PURPOSE — asymmetric, dominant right -->
+            <div class="img-pair-asymmetric" style="margin-bottom: 80px;">
+                <div class="img-small img-caption-wrap">
+                    <img src="../assets/images/images vulcan/7 YEARS DOWN.webp" alt="7 YEARS DOWN" loading="lazy">
+                    <div class="caption">Seven Years Down</div>
+                </div>
+                <div class="img-large img-caption-wrap">
+                    <img src="../assets/images/images vulcan/48 ON PURPOSE.webp" alt="48 ON PURPOSE" loading="lazy">
+                    <div class="caption">48, On Purpose</div>
+                </div>
+            </div>
+
+            <p class="body-text">
+                Abstract portraits emerge from the maelstrom. A purple gaze at the stars. The wind blows away the ashes of the past. A self-portrait, undecided. Is it dissipating? Or merely a suspended state of mind awaiting completion.
+            </p>
+        </div>
+
+        <!-- UNFINISHED BUSINESS + MY FOREST MY MIND -->
+        <div class="section-sm">
+            <div class="img-pair-even">
+                <div class="img-item img-caption-wrap">
+                    <img src="../assets/images/images vulcan/UNFINISHED BUSINESS.webp" alt="UNFINISHED BUSINESS" loading="lazy">
+                    <div class="caption">Unfinished Business</div>
+                </div>
+                <div class="img-item img-caption-wrap">
+                    <img src="../assets/images/images vulcan/MY FOREST MY MIND.webp" alt="MY FOREST MY MIND" loading="lazy">
+                    <div class="caption">My Forest My Mind</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <p class="body-text">
+                A woman's glance askance. With discrete imperfections, a disconnected constellation.
+            </p>
+        </div>
+
+        <!-- BEHIND + MADE UP MY MIND — offset -->
+        <div class="section-sm">
+            <div class="img-offset" style="max-width: 55%;">
+                <div class="img-pair-even">
+                    <div class="img-item img-caption-wrap">
+                        <img src="../assets/images/images vulcan/BEHIND.webp" alt="BEHIND" loading="lazy">
+                        <div class="caption">Behind</div>
+                    </div>
+                    <div class="img-item img-caption-wrap">
+                        <img src="../assets/images/images vulcan/MADE UP MY MIND.webp" alt="MADE UP MY MIND" loading="lazy">
+                        <div class="caption">Made Up My Mind</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- CONCLUSION TEXT -->
+        <div class="section">
+            <p class="body-text">
+                Through VULCAN, the artist calls upon viewers to confront the paradox of existence on marshy terrain, to face the fire of trials, and to embrace the cycles of destruction and creation. This exhibition is a paean to the Hero's Journey — whether chosen or compelled — and a contemplation on the interplay of danger and vitality, isolation and community, stillness and eruption.
+            </p>
+        </div>
+
+        <!-- DON'T HURT THE SPIDERS — full bleed -->
+        <div class="section-sm">
+            <div class="img-full-bleed">
+                <img src="../assets/images/images vulcan/DONT HURT THE SPIDERS.webp" alt="DONT HURT THE SPIDERS" loading="lazy">
+                <div class="caption" style="padding: 8px 130px 0;">Don't Hurt the Spiders</div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- GALLERY WALL 1 -->
+        <div class="section">
+            <div class="wall-heading">Gallery View — Wall 1</div>
+            <div class="gallery-strip-wrapper">
+                <div class="gallery-strip" id="strip-3">
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_11.webp" alt="Vulcan wall 1" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_77.webp" alt="Vulcan wall 1 closeup 1" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_119.webp" alt="Vulcan wall 1 closeup 2" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_120.webp" alt="Vulcan wall 1 closeup 3" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_125.webp" alt="Vulcan wall 1 closeup 4" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GALLERY WALL 2 -->
+        <div class="section">
+            <div class="wall-heading">Gallery View — Wall 2</div>
+            <div class="gallery-strip-wrapper">
+                <div class="gallery-strip" id="strip-4">
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_6.webp" alt="Vulcan wall 2" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_70.webp" alt="Vulcan wall 2 closeup 1" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_73.webp" alt="Vulcan wall 2 closeup 2" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_74.webp" alt="Vulcan wall 2 closeup 3" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_135_1.webp" alt="Vulcan wall 2 closeup 4" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GALLERY WALL 3 -->
+        <div class="section">
+            <div class="wall-heading">Gallery View — Wall 3</div>
+            <div class="gallery-strip-wrapper">
+                <div class="gallery-strip" id="strip-5">
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_17.webp" alt="Vulcan wall 3" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_48.webp" alt="Vulcan wall 3 closeup 1" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_50_1.webp" alt="Vulcan wall 3 closeup 2" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_54.webp" alt="Vulcan wall 3 closeup 3" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_47.webp" alt="Vulcan wall 3 closeup 4" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_65.webp" alt="Vulcan wall 3 closeup 5" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_58_1.webp" alt="Vulcan wall 3 closeup 6" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_56_1.webp" alt="Vulcan wall 3 closeup 7" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_59.webp" alt="Vulcan wall 3 closeup 8" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                    <div class="strip-item">
+                        <img src="../assets/images/images vulcan gallery/Bator_Vulcan_60_1.webp" alt="Vulcan wall 3 closeup 9" loading="lazy">
+                        <div class="photo-credit-mono">Photo: Zsolt Ficsór</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="footer-brand">tóthbátor</div>
+        </footer>
+
+    </div><!-- /page-wrapper -->
+
+    <script>
+        // Mobile nav toggle
+        const mobileToggle = document.getElementById('mobile-nav-toggle');
+        const mobileMenu = document.getElementById('mobile-nav-menu');
+
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', function() {
+                const isOpen = mobileMenu.classList.toggle('open');
+                mobileToggle.textContent = isOpen ? 'close' : 'menu';
+            });
+        }
+
+        // Byron poem toggle
+        const poemTrigger = document.getElementById('poem-trigger');
+        const poemBlock = document.getElementById('poem-block');
+
+        if (poemTrigger && poemBlock) {
+            poemTrigger.addEventListener('click', function() {
+                const isOpen = poemBlock.classList.toggle('open');
+                poemTrigger.textContent = isOpen ? 'close poem −' : 'open poem +';
+                poemTrigger.setAttribute('aria-expanded', isOpen);
+            });
+        }
+    </script>
+
+    <!-- Klaviyo -->
+    <script async type='text/javascript' src='https://static.klaviyo.com/onsite/js/T6VuUX/klaviyo.js?company_id=T6VuUX'></script>
+    <script type="text/javascript">
+        !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();
+    </script>
+</body>
+</html>
